@@ -6,6 +6,8 @@ import Home from './pages/home'
 import DisqueTrote from './pages/disque-trote'
 import Contato from './pages/contato'
 
+import './main-style.css'
+
 function App () {
   return (
     <BrowserRouter>

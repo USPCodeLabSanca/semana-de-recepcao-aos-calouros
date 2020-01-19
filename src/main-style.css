@@ -1,0 +1,20 @@
+.border-top-blue {
+    border-top-color: blue;
+    border-top-width: 10px;
+}
+
+.hover-div-blue:hover p{
+    color: blue !important
+}
+
+.pointer:hover{
+    cursor: pointer !important
+}
+
+.shadow-sm {
+    box-shadow:0 .125rem .25rem rgba(0,0,0,.075)!important
+}
+
+.semibold {
+    font-weight: 500 !important
+}
