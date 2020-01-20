@@ -21,9 +21,8 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions'
 const style = {
     card: 'my-4 shadow-sm w-5/6 md:w-2/5',
     card_content: 'flex',
-    link: 'text-purple-800',
     main_box: '',
-    schedule: 'text-center text-indigo-700 semibold',
+    schedule: 'text-center text-purple-800 semibold',
     schedule_day: 'my-12',
     schedule_description: 'w-3/4 sm:w-5/6',
     schedule_description_box: 'flex flex-col justify-center py-2 px-3 w-full',
@@ -33,7 +32,7 @@ const style = {
     stepper_box: 'flex justify-center',
     text: 'text-gray-700 text-2xl',
     text_box: 'text-center mb-8 px-2',
-    time_box_1: 'bg-indigo-700 text-center w-1/4 sm:w-1/6 py-2',
+    time_box_1: 'bg-purple-800 text-center w-1/4 sm:w-1/6 py-2',
     time_box_2: 'bg-orange-500 text-center w-1/4 sm:w-1/6 py-2',
     title: 'text-5xl text-gray-800 my-6 font-semibold'
 }
@@ -123,6 +122,10 @@ const scheduleContent = [
     }
 ]
 
+const steps = ['17/02 (Seg)', '18/02 (Ter)', '19/02 (Qua)', '20/02 (Qui)', '21/02 (Sex)']
+
+const stepContent = ['17/02 Segunda-feira', '18/02 Terça-feira', '19/02 Quarta-feira', '20/02 Quinta-feira', '21/02 Sexta-feira']
+
 function ColorlibStepIcon(props) {
     const classes = useColorlibStepIconStyles()
     const { active } = props;
@@ -146,27 +149,6 @@ ColorlibStepIcon.propTypes = {
     active: PropTypes.bool,
     icon: PropTypes.node
 };
-
-function getSteps() {
-    return ['17/02 (Seg)', '18/02 (Ter)', '19/02 (Qua)', '20/02 (Qui)', '21/02 (Sex)'];
-}
-
-function getStepContent(step) {
-    switch(step) {
-      case 0:
-        return '17/02 Segunda-feira'
-      case 1:
-        return '18/02 Terça-feira'
-      case 2:
-        return '19/02 Quarta-feira'
-      case 3:
-        return '20/02 Quinta-feira'
-      case 4:
-        return '21/02 Sexta-feira'  
-      default:
-        return 'Data inválida'
-    }
-}
 
 function getScheduleContent(step) {
     let content = []
@@ -197,7 +179,6 @@ function getScheduleContent(step) {
 
 export default function Programacao() {
     const [activeStep, setActiveStep] = React.useState(0)
-    const steps = getSteps()
     
     const handleStep = step => () => {
       setActiveStep(step);
@@ -231,7 +212,7 @@ export default function Programacao() {
             </Box>
             
             <Box className={style.schedule_day}>
-                <Typography className={style.schedule} variant='h4'>{getStepContent(activeStep)}</Typography>
+                <Typography className={style.schedule} variant='h4'>{stepContent[activeStep]}</Typography>
             </Box>
 
             <Box className={style.schedule_events}>
