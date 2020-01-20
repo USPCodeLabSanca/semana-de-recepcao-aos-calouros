@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link }from 'react-router-dom'
 
 import { Box, Card} from '@material-ui/core'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
@@ -24,7 +23,7 @@ const style = {
     card_content: 'flex',
     link: 'text-purple-800',
     main_box: '',
-    schedule: 'text-center text-3xl text-gray-800',
+    schedule: 'text-center text-indigo-700 semibold',
     schedule_day: 'my-12',
     schedule_description: 'w-3/4 sm:w-5/6',
     schedule_description_box: 'flex flex-col justify-center py-2 px-3 w-full',
@@ -32,11 +31,11 @@ const style = {
     schedule_time: 'text-white semibold',
     stepper: 'w-full sm:w-2/5',
     stepper_box: 'flex justify-center',
-    text: 'text-gray-600',
+    text: 'text-gray-700 text-2xl',
     text_box: 'text-center mb-8 px-2',
-    time_box_1: 'bg-blue-500 text-center w-1/4 sm:w-1/6 py-2',
-    time_box_2: 'bg-green-500 text-center w-1/4 sm:w-1/6 py-2',
-    title: 'text-5xl text-gray-800 my-6 font-semibold text-indigo-700'
+    time_box_1: 'bg-indigo-700 text-center w-1/4 sm:w-1/6 py-2',
+    time_box_2: 'bg-orange-500 text-center w-1/4 sm:w-1/6 py-2',
+    title: 'text-5xl text-gray-800 my-6 font-semibold'
 }
 
 const ColorlibConnector = withStyles({
@@ -209,10 +208,7 @@ export default function Programacao() {
             <Box className={style.text_box}>
                 <h2 className={style.title}>Programação completa!</h2>
                 <Typography className={style.text}>
-                    Para visualizar o cronograma do dia, pressione o botão correspondente abaixo.
-                    Se quiser a programação completa,&nbsp;
-                    <Link to='/programacao' className={style.link}>clique aqui</Link>
-                    .
+                    Acesse a programação completa da Semana de Recepção aos Calouros
                 </Typography>
             </Box>
 
@@ -235,7 +231,7 @@ export default function Programacao() {
             </Box>
             
             <Box className={style.schedule_day}>
-                <Typography className={style.schedule} variant='h5'>{getStepContent(activeStep)}</Typography>
+                <Typography className={style.schedule} variant='h4'>{getStepContent(activeStep)}</Typography>
             </Box>
 
             <Box className={style.schedule_events}>
