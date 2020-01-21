@@ -26,7 +26,7 @@ const Attendance = ({ title, desc1, desc2 }) => <React.Fragment>
   }
 </React.Fragment>
 
-export default function DiqueTrote () {
+export default function DisqueTrote () {
   return (
     <main className={style.root}>
       <h1 className={style.title}>O trote é proibido na USP!</h1>
