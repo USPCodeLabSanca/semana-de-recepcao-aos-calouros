@@ -1,12 +1,11 @@
 import React from 'react'
 
-import Programacao from '../components/programacao'
+import Footer from '../components/footer'
 
 export default function Home () {
   return (
     <div>
-      <h1>This is the 'home' page! :D</h1>
-      <Programacao></Programacao>
+      <Footer />
     </div>
   )
 }
