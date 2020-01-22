@@ -7,10 +7,10 @@ import Logo from '../images/logo.png'
 
 const style = {
   root: 'h-64 overflow-hidden',
-  top: 'flex items-center ml-20 pt-6',
-  image: 'w-20 h-20 mr-12',
+  top: 'flex items-center mx-4 sm:ml-20 pt-6',
+  image: 'w-20 h-20 sm:mr-12 object-contain',
   bgImage: 'absolute t-0 z-1 h-64 w-full object-cover',
-  link: 'mx-4 text-white font-bold text-sm',
+  link: 'mx-4 text-white font-bold text-sm text-center',
   label: 'text-3xl font-bold text-center my-4 text-white'
 }
 
