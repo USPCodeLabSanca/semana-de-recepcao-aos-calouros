@@ -1,11 +1,11 @@
 import React from 'react'
 
-import LinksImportantes from '../components/links-importantes'
+import Header from '../components/header'
 
 export default function Home () {
   return (
     <div>
-      <h1>This is the 'home' page! :D</h1>
+      <Header />
     </div>
   )
 }

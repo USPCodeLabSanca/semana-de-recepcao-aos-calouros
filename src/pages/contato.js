@@ -1,7 +1,12 @@
 import React from 'react'
 
+import Header from '../components/header'
+
 export default function Contato () {
   return (
-    <h1>This is the 'contato' page! :D</h1>
+    <div>
+      <Header />
+      <h1>This is the 'contato' page! :D</h1>
+    </div>
   )
 }

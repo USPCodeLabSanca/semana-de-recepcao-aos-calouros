@@ -27,7 +27,8 @@ const Attendance = ({ title, desc1, desc2 }) => <React.Fragment>
 </React.Fragment>
 
 export default function DisqueTrote () {
-  return (
+  return (<React.Fragment>
+    <Header />
     <main className={style.root}>
       <h1 className={style.title}>O trote é proibido na USP!</h1>
       <p className={style.description}>
@@ -74,5 +75,5 @@ export default function DisqueTrote () {
         ou violência ou que ponham em risco a integridade física e moral de outros.”
       </p>
     </main>
-  )
+  </React.Fragment>)
 }
