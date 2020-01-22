@@ -4,7 +4,7 @@ import { Box } from '@material-ui/core'
 import LogoBixoquest from '../images/logo-bixoquest.png'
 
 const style = {
-    button: 'bg-orange-500 shadow py-3 px-12 text-white rounded font-medium',
+    button: 'bg-orange-500 shadow-sm py-3 px-12 text-white rounded font-medium',
     main_box: 'flex flex-col sm:flex-row justify-center my-12',
     logo:'w-3/4',
     logo_box:'flex justify-center',
