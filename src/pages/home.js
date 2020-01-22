@@ -1,12 +1,13 @@
 import React from 'react'
 
 import Header from '../components/header'
+import Countdown from '../components/countdown'
 
 export default function Home () {
   return (
     <div>
       <Header />
-      <h1>This is the 'home' page! :D</h1>
+      <Countdown />
     </div>
   )
 }
