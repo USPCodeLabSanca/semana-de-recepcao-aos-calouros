@@ -1,3 +1,7 @@
+:root {
+  --background-dark-color: #303030;
+}
+
 .pointer:hover{
     cursor: pointer !important
 }
@@ -8,4 +12,8 @@
 
 .semibold {
     font-weight: 500 !important
+}
+
+.bg-dark {
+  background-color: var(--background-dark-color);
 }
