@@ -16,7 +16,7 @@ const Large = ({ ...props }) => <p className={style.largeText} {...props} />
 
 const TimeContainer = ({ ...props }) => <div className={style.timeContainer} {...props} />
 
-const targetDate = Moment('24/01/2020 - 00h 00m', 'DD/MM/YYYY - HH[h] mm[m]', true)
+const targetDate = Moment('17/02/2020 - 08h 00m', 'DD/MM/YYYY - HH[h] mm[m]', true)
 
 const calculateDiff = () => Moment.duration(Moment(targetDate).diff(Moment()))
 
@@ -29,7 +29,7 @@ function Countdown () {
   })
 
   return (
-    <div className={style.root}>
+    <div className={style.root} style={{ height: 'calc(100vh - 16rem)' }}>
       <div className={style.countdownContainer}>
         <TimeContainer>
           <Large>{diff.days()}</Large><Small>dias</Small>

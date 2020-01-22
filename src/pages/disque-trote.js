@@ -1,5 +1,8 @@
 import React from 'react'
 
+import Header from '../components/header'
+import Footer from '../components/footer'
+
 const style = {
   root: 'py-10 px-2 md:px-16',
   title: 'text-3xl font-bold',
@@ -75,5 +78,6 @@ export default function DisqueTrote () {
         ou violência ou que ponham em risco a integridade física e moral de outros.”
       </p>
     </main>
+    <Footer />
   </React.Fragment>)
 }
