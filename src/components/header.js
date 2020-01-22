@@ -26,12 +26,17 @@ function Header () {
   return (
     <header className={style.root}>
       <img
+        alt='Foto do icmc'
         src={HeaderBG}
         className={style.bgImage}
         style={{ height: pathname === '/' ? '100vh' : '' }}
       />
       <div className={style.top}>
-        <a href='/'><img src={Logo} className={style.image} /></a>
+        <a href='/'><img
+          src={Logo}
+          alt="Logo da recepção escrito 'Chega mais'"
+          className={style.image}
+        /></a>
         <a href='/disque-trote' className={style.link}>DISQUE-TROTE</a>
         <a href='/contato' className={style.link}>CONTATO</a>
       </div>
