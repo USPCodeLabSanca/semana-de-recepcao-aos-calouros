@@ -2,6 +2,11 @@
   --background-dark-color: #303030;
 }
 
+body, html, #root {
+  padding: 0;
+  margin: 0;
+}
+
 .pointer:hover{
     cursor: pointer !important
 }
@@ -16,4 +21,8 @@
 
 .bg-dark {
   background-color: var(--background-dark-color);
+}
+
+.z-1 {
+  z-index: -1;
 }
