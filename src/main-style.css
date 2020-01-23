@@ -15,6 +15,10 @@ body, html, #root {
     box-shadow:0 .125rem .25rem rgba(0,0,0,.075)!important
 }
 
+.shadow {
+  box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important
+}
+
 .semibold {
     font-weight: 500 !important
 }
@@ -25,4 +29,9 @@ body, html, #root {
 
 .z-1 {
   z-index: -1;
+}
+
+.event-card-bg {
+  background-image: url('./images/Endless-Constellation.svg')
+  /* background by SVGBackgrounds.com */
 }
