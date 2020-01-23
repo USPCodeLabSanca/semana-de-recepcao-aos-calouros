@@ -44,7 +44,7 @@ function Countdown () {
           <Large>{diff.seconds()}</Large><Small>segundos</Small>
         </TimeContainer>
       </div>
-      <Large>Chega Mais!</Large>
+      <Large>Você faz parte disso tudo!</Large>
       <Large>22ª Semana de Recepção aos Calouros</Large>
     </div>
   )

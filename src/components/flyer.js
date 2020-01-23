@@ -24,7 +24,7 @@ export default function Flyer() {
             <Box className={style.text_box}>
                 <h2 className={style.title}>A aventura vai começar!</h2>
                 <p className={style.text}>
-                    Já pensou transformar a Semana de Recepção em um grande jogo?!
+                    Já pensou em transformar a Semana de Recepção em um grande jogo?!
                 </p>
                 <button className={`${style.button} ${style.buttonDisabled}`} disabled>Em breve!</button>
                 {/* <button className={`${style.button} ${style.buttonPrimary}`}>Clique aqui!</button> */}
