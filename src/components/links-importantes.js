@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Box } from '@material-ui/core'
 
 const style = {
-  main_box: 'bg-purple-800 px-10 md:px-20 py-12 text-white',
+  main_box: 'bg-purple-900 px-10 md:px-20 py-12 text-white',
   link: 'text-lg hover:underline',
   link_box: 'my-8 ',
   link_title: 'font-medium text-2xl md:text-3xl',
