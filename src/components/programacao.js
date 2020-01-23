@@ -79,41 +79,41 @@ const scheduleContent = [
     events: [
       {id: 0, timeBegin: '08:00', timeEnd: '09:00', description: 'Recepção conjunta', type: '1'},
       {id: 1, timeBegin: '10:00', timeEnd: '12:00', description: 'Bate-papo com os pais', type: '2'},
-      {id: 2,timeBegin: '18:00', timeEnd: '20:00', description: 'Recepção', type: '2'},
+      {id: 2,timeBegin: '18:00', timeEnd: '20:00', description: 'Recepção do ICMC', type: '2'},
     ]
   },
 
   {
     id: 1,
     events: [
-      {id: 0, timeBegin: '08:00', timeEnd: '10:00', description: 'Confirmação de matrícula (MAT, BCC)', type: '1'},
-      {id: 1, timeBegin: '08:00', timeEnd: '10:00', description: 'Bate-papo com os coordenadores (EC)', type: '2'},
-      {id: 2, timeBegin: '10:00', timeEnd: '12:00', description: 'Confirmação matrícula (EC)', type: '1'},
-      {id: 3, timeBegin: '10:00', timeEnd: '12:00', description: 'Bate-papo com os coordenadores (MAT, BCC)', type: '2'},
-      {id: 4, timeBegin: '18:00', timeEnd: '19:00', description: 'Bate-papo com os coordenadores (BSI, ESTAT)', type: '2'},
-      {id: 5, timeBegin: '19:00', timeEnd: '21:00', description: 'Confirmação de matrícula (BSI, ESTAT)', type: '1'}
+      {id: 0, timeBegin: '08:00', timeEnd: '10:00', description: 'Matrícula (Matemática, Ciências de Comp.)', type: '1'},
+      {id: 1, timeBegin: '08:00', timeEnd: '10:00', description: 'Bate-papo com os coordenadores (Eng. Comp.)', type: '2'},
+      {id: 2, timeBegin: '10:00', timeEnd: '12:00', description: 'Confirmação matrícula (Eng. Comp.)', type: '1'},
+      {id: 3, timeBegin: '10:00', timeEnd: '12:00', description: 'Bate-papo com os coordenadores (Matemática, Ciências de Comp.)', type: '2'},
+      {id: 4, timeBegin: '18:00', timeEnd: '19:00', description: 'Bate-papo com os coordenadores (Sist. Info., Estatística)', type: '2'},
+      {id: 5, timeBegin: '19:00', timeEnd: '21:00', description: 'Matrícula (Sist. Info., Estatística)', type: '1'}
     ]
   },
 
   {
     id: 2,
     events: [
-      {id: 0, timeBegin: '08:00', timeEnd: '10:00', description: 'Confirmação de matrícula (MAT, BCC)', type: '1'},
+      {id: 0, timeBegin: '08:00', timeEnd: '10:00', description: 'Matrícula (Matemática, Ciências de Comp.)', type: '1'},
       {id: 1, timeBegin: '09:00', timeEnd: '12:00', description: 'Feira de oportunidades', type: '2'},
-      {id: 2, timeBegin: '10:00', timeEnd: '12:00', description: 'Confirmação de matrícula (EC)', type: '1'},
+      {id: 2, timeBegin: '10:00', timeEnd: '12:00', description: 'Matrícula (Eng. Comp.)', type: '1'},
       {id: 3, timeBegin: '18:00', timeEnd: '19:00', description: 'Aula introdutória (Computação)', type: '2'},
       {id: 4, timeBegin: '19:00', timeEnd: '20:00', description: 'Aula introdutória (Matemática)', type: '2'},
-      {id: 5, timeBegin: '19:00', timeEnd: '21:00', description: 'Confirmação de matrícula (BSI, ESTAT)', type: '1'},
+      {id: 5, timeBegin: '19:00', timeEnd: '21:00', description: 'Matrícula (Sist. Info., Estatística)', type: '1'},
       {id: 6, timeBegin: '20:00', timeEnd: '21:00', description: 'Aula introdutória (Estatística)', type: '2'},
-      {id: 7, timeBegin: '21:00', timeEnd: '23:00', description: 'Luau/Cápsula/Gincana', type: '2'}
+      {id: 7, timeBegin: '21:00', timeEnd: '23:00', description: 'Luau', type: '2'}
     ]
   },
 
   {
     id: 3,
     events: [
-      {id: 0, timeBegin: '09:00', timeEnd: '11:00', description: 'Alunos experientes', type: '2'},
-      {id: 1, timeBegin: '11:00', timeEnd: '12:00', description: 'Saúde mental', type: '2'},
+      {id: 0, timeBegin: '09:00', timeEnd: '11:00', description: 'Bate-papo com alunos experientes', type: '2'},
+      {id: 1, timeBegin: '11:00', timeEnd: '12:00', description: 'Palestra sobre saúde mental', type: '2'},
       {id: 2, timeBegin: '12:00', timeEnd: '19:00', description: 'Trote solidário / Ambiental', type: '2'},
       {id: 3, timeBegin: '19:00', timeEnd: '23:00', description: 'Game Night', type: '2'}
     ]
@@ -130,7 +130,7 @@ const scheduleContent = [
 
 const steps = ['17/02 (Seg)', '18/02 (Ter)', '19/02 (Qua)', '20/02 (Qui)', '21/02 (Sex)']
 
-const stepContent = ['17/02 Segunda-feira', '18/02 Terça-feira', '19/02 Quarta-feira', '20/02 Quinta-feira', '21/02 Sexta-feira']
+const stepContent = ['17/02 - Segunda-feira', '18/02 - Terça-feira', '19/02 - Quarta-feira', '20/02 - Quinta-feira', '21/02 - Sexta-feira']
 
 function ColorlibStepIcon(props) {
   const classes = useColorlibStepIconStyles()

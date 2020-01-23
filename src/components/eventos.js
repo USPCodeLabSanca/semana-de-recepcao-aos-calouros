@@ -43,9 +43,9 @@ export default function Eventos() {
                     </CardContent>
                 </Box>
                 <Box className={style.card}>
-                    <img style={{objectFit: 'cover'}} src={Recepcao} alt="Recepção" className={style.image}/>
+                    <img style={{objectFit: 'cover'}} src={Recepcao} alt="Recepção do ICMC" className={style.image}/>
                     <CardContent className={style.card_content}>
-                        <h3 className={style.event_title}>Recepção</h3>
+                        <h3 className={style.event_title}>Recepção do ICMC</h3>
                         <Box className={style.event_info_box}>
                             <AccessTimeIcon className={style.icon}/>
                             <p className={style.event_description}>17/02 - 18h</p>
