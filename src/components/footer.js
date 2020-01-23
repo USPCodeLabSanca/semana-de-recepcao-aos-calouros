@@ -11,7 +11,7 @@ const style = {
 export default function Footer () {
   return (
     <div className={style.root}>
-      <img src={Image} className={style.image} />
+      <img alt='Logo da semana de recepção' src={Image} className={style.image} />
       <p className={style.text}>
         © 2020 Instituto de Ciências Matemáticas e de Computação
       </p>
