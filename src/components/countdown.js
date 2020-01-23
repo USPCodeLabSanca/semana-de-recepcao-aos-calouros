@@ -3,7 +3,7 @@ import React from 'react'
 import Moment from 'moment'
 
 const style = {
-  root: 'ml-10 sm:ml-20 text-white sm:mt-10',
+  root: 'ml-10 sm:ml-20 text-white',
   smallText: 'ml-2 mr-4 font-bold',
   largeText: 'text-xl sm:text-3xl font-bold',
   timeContainer: 'flex items-end',
