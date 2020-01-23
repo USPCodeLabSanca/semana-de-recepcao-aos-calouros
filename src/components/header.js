@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 import HeaderBG from '../images/header-bg.jpg'
 import Logo from '../images/logo.png'
@@ -32,13 +32,13 @@ function Header () {
         style={{ height: pathname === '/' ? '100vh' : '' }}
       />
       <div className={style.top}>
-        <a href='/'><img
+        <Link to='/'><img
           src={Logo}
           alt="Logo da recepção escrito 'Chega mais'"
           className={style.image}
-        /></a>
-        <a href='/disque-trote' className={style.link}>DISQUE-TROTE</a>
-        <a href='/contato' className={style.link}>CONTATO</a>
+        /></Link>
+        <Link to='/disque-trote' className={style.link}>DISQUE-TROTE</Link>
+        <Link to='/contato' className={style.link}>CONTATO</Link>
       </div>
       <div className={style.label}>{label}</div>
     </header>
