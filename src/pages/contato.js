@@ -6,6 +6,8 @@ const style = {
   title: 'text-3xl font-bold',
 }
 
+import Header from '../components/header'
+
 export default function Contato () {
   return (
     <main className={style.root}>
@@ -25,6 +27,5 @@ export default function Contato () {
       </Iframe>
 
     </main>
-    
   )
 }
