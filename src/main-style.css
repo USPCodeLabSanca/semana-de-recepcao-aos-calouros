@@ -1,5 +1,5 @@
 :root {
-  --background-dark-color: #303030;
+  --background-dark-color: #151515;
 }
 
 body, html, #root {
@@ -34,4 +34,8 @@ body, html, #root {
 .event-card-bg {
   background-image: url('./images/Endless-Constellation.svg')
   /* background by SVGBackgrounds.com */
+}
+
+.link {
+  color: #5ec8ae;
 }

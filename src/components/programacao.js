@@ -203,12 +203,14 @@ export default function Programacao() {
         <Box className={style.stepper}>
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector/>}>
             {steps.map((label, index) => {
-              const stepProps = {};
-              const buttonProps = {};
+              const [date, weekDay] = label.split(' ')
               return (
-                <Step key={label} {...stepProps}>
-                  <StepButton onClick={handleStep(index)} {...buttonProps}>
-                    <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
+                <Step key={index}>
+                  <StepButton onClick={handleStep(index)} style={{ outline: 'none' }}>
+                    <StepLabel StepIconComponent={ColorlibStepIcon}>
+                      <div>{date}</div>
+                      <div>{weekDay}</div>
+                    </StepLabel>
                   </StepButton>
                 </Step>
               );
