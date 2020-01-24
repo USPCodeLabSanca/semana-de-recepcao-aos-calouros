@@ -15,27 +15,27 @@ export default function LinksImportantes() {
     <Box className={style.main_box}>
       <h2 className={style.title}>Links Importantes</h2>
       <Box className={style.link_box}>
-        <a rel='noreferrer noopener' className={style.link} href='https://www.icmc.usp.br/e/af3c6'>
+        <a rel='noreferrer noopener' className={style.link} href='https://www.facebook.com/events/170712444024695/' target="_blank">
           <h3 className={style.link_title}>Evento no Facebook</h3>
         </a>
       </Box>
       <Box className={style.link_box}>
-        <a rel='noreferrer noopener' className={style.link} href='https://uspdigital.usp.br/jupiterweb'>
+        <a rel='noreferrer noopener' className={style.link} href='https://uspdigital.usp.br/jupiterweb' target="_blank">
           <h3 className={style.link_title}>Sistema Júpiter Web</h3>
         </a>
       </Box>
       <Box className={style.link_box}>
-        <a rel='noreferrer noopener' className={style.link} href='https://www.sppu.usp.br'>
+        <a rel='noreferrer noopener' className={style.link} href='https://www.sppu.usp.br' target="_blank">
           <h3 className={style.link_title}>Aplicativo móvel de segurança</h3>
         </a>
       </Box>
       <Box className={style.link_box}>
-        <a rel='noreferrer noopener' className={style.link} href='https://www.icmc.usp.br/graduacao/faq-e-depoimentos'>
+        <a rel='noreferrer noopener' className={style.link} href='https://www.icmc.usp.br/graduacao/faq-e-depoimentos' target="_blank">
           <h3 className={style.link_title}>FAQ e depoimentos</h3>
         </a>
       </Box>
       <Box className={style.link_box}>
-        <a rel='noreferrer noopener' className={style.link} href='https://www.usp.br/manualdocalouro'>
+        <a rel='noreferrer noopener' className={style.link} href='https://www.usp.br/manualdocalouro' target="_blank">
           <h3 className={style.link_title}>Manual do calouro USP</h3>
         </a>
       </Box>
