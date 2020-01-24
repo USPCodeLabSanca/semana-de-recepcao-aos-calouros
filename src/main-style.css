@@ -35,3 +35,8 @@ body, html, #root {
   background-image: url('./images/Endless-Constellation.svg')
   /* background by SVGBackgrounds.com */
 }
+
+.link {
+  text-decoration: underline;
+  color: #5ec8ae;
+}
