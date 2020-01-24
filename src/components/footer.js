@@ -12,7 +12,7 @@ const style = {
 export default function Footer () {
   return (
     <div className={style.root}>
-      <img alt='Logo da semana de recepção' src={Image} className={style.image} />
+      <img alt='Logo da semana de recepção' src={Image} className={style.image} style={{objectFit: 'contain'}} />
       <p className={style.text}>
         Feito com ❤ pelo
         <a href='http://uclsanca.icmc.usp.br/' rel='noreferrer noopener' className={style.link}>

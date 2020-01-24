@@ -1,5 +1,5 @@
 :root {
-  --background-dark-color: #303030;
+  --background-dark-color: #151515;
 }
 
 body, html, #root {
@@ -37,6 +37,5 @@ body, html, #root {
 }
 
 .link {
-  text-decoration: underline;
   color: #5ec8ae;
 }
