@@ -17,9 +17,9 @@ const style = {
     card_content: 'bg-white pt-4 pb-2 rounded-b-lg',
     card_row: 'flex flex-wrap items-center justify-center',
     event_info_box: 'flex mb-2',
-    event_description: 'ml-1 lg:ml-3 text-gray-600',
-    event_title: 'text-lg text-purple-800 font-medium mb-3',
-    icon: 'text-gray-600',
+    event_description: 'ml-1 lg:ml-3 color-dark-gray',
+    event_title: 'text-lg color-primary font-medium mb-3',
+    icon: 'color-gray',
     image: 'h-56 sm:h-64 rounded-t-lg',
     main_box:'py-8 sm:py-16 mb-24 event-card-bg'
 }

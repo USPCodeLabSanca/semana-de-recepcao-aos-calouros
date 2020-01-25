@@ -11,8 +11,8 @@ const style = {
   top: 'flex items-center px-4 w-full',
   image: 'w-20 h-20 object-contain',
   bgImage: 'absolute t-0 z-1 h-64 w-full object-cover',
-  link: 'mx-1 sm:mx-4 text-white font-bold text-sm w-1/3 sm:w-auto',
-  label: 'text-3xl font-bold text-center my-4 text-white'
+  link: 'mx-1 sm:mx-4 color-white font-bold text-sm w-1/3 sm:w-auto',
+  label: 'text-3xl font-bold text-center my-4 color-white'
 }
 
 function Header () {

@@ -1,5 +1,72 @@
 :root {
-  --background-dark-color: #151515;
+  --primary: #5a57a5;
+  --secondary: #f89f1c;
+  --tertiary: #e85ca2;
+  --white: #fafafa;
+  --light-gray: #C7C5C5;
+  --gray: #9B9A9A;
+  --dark-gray: #303030;
+  --black: #151515;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--tertiary);
+}
+
+.bg-white {
+  background-color: var(--white);
+}
+
+.bg-gray {
+  background-color: var(--gray);
+}
+
+.bg-dark-gray {
+  background-color: var(--dark-gray);
+}
+
+.bg-black {
+  background-color: var(--black);
+}
+
+.color-primary {
+  color: var(--primary);
+}
+
+.color-secondary {
+  color: var(--secondary);
+}
+
+.color-tertiary {
+  color: var(--tertiary);
+}
+
+.color-white {
+  color: var(--white);
+}
+
+.color-light-gray {
+  color: var(--light-gray);
+}
+
+.color-gray {
+  color: var(--gray);
+}
+
+.color-dark-gray {
+  color: var(--dark-gray);
+}
+
+.color-black {
+  color: var(--black);
 }
 
 body, html, #root {
@@ -7,7 +74,7 @@ body, html, #root {
   margin: 0;
 }
 
-.pointer:hover{
+.pointer:hover {
     cursor: pointer !important
 }
 
@@ -21,10 +88,6 @@ body, html, #root {
 
 .semibold {
     font-weight: 500 !important
-}
-
-.bg-dark {
-  background-color: var(--background-dark-color);
 }
 
 .z-1 {

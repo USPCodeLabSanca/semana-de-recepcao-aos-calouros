@@ -4,15 +4,15 @@ import { Box } from '@material-ui/core'
 import LogoBixoquest from '../images/logo-bixoquest.png'
 
 const style = {
-    button: 'shadow-sm mb-8 sm:mb-0 py-3 px-12 text-white rounded font-medium w-100',
-    buttonPrimary: 'bg-orange-500',
-    buttonDisabled: 'bg-gray-500 cursor-default',
-    main_box: 'flex flex-col sm:flex-row justify-center my-4',
+    main_box: 'flex flex-col sm:flex-row justify-center shadow',
+    button: 'shadow-sm mb-8 sm:mb-0 py-3 px-12 color-white rounded font-medium w-100',
+    buttonPrimary: 'bg-secondary',
+    buttonDisabled: 'bg-gray cursor-default',
     logo:'w-3/4',
     logo_box:'flex justify-center',
-    text: 'text-gray-600 mb-10 px-2 md:px-0 text-lg',
+    text: 'color-dark-gray mb-10 px-2 md:px-0 text-lg',
     text_box: 'text-center md:text-left px-2 flex flex-col sm:items-start justify-center',
-    title: 'text-5xl text-gray-800 font-semibold'
+    title: 'text-5xl color-dark-gray font-semibold'
 }
 
 export default function Flyer() {
