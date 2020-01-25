@@ -22,19 +22,19 @@ const style = {
   card: 'my-4 shadow-sm w-5/6 md:w-2/5',
   card_content: 'flex',
   main_box: 'min-h-screen',
-  schedule: 'text-center text-purple-800 semibold px-2',
+  schedule: 'text-center color-primary semibold px-2',
   schedule_day: 'my-12',
   schedule_description: 'w-3/4 sm:w-5/6',
   schedule_description_box: 'flex flex-col justify-center py-2 px-3 w-full',
   schedule_events: 'flex flex-col items-center mb-6',
-  schedule_time: 'text-white semibold',
+  schedule_time: 'color-white semibold',
   stepper: 'w-full sm:w-2/5',
   stepper_box: 'flex justify-center',
-  text: 'text-gray-700 text-2xl',
+  text: 'color-dark-gray text-2xl',
   text_box: 'text-center mb-8 px-2',
-  time_box_1: 'bg-purple-800 text-center w-1/4 sm:w-1/6 py-2',
-  time_box_2: 'bg-orange-500 text-center w-1/4 sm:w-1/6 py-2',
-  title: 'text-5xl text-gray-800 my-6 font-semibold'
+  time_box_1: 'bg-primary text-center w-1/4 sm:w-1/6 py-2',
+  time_box_2: 'bg-secondary text-center w-1/4 sm:w-1/6 py-2',
+  title: 'text-5xl color-dark-gray my-6 font-semibold'
 }
 
 const ColorlibConnector = withStyles({

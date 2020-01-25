@@ -3,10 +3,10 @@ import React from 'react'
 import Image from '../images/logo.png'
 
 const style = {
-  root: 'bg-dark w-full h-48 text-center flex flex-col justify-center items-center',
+  root: 'bg-black w-full h-48 text-center flex flex-col justify-center items-center',
   image: 'w-20 h-20 mb-4',
   link: 'text-blue pl-1 link',
-  text: 'text-xs text-white'
+  text: 'text-xs color-white'
 }
 
 export default function Footer () {
