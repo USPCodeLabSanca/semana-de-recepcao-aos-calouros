@@ -24,8 +24,10 @@ const style = {
   main_box: 'min-h-screen',
   schedule: 'text-center color-primary semibold px-2',
   schedule_day: 'my-12',
-  schedule_description: 'w-3/4 sm:w-5/6',
-  schedule_description_box: 'flex flex-col justify-center py-2 px-3 w-full',
+  schedule_text_box: 'flex flex-col justify-center py-2 px-3 w-full',
+  schedule_title: 'color-black',
+  schedule_description: 'color-dark-gray',
+  schedule_place: 'color-dark-gray',
   schedule_events: 'flex flex-col items-center mb-6',
   schedule_time: 'color-white semibold',
   stepper: 'w-full sm:w-2/5',
@@ -77,53 +79,231 @@ const scheduleContent = [
   {
     id: 0,
     events: [
-      {id: 0, timeBegin: '08:00', timeEnd: '09:00', description: 'Recepção conjunta', type: '1'},
-      {id: 1, timeBegin: '10:00', timeEnd: '12:00', description: 'Bate-papo com os pais', type: '2'},
-      {id: 2,timeBegin: '18:00', timeEnd: '20:00', description: 'Recepção do ICMC', type: '2'},
+      {
+        id: 0,
+        timeBegin: '08:00',
+        timeEnd: '10:00',
+        title: 'Abertura conjunta',
+        description: 'Atividade para todos os ingressantes do Campus USP São Carlos e seus familiares, com as presenças de dirigentes',
+        place: 'Salão de eventos do Campus',
+        type: '1'
+      },
+      {
+        id: 1,
+        timeBegin: '10:00',
+        timeEnd: '12:00',
+        title: 'Bate-papo com os pais, professores e coordenadores de curso',
+        description: 'O evento ocorrerá em paralelo a atividades do Centro Acadêmico com os alunos',
+        place: 'Auditório Fernão Stella',
+        type: '2'
+      },
+      {
+        id: 2,
+        timeBegin: '18:00',
+        timeEnd: '20:00',
+        title: 'Recepção do ICMC',
+        description: 'Boas-vindas: agora você faz parte do ICMC',
+        place: 'Auditório Fernão Stella',
+        type: '2'
+      },
     ]
   },
-
   {
     id: 1,
     events: [
-      {id: 0, timeBegin: '08:00', timeEnd: '10:00', description: 'Matrícula (Matemática, Ciências de Comp.)', type: '1'},
-      {id: 1, timeBegin: '08:00', timeEnd: '10:00', description: 'Bate-papo com os coordenadores (Eng. Comp.)', type: '2'},
-      {id: 2, timeBegin: '10:00', timeEnd: '12:00', description: 'Confirmação matrícula (Eng. Comp.)', type: '1'},
-      {id: 3, timeBegin: '10:00', timeEnd: '12:00', description: 'Bate-papo com os coordenadores (Matemática, Ciências de Comp.)', type: '2'},
-      {id: 4, timeBegin: '18:00', timeEnd: '19:00', description: 'Bate-papo com os coordenadores (Sist. Info., Estatística)', type: '2'},
-      {id: 5, timeBegin: '19:00', timeEnd: '21:00', description: 'Matrícula (Sist. Info., Estatística)', type: '1'}
+      {
+        id: 0,
+        timeBegin: '08:00',
+        timeEnd: '10:00',
+        title: 'Matrícula presencial',
+        description: 'Cursos da área de Matemática (Núcleo Geral e Matemática Aplicada e Computação Científica) e do curso de Ciências de Computação',
+        place: 'Anfiteatro Jorge Caron',
+        type: '1'
+      },
+      {
+        id: 1,
+        timeBegin: '08:00',
+        timeEnd: '10:00',
+        title: 'Bate-papo com a coordenação',
+        description: 'Curso de Engenharia de Computação',
+        place: 'Bloco 4 do ICMC (sala 4-001)',
+        type: '2'
+      },
+      {
+        id: 2,
+        timeBegin: '10:00',
+        timeEnd: '12:00',
+        title: 'Matrícula presencial',
+        description: 'Curso de Engenharia de Computação',
+        place: 'Anfiteatro Jorge Caron',
+        type: '1'
+      },
+      {
+        id: 3,
+        timeBegin: '10:00',
+        timeEnd: '12:00',
+        title: 'Bate-papo com a coordenação',
+        description: 'Curso de Ciências de Computação',
+        place: 'Bloco 4 do ICMC (sala 4-003)',
+        type: '2'
+      },
+      {
+        id: 4,
+        timeBegin: '10:00',
+        timeEnd: '12:00',
+        title: 'Bate-papo com a coordenação',
+        description: 'Cursos de Matemática (Núcleo Geral e Matemática Aplicada e Computação Científica)',
+        place: 'Bloco 4 do ICMC (sala 4-001)',
+        type: '2'
+      },
+      {
+        id: 5,
+        timeBegin: '18:00',
+        timeEnd: '19:00',
+        title: 'Bate-papo com a coordenação',
+        description: 'Curso de Estatística e Ciência de Dados',
+        place: 'Bloco 4 do ICMC (sala 4-003)',
+        type: '2'
+      },
+      {
+        id: 6,
+        timeBegin: '18:00',
+        timeEnd: '19:00',
+        title: 'Bate-papo com a coordenação',
+        description: 'Curso de Sistemas de Informação',
+        place: 'Bloco 4 do ICMC (sala 4-005)',
+        type: '2'
+      },
+      {
+        id: 7,
+        timeBegin: '19:00',
+        timeEnd: '21:00',
+        title: 'Matrícula presencial',
+        description: 'Cursos de Estatística e Ciência de Dados e Sistemas de Informação',
+        place: 'Anfiteatro Jorge Caron',
+        type: '1'
+      }
     ]
   },
-
   {
     id: 2,
     events: [
-      {id: 0, timeBegin: '08:00', timeEnd: '10:00', description: 'Matrícula (Matemática, Ciências de Comp.)', type: '1'},
-      {id: 1, timeBegin: '09:00', timeEnd: '12:00', description: 'Feira de oportunidades', type: '2'},
-      {id: 2, timeBegin: '10:00', timeEnd: '12:00', description: 'Matrícula (Eng. Comp.)', type: '1'},
-      {id: 3, timeBegin: '18:00', timeEnd: '19:00', description: 'Aula introdutória (Computação)', type: '2'},
-      {id: 4, timeBegin: '19:00', timeEnd: '20:00', description: 'Aula introdutória (Matemática)', type: '2'},
-      {id: 5, timeBegin: '19:00', timeEnd: '21:00', description: 'Matrícula (Sist. Info., Estatística)', type: '1'},
-      {id: 6, timeBegin: '20:00', timeEnd: '21:00', description: 'Aula introdutória (Estatística)', type: '2'},
-      {id: 7, timeBegin: '21:00', timeEnd: '23:00', description: 'Luau', type: '2'}
+      {
+        id: 0,
+        timeBegin: '08:00',
+        timeEnd: '10:00',
+        title: 'Matrícula presencial',
+        description: 'Cursos da área de Matemática (Núcleo Geral e Matemática Aplicada e Computação Científica) e do curso de Ciências de Computação',
+        place: 'Anfiteatro Jorge Caron',
+        type: '1'
+      },
+      {
+        id: 1,
+        timeBegin: '09:00',
+        timeEnd: '12:00',
+        title: 'Feira de oportunidades',
+        description: 'Conheça as diversas oportunidades oferecidas aos alunos de graduação e saiba mais sobre os grupos de extensão',
+        place: 'Hiperespaço Gilberto Loibel',
+        type: '2'
+      },
+      {
+        id: 2,
+        timeBegin: '10:00',
+        timeEnd: '12:00',
+        title: 'Matrícula presencial',
+        description: 'Curso de Engenharia de Computação',
+        place: 'Anfiteatro Jorge Caron',
+        type: '1'
+      },
+      {
+        id: 3,
+        timeBegin: '18:00',
+        timeEnd: '21:00',
+        title: 'Aulas introdutórias',
+        description: 'As primeiras aulas no ICMC a gente nunca esquece: assista a três aulas introdutórias sobre computação, matemática e estatística',
+        place: 'Auditório Fernão Stella',
+        type: '2'
+      },
+      {
+        id: 4,
+        timeBegin: '19:00',
+        timeEnd: '21:00',
+        title: 'Matrícula presencial',
+        description: 'Cursos de Estatística e Ciência de Dados e Sistemas de Informação',
+        place: 'Anfiteatro Jorge Caron',
+        type: '1'
+      },
+      {
+        id: 5,
+        timeBegin: '21:00',
+        timeEnd: '00:00',
+        title: 'Luau e Gincana',
+        description: 'Faça parte dessa diversão',
+        place: 'Jardim secreto do ICMC',
+        type: '2'
+      }
     ]
   },
-
   {
     id: 3,
     events: [
-      {id: 0, timeBegin: '09:00', timeEnd: '11:00', description: 'Bate-papo com alunos experientes', type: '2'},
-      {id: 1, timeBegin: '11:00', timeEnd: '12:00', description: 'Palestra sobre saúde mental', type: '2'},
-      {id: 2, timeBegin: '12:00', timeEnd: '19:00', description: 'Trote solidário / Ambiental', type: '2'},
-      {id: 3, timeBegin: '19:00', timeEnd: '23:00', description: 'Game Night', type: '2'}
+      {
+        id: 0,
+        timeBegin: '09:00',
+        timeEnd: '11:00',
+        title: 'Bate-papo com alunos experientes',
+        description: 'Aprenda com quem já foi calouro',
+        place: 'Auditório Fernão Stella',
+        type: '2'
+      },
+      {
+        id: 1,
+        timeBegin: '11:00',
+        timeEnd: '12:00',
+        title: 'Bate-papo',
+        description: 'Ufa, passei! E agora? Promovendo a saúde mental na Universidade',
+        place: 'Auditório Fernão Stella',
+        type: '2'
+      },
+      {
+        id: 2,
+        timeBegin: '12:00',
+        timeEnd: '19:00',
+        title: 'Trote solidário / Ambiental',
+        place: 'Local a ser definido',
+        type: '2'
+      },
+      {
+        id: 3,
+        timeBegin: '19:00',
+        timeEnd: '00:00',
+        title: 'Game Night',
+        description: 'Sua primeira noite de jogos no ICMC',
+        place: 'Jardim secreto do ICMC',
+        type: '2'
+      }
     ]
   },
-
   {
     id: 4,
     events: [
-      {id: 0, timeBegin: '11:11', timeEnd: '12:00', description: 'Seminário de Coisas Legais', type: '2'},
-      {id: 1, timeBegin: '12:00', timeEnd: '13:00', description: 'Premiação / Encerramento', type: '2'}
+      {
+        id: 0,
+        timeBegin: '11:11',
+        timeEnd: '12:00',
+        title: 'Seminário de Coisas Legais',
+        place: 'Auditório Fernão Stella',
+        type: '2'
+      },
+      {
+        id: 1,
+        timeBegin: '12:00',
+        timeEnd: '13:00',
+        title: 'Encerramento',
+        description: 'Premiação para os alunos que conquistaram mais pontos no jogo Bixoquest',
+        place: 'Auditório Fernão Stella',
+        type: '2'
+      }
     ]
   }
 ]
@@ -170,10 +350,17 @@ function getScheduleContent(step) {
             <Typography className={style.schedule_time}>{current.timeBegin}</Typography>
             <Typography className={style.schedule_time}>{current.timeEnd}</Typography>
           </Box>
-          <Box className={style.schedule_description_box}>
-            <Box className={style.schedule_description}>
-              <Typography>{current.description}</Typography>
-            </Box>
+          <Box className={style.schedule_text_box}>
+            <Typography className={style.schedule_title} variant="body1">{current.title}</Typography>
+            <br/>
+            {
+              current.description &&
+              <>
+                <Typography className={style.schedule_description} variant="body2">{current.description}</Typography>
+                <br/>
+              </>
+            }
+            <Typography className={style.schedule_place} variant="caption">{current.place}</Typography>
           </Box>
         </Box>
       </Card>
