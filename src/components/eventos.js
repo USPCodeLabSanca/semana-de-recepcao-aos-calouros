@@ -29,16 +29,16 @@ export default function Eventos() {
         <Box className={style.main_box}>
             <Box className={style.card_row}>
                 <Box className={style.card}>
-                    <img style={{objectFit: 'cover'}} src={RecepcaoConjunta} alt="Recepção conjunta" className={style.image}/>
+                    <img style={{objectFit: 'cover'}} src={RecepcaoConjunta} alt="Abertura conjunta" className={style.image}/>
                     <CardContent className={style.card_content}>
-                        <h3 className={style.event_title}>Recepção conjunta</h3>
+                        <h3 className={style.event_title}>Abertura conjunta</h3>
                         <Box className={style.event_info_box}>
                             <AccessTimeIcon className={style.icon}/>
                             <p className={style.event_description}>17/02 - 8h</p>
                         </Box>
                         <Box className={style.event_info_box}>
                             <RoomIcon className={style.icon}/>
-                            <p className={style.event_description}>A definir</p>
+                            <p className={style.event_description}>Salão de eventos do Campus</p>
                         </Box>
                     </CardContent>
                 </Box>
@@ -52,21 +52,21 @@ export default function Eventos() {
                         </Box>
                         <Box className={style.event_info_box}>
                             <RoomIcon className={style.icon}/>
-                            <p className={style.event_description}>A definir</p>
+                            <p className={style.event_description}>Auditório Fernão Stella</p>
                         </Box>
                     </CardContent>
                 </Box>
                 <Box className={style.card}>
-                    <img style={{objectFit: 'cover'}} src={BatePapo} alt="Bate-papo com os coordenadores" className={style.image}/>
+                    <img style={{objectFit: 'cover'}} src={BatePapo} alt="Bate-papo com a coordenação" className={style.image}/>
                     <CardContent className={style.card_content}>
-                        <h3 className={style.event_title}>Bate-papo com os coordenadores</h3>
+                        <h3 className={style.event_title}>Bate-papo com a coordenação</h3>
                         <Box className={style.event_info_box}>
                             <AccessTimeIcon className={style.icon}/>
                             <p className={style.event_description}>18/02 - Horários na Programação</p>
                         </Box>
                         <Box className={style.event_info_box}>
                             <RoomIcon className={style.icon}/>
-                            <p className={style.event_description}>A definir</p>
+                            <p className={style.event_description}>Locais na Programação</p>
                         </Box>
                     </CardContent>
                 </Box>
@@ -83,7 +83,7 @@ export default function Eventos() {
                         </Box>
                         <Box className={style.event_info_box}>
                             <RoomIcon className={style.icon}/>
-                            <p className={style.event_description}>A definir</p>
+                            <p className={style.event_description}>Hiperespaço Gilberto Loibel</p>
                         </Box>
                     </CardContent>
                 </Box>
@@ -97,21 +97,21 @@ export default function Eventos() {
                         </Box>
                         <Box className={style.event_info_box}>
                             <RoomIcon className={style.icon}/>
-                            <p className={style.event_description}>A definir</p>
+                            <p className={style.event_description}>Jardim secreto do ICMC</p>
                         </Box>
                     </CardContent>
                 </Box>
                 <Box className={style.card}>
-                    <img style={{objectFit: 'cover'}} src={Encerramento} alt="Premiação / Encerramento" className={style.image}/>
+                    <img style={{objectFit: 'cover'}} src={Encerramento} alt="Encerramento" className={style.image}/>
                     <CardContent className={style.card_content}>
-                        <h3 className={style.event_title}>Premiação / Encerramento</h3>
+                        <h3 className={style.event_title}>Encerramento</h3>
                         <Box className={style.event_info_box}>
                             <AccessTimeIcon className={style.icon}/>
                             <p className={style.event_description}>21/02 - 12h</p>
                         </Box>
                         <Box className={style.event_info_box}>
                             <RoomIcon className={style.icon}/>
-                            <p className={style.event_description}>A definir</p>
+                            <p className={style.event_description}>Auditório Fernão Stella</p>
                         </Box>
                     </CardContent>
                 </Box>
