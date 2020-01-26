@@ -4,7 +4,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 
 const style = {
-  root: 'py-10 px-2 md:px-16',
+  root: 'py-10 px-2 md:px-16 color-black shadow-sm',
   title: 'text-3xl font-bold',
   description: '',
   subTitle: 'text-2xl font-bold pt-10',
