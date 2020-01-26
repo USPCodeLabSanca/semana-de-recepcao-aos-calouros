@@ -4,6 +4,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 
 const style = {
+  root: 'color-black shadow-sm',
   card: 'py-10 px-2 md:px-16',
   title: 'text-3xl font-bold',
 }
