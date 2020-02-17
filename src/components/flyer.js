@@ -26,8 +26,10 @@ export default function Flyer() {
                 <p className={style.text}>
                     Já pensou em transformar a Semana de Recepção em um grande jogo?!
                 </p>
-                <button className={`${style.button} ${style.buttonDisabled}`} disabled>Em breve!</button>
-                {/* <button className={`${style.button} ${style.buttonPrimary}`}>Clique aqui!</button> */}
+                {/* <button className={`${style.button} ${style.buttonDisabled}`} disabled>Em breve!</button> */}
+                <a href='https://bixoquest.icmc.usp.br' target='_blank' rel='noopener noreferrer'>
+                    <button className={`${style.button} ${style.buttonPrimary}`}>Clique aqui!</button>
+                </a>
             </Box>
         </Box>
     )
