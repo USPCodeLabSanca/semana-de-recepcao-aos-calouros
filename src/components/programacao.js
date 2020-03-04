@@ -17,9 +17,10 @@ import PeopleIcon from '@material-ui/icons/People'
 import ChatIcon from '@material-ui/icons/Chat'
 import ClassIcon from '@material-ui/icons/Class'
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions'
+import AddIcon from '@material-ui/icons/Add'
 
 const style = {
-  card: 'my-4 shadow-sm w-5/6 md:w-2/5',
+  card: 'my-4 shadow-sm w-5/6 md:w-3/5',
   card_content: 'flex',
   main_box: 'min-h-screen',
   schedule: 'text-center color-primary semibold px-2',
@@ -30,7 +31,7 @@ const style = {
   schedule_place: 'color-dark-gray',
   schedule_events: 'flex flex-col items-center mb-6',
   schedule_time: 'color-white semibold',
-  stepper: 'w-full sm:w-2/5',
+  stepper: 'w-full sm:w-5/6 md:w-3/5 overflow-x-scroll sm:overflow-x-auto',
   stepper_box: 'flex justify-center',
   text: 'color-dark-gray text-2xl',
   text_box: 'text-center mb-8 px-2',
@@ -305,12 +306,66 @@ const scheduleContent = [
         type: '2'
       }
     ]
+  },
+  {
+    id: 5,
+    events: [
+      {
+        id: 0,
+        timeBegin: '13:00',
+        timeEnd: '14:00',
+        title: 'Bate-papo',
+        description: 'Por aqui, a gente se comunica e você faz parte de tudo isso!',
+        place: 'Auditório Fernão Stella',
+        type: '2'
+      }
+    ]
+  },
+  {
+    id: 6,
+    events: [
+      {
+        id: 0,
+        timeBegin: '13:00',
+        timeEnd: '14:00',
+        title: 'Bate-papo',
+        description: 'Eu também faço parte de tudo isso: uma visão organizacional da USP',
+        place: 'Auditório Fávaro',
+        type: '2'
+      }
+    ]
+  },
+  {
+    id: 7,
+    events: [
+      {
+        id: 0,
+        timeBegin: '13:00',
+        timeEnd: '14:00',
+        title: 'Atividades lúdicas e de saúde mental',
+        place: 'Auditório Fernão Stella',
+        type: '2'
+      }
+    ]
+  },
+  {
+    id: 8,
+    events: [
+      {
+        id: 0,
+        timeBegin: '13:00',
+        timeEnd: '14:00',
+        title: 'Encontro especial para quem não participou da Semana de Recepção',
+        place: 'Em breve',
+        type: '2'
+      }
+    ]
   }
 ]
 
-const steps = ['17/02 (Seg)', '18/02 (Ter)', '19/02 (Qua)', '20/02 (Qui)', '21/02 (Sex)']
+const steps = ['17/02 (Seg)', '18/02 (Ter)', '19/02 (Qua)', '20/02 (Qui)', '21/02 (Sex)', '04/03 (Qua)', '11/03 (Qua)', '18/03 (Qua)', '25/03 (Qua)']
 
-const stepContent = ['17/02 - Segunda-feira', '18/02 - Terça-feira', '19/02 - Quarta-feira', '20/02 - Quinta-feira', '21/02 - Sexta-feira']
+const stepContent = ['17/02 - Segunda-feira', '18/02 - Terça-feira', '19/02 - Quarta-feira', '20/02 - Quinta-feira', '21/02 - Sexta-feira', '04/03 - Quarta-feira', '11/03 - Quarta-feira', '18/03 - Quarta-feira', '25/03 - Quarta-feira']
 
 function ColorlibStepIcon(props) {
   const classes = useColorlibStepIconStyles()
@@ -322,6 +377,10 @@ function ColorlibStepIcon(props) {
     3: <ClassIcon/>,
     4: <SportsEsportsIcon/>,
     5: <EmojiEmotionsIcon/>,
+    6: <AddIcon/>,
+    7: <AddIcon/>,
+    8: <AddIcon/>,
+    9: <AddIcon/>
   };
 
   return (
