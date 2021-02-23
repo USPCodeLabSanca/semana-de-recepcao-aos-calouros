@@ -11,14 +11,14 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Enter project directory
-        run: cd ~/semana-de-recepcao-aos-calouros
-
       - name: Pull git changes
+        working-directory: ~/semana-de-recepcao-aos-calouros
         run: git pull origin main
 
       - name: Install dependencies
+        working-directory: ~/semana-de-recepcao-aos-calouros
         run: npm install
 
       - name: Build App
+        working-directory: ~/semana-de-recepcao-aos-calouros
         run: npm run build
