@@ -11,6 +11,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Stash git changes
+        working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
+        run: git stash
+
       - name: Pull git changes
         working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
         run: git pull origin main
