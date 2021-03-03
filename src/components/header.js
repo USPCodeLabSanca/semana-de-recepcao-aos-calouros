@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { useLocation, Link } from 'react-router-dom'
+import {useLocation, Link} from 'react-router-dom';
 
-import HeaderBG from '../images/header-bg.jpg'
-import Logo from '../images/logo.png'
+import HeaderBG from '../images/header-bg.jpg';
+import Logo from '../images/logo.png';
 
 const style = {
   root: 'h-64 overflow-hidden pt-4',
@@ -12,24 +12,29 @@ const style = {
   image: 'w-20 h-20 object-contain',
   bgImage: 'absolute t-0 z-1 h-64 w-full object-cover',
   link: 'mx-1 sm:mx-4 color-white font-bold text-sm w-1/3 sm:w-auto',
-  label: 'text-3xl font-bold text-center my-4 color-white'
-}
+  label: 'text-3xl font-bold text-center my-4 color-white',
+};
 
-function Header () {
-  const { pathname } = useLocation()
+/**
+ * Header
+ *
+ * @return {void}
+ */
+function Header() {
+  const {pathname} = useLocation();
 
   const label = {
     '/disque-trote': 'Disque-Trote',
     '/contato': 'Contato',
-    '/': ''
-  }[pathname]
+    '/': '',
+  }[pathname];
 
   return (<>
     <img
       alt='Foto do icmc'
       src={HeaderBG}
       className={style.bgImage}
-      style={{ height: pathname === '/' ? '100vh' : '' }}
+      style={{height: pathname === '/' ? '100vh' : ''}}
     />
     <header className={style.root}>
       <div className={style.linkContainer}>
@@ -46,7 +51,7 @@ function Header () {
       </div>
       <div className={style.label}>{label}</div>
     </header>
-  </>)
+  </>);
 }
 
-export default Header
+export default Header;

@@ -1,15 +1,20 @@
-import React from 'react'
+import React from 'react';
 
-import { Box } from '@material-ui/core'
+import {Box} from '@material-ui/core';
 
 const style = {
   main_box: 'bg-primary px-10 md:px-20 py-12 color-white',
   link: 'text-lg color-light-gray hover:underline break-all',
   link_box: 'my-8 ',
   link_title: 'font-medium text-2xl md:text-3xl',
-  title: 'font-semibold text-4xl md:text-5xl'
-}
+  title: 'font-semibold text-4xl md:text-5xl',
+};
 
+/**
+ * LinksImportantes
+ *
+ * @return {void}
+ */
 export default function LinksImportantes() {
   return (
     <Box className={style.main_box}>
@@ -45,5 +50,5 @@ export default function LinksImportantes() {
         </a>
       </Box>
     </Box>
-  )
+  );
 }

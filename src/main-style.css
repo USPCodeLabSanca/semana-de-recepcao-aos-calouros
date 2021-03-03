@@ -3,8 +3,8 @@
   --secondary: #f89f1c;
   --tertiary: #e85ca2;
   --white: #fafafa;
-  --light-gray: #C7C5C5;
-  --gray: #9B9A9A;
+  --light-gray: #c7c5c5;
+  --gray: #9b9a9a;
   --dark-gray: #303030;
   --black: #151515;
 }
@@ -69,25 +69,27 @@
   color: var(--black);
 }
 
-body, html, #root {
+body,
+html,
+#root {
   padding: 0;
   margin: 0;
 }
 
 .pointer:hover {
-    cursor: pointer !important
+  cursor: pointer !important;
 }
 
 .shadow-sm {
-    box-shadow:0 .125rem .25rem rgba(0,0,0,.075)!important
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 .shadow {
-  box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
 .semibold {
-    font-weight: 500 !important
+  font-weight: 500 !important;
 }
 
 .z-1 {
@@ -95,7 +97,7 @@ body, html, #root {
 }
 
 .event-card-bg {
-  background-image: url('./images/Endless-Constellation.svg')
+  background-image: url('./images/Endless-Constellation.svg');
   /* background by SVGBackgrounds.com */
 }
 

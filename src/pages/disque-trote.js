@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import Header from '../components/header'
-import Footer from '../components/footer'
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 const style = {
   root: 'py-10 px-2 md:px-16 color-black shadow-sm',
@@ -10,12 +10,12 @@ const style = {
   subTitle: 'text-2xl font-bold pt-10',
   attendance: {
     title: 'pt-4 text-lg font-bold',
-    description: 'text-xs'
+    description: 'text-xs',
   },
-  quote: 'text-2xl font-bold pt-10'
-}
+  quote: 'text-2xl font-bold pt-10',
+};
 
-const Attendance = ({ title, desc1, desc2 }) => <React.Fragment>
+const Attendance = ({title, desc1, desc2}) => <React.Fragment>
   <h3 className={style.attendance.title}>
     {title}
   </h3>
@@ -27,9 +27,14 @@ const Attendance = ({ title, desc1, desc2 }) => <React.Fragment>
       {desc2}
     </p>
   }
-</React.Fragment>
+</React.Fragment>;
 
-export default function DisqueTrote () {
+/**
+ * Disque Trote Page
+ *
+ * @return {void}
+ */
+export default function DisqueTrote() {
   return (<React.Fragment>
     <Header />
     <main className={style.root}>
@@ -79,5 +84,5 @@ export default function DisqueTrote () {
       </p>
     </main>
     <Footer />
-  </React.Fragment>)
+  </React.Fragment>);
 }

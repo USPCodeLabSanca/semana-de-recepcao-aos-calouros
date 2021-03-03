@@ -1,37 +1,46 @@
-import React from 'react'
+import React from 'react';
 
-import { useHistory } from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
 
-import Header from '../components/header'
-import Countdown from '../components/countdown'
-import Eventos from '../components/eventos'
-import Flyer from '../components/flyer'
-import Programacao from '../components/programacao'
-import LinksImportantes from '../components/links-importantes'
-import Footer from '../components/footer'
+import Header from '../components/header';
+import Countdown from '../components/countdown';
+import Eventos from '../components/eventos';
+import Flyer from '../components/flyer';
+import Programacao from '../components/programacao';
+import LinksImportantes from '../components/links-importantes';
+import Footer from '../components/footer';
 
-export default function Home () {
-  const programacaoComponent = React.useRef()
+/**
+ * Home Page
+ *
+ * @return {void}
+ */
+export default function Home() {
+  const programacaoComponent = React.useRef();
 
-  const { location: { hash }, replace } = useHistory()
+  const {location: {hash}, replace} = useHistory();
 
-  function moveScreenToProgramacao () {
-    const top = programacaoComponent.current.offsetTop
-    window.scrollTo({ top, behavior: 'smooth' })
-    replace('/')
+  /**
+   * Scroll to 'Programacao'
+   *
+   * @return {void}
+   */
+  function moveScreenToProgramacao() {
+    const top = programacaoComponent.current.offsetTop;
+    window.scrollTo({top, behavior: 'smooth'});
+    replace('/');
   }
 
   React.useEffect(() => {
     if (hash === '#programacao') {
       if (document.readyState === 'complete') {
-        moveScreenToProgramacao()
+        moveScreenToProgramacao();
       } else {
-        window.addEventListener('load', moveScreenToProgramacao)
-        return () => window.removeEventListener('load', moveScreenToProgramacao)
+        window.addEventListener('load', moveScreenToProgramacao);
+        return () => window.removeEventListener('load', moveScreenToProgramacao);
       }
     }
-  // eslint-disable-next-line
-  }, [hash])
+  }, [hash]);
 
   return (
     <div>
@@ -44,5 +53,5 @@ export default function Home () {
       <LinksImportantes />
       <Footer />
     </div>
-  )
+  );
 }

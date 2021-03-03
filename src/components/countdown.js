@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 // import Moment from 'moment'
 
@@ -7,12 +7,12 @@ const style = {
   smallText: 'ml-2 mr-4 font-bold',
   largeText: 'text-xl sm:text-3xl font-bold',
   timeContainer: 'flex items-end',
-  countdownContainer: 'block sm:flex items-end'
-}
+  countdownContainer: 'block sm:flex items-end',
+};
 
 // const Small = ({ ...props }) => <p className={style.smallText} {...props} />
 
-const Large = ({ ...props }) => <p className={style.largeText} {...props} />
+const Large = ({...props}) => <p className={style.largeText} {...props} />;
 
 // const TimeContainer = ({ ...props }) => <div className={style.timeContainer} {...props} />
 
@@ -20,10 +20,15 @@ const Large = ({ ...props }) => <p className={style.largeText} {...props} />
 
 // const calculateDiff = () => Moment.duration(Moment(targetDate).diff(Moment()))
 
-function Countdown () {
+/**
+ * Countdown
+ *
+ * @return {void}
+ */
+function Countdown() {
   // const [diff, setDiff] = React.useState(calculateDiff())
 
-  /*React.useEffect(() => {
+  /* React.useEffect(() => {
     const handler = setInterval(() => setDiff(calculateDiff), 100)
     return () => clearInterval(handler)
   })*/
@@ -49,8 +54,8 @@ function Countdown () {
       <Large>Você faz parte disso tudo!</Large>
       <Large>22ª Semana de Recepção aos Calouros</Large>
     </div>
-    <div style={{ height: 'calc(100vh - 16rem)' }} />
-  </>)
+    <div style={{height: 'calc(100vh - 16rem)'}} />
+  </>);
 }
 
-export default Countdown
+export default Countdown;

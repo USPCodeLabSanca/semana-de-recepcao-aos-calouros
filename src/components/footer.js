@@ -1,15 +1,20 @@
-import React from 'react'
+import React from 'react';
 
-import Image from '../images/logo.png'
+import Image from '../images/logo.png';
 
 const style = {
   root: 'bg-black w-full h-48 text-center flex flex-col justify-center items-center',
   image: 'w-20 h-20 mb-4',
   link: 'text-blue pl-1 link',
-  text: 'text-xs color-white'
-}
+  text: 'text-xs color-white',
+};
 
-export default function Footer () {
+/**
+ * Footer
+ *
+ * @return {void}
+ */
+export default function Footer() {
   return (
     <div className={style.root}>
       <img alt='Logo da semana de recepção' src={Image} className={style.image} style={{objectFit: 'contain'}} />
@@ -23,5 +28,5 @@ export default function Footer () {
         ©2020 Instituto de Ciências Matemáticas e de Computação
       </p>
     </div>
-  )
+  );
 }
