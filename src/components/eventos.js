@@ -13,7 +13,7 @@ import GameNight from '../images/gamenight.jpg';
 import Encerramento from '../images/encerramento.jpg';
 
 const style = {
-  card: 'rounded-lg shadow w-custom mx-4 sm:mx-8 my-6',
+  card: 'rounded-lg shadow mx-4 sm:mx-8 my-6',
   card_content: 'bg-white pt-4 pb-2 rounded-b-lg',
   card_row: 'flex flex-wrap items-center justify-center',
   event_info_box: 'flex mb-2',
@@ -24,6 +24,45 @@ const style = {
   main_box: 'py-8 sm:py-16 mb-24 event-card-bg',
 };
 
+const events = [
+  {
+    image: RecepcaoConjunta,
+    title: 'Abertura conjunta',
+    hour: '17/02 - 8h',
+    place: 'Salão de eventos do Campus',
+  },
+  {
+    image: Recepcao,
+    title: 'Recepção do ICMC',
+    hour: '17/02 - 18h',
+    place: 'Auditório Fernão Stella',
+  },
+  {
+    image: BatePapo,
+    title: 'Bate-papo com a coordenação',
+    hour: '18/02 - Horários na Programação',
+    place: 'Locais na Programação',
+  },
+  {
+    image: FeiraDeOportunidades,
+    title: 'Feira de oportunidades',
+    hour: '19/02 - 9h',
+    place: 'Hiperespaço Gilberto Loibel',
+  },
+  {
+    image: GameNight,
+    title: 'Game Night',
+    hour: '20/02 - 19h',
+    place: 'Jardim secreto do ICMC',
+  },
+  {
+    image: Encerramento,
+    title: 'Encerramento',
+    hour: '21/02 - 12h',
+    place: 'Auditório Fernão Stella',
+  },
+];
+
 /**
  * Eventos
  *
@@ -33,93 +72,24 @@ export default function Eventos() {
   return (
     <Box className={style.main_box}>
       <Box className={style.card_row}>
-        <Box className={style.card}>
-          <img style={{objectFit: 'cover'}} src={RecepcaoConjunta} alt="Abertura conjunta" className={style.image}/>
-          <CardContent className={style.card_content}>
-            <h3 className={style.event_title}>Abertura conjunta</h3>
-            <Box className={style.event_info_box}>
-              <AccessTimeIcon className={style.icon}/>
-              <p className={style.event_description}>17/02 - 8h</p>
+        {events.map((event, index) => {
+          return (
+            <Box className={style.card} key={index}>
+              <img style={{objectFit: 'cover'}} src={event.image} alt={event.title} className={style.image}/>
+              <CardContent className={style.card_content}>
+                <h3 className={style.event_title}>{event.title}</h3>
+                <Box className={style.event_info_box}>
+                  <AccessTimeIcon className={style.icon}/>
+                  <p className={style.event_description}>{event.hour}</p>
+                </Box>
+                <Box className={style.event_info_box}>
+                  <RoomIcon className={style.icon}/>
+                  <p className={style.event_description}>{event.place}</p>
+                </Box>
+              </CardContent>
             </Box>
-            <Box className={style.event_info_box}>
-              <RoomIcon className={style.icon}/>
-              <p className={style.event_description}>Salão de eventos do Campus</p>
-            </Box>
-          </CardContent>
-        </Box>
-        <Box className={style.card}>
-          <img style={{objectFit: 'cover'}} src={Recepcao} alt="Recepção do ICMC" className={style.image}/>
-          <CardContent className={style.card_content}>
-            <h3 className={style.event_title}>Recepção do ICMC</h3>
-            <Box className={style.event_info_box}>
-              <AccessTimeIcon className={style.icon}/>
-              <p className={style.event_description}>17/02 - 18h</p>
-            </Box>
-            <Box className={style.event_info_box}>
-              <RoomIcon className={style.icon}/>
-              <p className={style.event_description}>Auditório Fernão Stella</p>
-            </Box>
-          </CardContent>
-        </Box>
-        <Box className={style.card}>
-          <img style={{objectFit: 'cover'}} src={BatePapo} alt="Bate-papo com a coordenação" className={style.image}/>
-          <CardContent className={style.card_content}>
-            <h3 className={style.event_title}>Bate-papo com a coordenação</h3>
-            <Box className={style.event_info_box}>
-              <AccessTimeIcon className={style.icon}/>
-              <p className={style.event_description}>18/02 - Horários na Programação</p>
-            </Box>
-            <Box className={style.event_info_box}>
-              <RoomIcon className={style.icon}/>
-              <p className={style.event_description}>Locais na Programação</p>
-            </Box>
-          </CardContent>
-        </Box>
-      </Box>
-
-      <Box className={style.card_row}>
-        <Box className={style.card}>
-          <img style={{objectFit: 'cover'}} src={FeiraDeOportunidades} alt="Feira de oportunidades" className={style.image}/>
-          <CardContent className={style.card_content}>
-            <h3 className={style.event_title}>Feira de oportunidades</h3>
-            <Box className={style.event_info_box}>
-              <AccessTimeIcon className={style.icon}/>
-              <p className={style.event_description}>19/02 - 9h</p>
-            </Box>
-            <Box className={style.event_info_box}>
-              <RoomIcon className={style.icon}/>
-              <p className={style.event_description}>Hiperespaço Gilberto Loibel</p>
-            </Box>
-          </CardContent>
-        </Box>
-        <Box className={style.card}>
-          <img style={{objectFit: 'cover'}} src={GameNight} alt="Game Night" className={style.image}/>
-          <CardContent className={style.card_content}>
-            <h3 className={style.event_title}>Game Night</h3>
-            <Box className={style.event_info_box}>
-              <AccessTimeIcon className={style.icon}/>
-              <p className={style.event_description}>20/02 - 19h</p>
-            </Box>
-            <Box className={style.event_info_box}>
-              <RoomIcon className={style.icon}/>
-              <p className={style.event_description}>Jardim secreto do ICMC</p>
-            </Box>
-          </CardContent>
-        </Box>
-        <Box className={style.card}>
-          <img style={{objectFit: 'cover'}} src={Encerramento} alt="Encerramento" className={style.image}/>
-          <CardContent className={style.card_content}>
-            <h3 className={style.event_title}>Encerramento</h3>
-            <Box className={style.event_info_box}>
-              <AccessTimeIcon className={style.icon}/>
-              <p className={style.event_description}>21/02 - 12h</p>
-            </Box>
-            <Box className={style.event_info_box}>
-              <RoomIcon className={style.icon}/>
-              <p className={style.event_description}>Auditório Fernão Stella</p>
-            </Box>
-          </CardContent>
-        </Box>
+          );
+        })}
       </Box>
     </Box>
   );
