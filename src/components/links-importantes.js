@@ -10,6 +10,29 @@ const style = {
   title: 'font-semibold text-4xl md:text-5xl',
 };
 
+const links = [
+  {
+    title: 'Evento no Facebook',
+    link: 'facebook.com/events/170712444024695/',
+  },
+  {
+    title: 'Sistema Júpiter Web',
+    link: 'uspdigital.usp.br/jupiterweb',
+  },
+  {
+    title: 'Aplicativo móvel de segurança',
+    link: 'sppu.usp.br',
+  },
+  {
+    title: 'FAQ e depoimentos',
+    link: 'icmc.usp.br/graduacao/faq-e-depoimentos',
+  },
+  {
+    title: 'Manual do calouro USP',
+    link: 'usp.br/manualdocalouro',
+  },
+];
+
 /**
  * LinksImportantes
  *
@@ -19,36 +42,16 @@ export default function LinksImportantes() {
   return (
     <Box className={style.main_box}>
       <h2 className={style.title}>Links Importantes</h2>
-      <Box className={style.link_box}>
-        <h3 className={style.link_title}>Evento no Facebook</h3>
-        <a rel='noreferrer noopener' className={style.link} href='https://www.facebook.com/events/170712444024695/' target="_blank">
-          facebook.com/events/170712444024695
-        </a>
-      </Box>
-      <Box className={style.link_box}>
-        <h3 className={style.link_title}>Sistema Júpiter Web</h3>
-        <a rel='noreferrer noopener' className={style.link} href='https://uspdigital.usp.br/jupiterweb' target="_blank">
-          uspdigital.usp.br/jupiterweb
-        </a>
-      </Box>
-      <Box className={style.link_box}>
-        <h3 className={style.link_title}>Aplicativo móvel de segurança</h3>
-        <a rel='noreferrer noopener' className={style.link} href='https://www.sppu.usp.br' target="_blank">
-          sppu.usp.br
-        </a>
-      </Box>
-      <Box className={style.link_box}>
-        <h3 className={style.link_title}>FAQ e depoimentos</h3>
-        <a rel='noreferrer noopener' className={style.link} href='https://www.icmc.usp.br/graduacao/faq-e-depoimentos' target="_blank">
-          icmc.usp.br/graduacao/faq-e-depoimentos
-        </a>
-      </Box>
-      <Box className={style.link_box}>
-        <h3 className={style.link_title}>Manual do calouro USP</h3>
-        <a rel='noreferrer noopener' className={style.link} href='https://www.usp.br/manualdocalouro' target="_blank">
-          usp.br/manualdocalouro
-        </a>
-      </Box>
+      {links.map((link, index) => {
+        return (
+          <Box className={style.link_box} key={index}>
+            <h3 className={style.link_title}>{link.title}</h3>
+            <a rel='noreferrer noopener' className={style.link} href={`https://${link.link}`} target="_blank">
+              {link.link}
+            </a>
+          </Box>
+        );
+      })}
     </Box>
   );
 }
