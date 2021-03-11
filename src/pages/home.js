@@ -2,8 +2,7 @@ import React from 'react';
 
 import {useHistory} from 'react-router-dom';
 
-import Header from '../components/header';
-import Countdown from '../components/countdown';
+import Hero from '../components/hero';
 import Eventos from '../components/eventos';
 import Flyer from '../components/flyer';
 import Programacao from '../components/programacao/programacao';
@@ -44,8 +43,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
-      <Countdown />
+      <Hero />
       <Flyer />
       <Eventos />
       <span ref={programacaoComponent} />
