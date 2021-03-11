@@ -1,7 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --primary: #5a57a5;
-  --secondary: #f89f1c;
-  --tertiary: #e85ca2;
+  --primary: #e68d13;
+  --secondary: #2523a1;
   --white: #fafafa;
   --light-gray: #c7c5c5;
   --gray: #9b9a9a;
@@ -15,10 +18,6 @@
 
 .bg-secondary {
   background-color: var(--secondary);
-}
-
-.bg-tertiary {
-  background-color: var(--tertiary);
 }
 
 .bg-white {
@@ -43,10 +42,6 @@
 
 .color-secondary {
   color: var(--secondary);
-}
-
-.color-tertiary {
-  color: var(--tertiary);
 }
 
 .color-white {
