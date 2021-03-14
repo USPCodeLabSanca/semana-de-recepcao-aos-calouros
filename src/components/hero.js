@@ -8,7 +8,7 @@ import React from 'react';
 function Hero() {
   return (<>
     <div className='flex items-center min-h-screen bg-primary'>
-      <div className='md:grid md:grid-cols-2 container mx-auto px-4'>
+      <div className='md:grid md:grid-cols-2 container mx-auto px-4 pt-10'>
         <h1 className='text-3xl sm:text-4xl md:text-6xl lg:text-8xl py-4'>
           <b>Bem-vindes ao ICMC!</b>
         </h1>
