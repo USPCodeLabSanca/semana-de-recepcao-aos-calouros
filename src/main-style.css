@@ -96,6 +96,10 @@ html,
   /* background by SVGBackgrounds.com */
 }
 
+.h-screen-without-navbar {
+  height: calc(100vh - 5rem) !important;
+}
+
 .link {
   color: #5ec8ae;
 }
