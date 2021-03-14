@@ -3,8 +3,10 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 import Hero from '../components/hero';
-import Eventos from '../components/eventos';
-import Flyer from '../components/flyer';
+import Presentation from '../components/presentation';
+import Live from '../components/live';
+// import Eventos from '../components/eventos';
+// import Flyer from '../components/flyer';
 import Programacao from '../components/programacao/programacao';
 import LinksImportantes from '../components/links-importantes';
 import Footer from '../components/footer';
@@ -44,8 +46,10 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <Flyer />
-      <Eventos />
+      <Presentation />
+      <Live />
+      {/* <Flyer /> */}
+      {/* <Eventos /> */}
       <span ref={programacaoComponent} />
       <Programacao />
       <LinksImportantes />
