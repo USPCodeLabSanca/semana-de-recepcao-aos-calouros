@@ -8,17 +8,16 @@ import StepButton from '@material-ui/core/StepButton';
 import StepConnector from '@material-ui/core/StepConnector';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
-
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import PeopleIcon from '@material-ui/icons/People';
 import ChatIcon from '@material-ui/icons/Chat';
 import ClassIcon from '@material-ui/icons/Class';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import AddIcon from '@material-ui/icons/Add';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
+import SectionHeader from '../section-header';
 import {scheduleContent, steps, stepContent} from './programacao-data';
 
 const style = {
@@ -35,11 +34,9 @@ const style = {
   schedule_time: 'color-white semibold',
   stepper: 'w-full sm:w-5/6 md:w-3/5 overflow-x-scroll sm:overflow-x-auto',
   stepper_box: 'flex justify-center',
-  text: 'color-dark-gray text-2xl',
   text_box: 'text-center mb-8 px-2',
   time_box_1: 'bg-primary text-center w-1/4 sm:w-1/6 py-2',
   time_box_2: 'bg-secondary text-center w-1/4 sm:w-1/6 py-2',
-  title: 'text-5xl color-dark-gray my-6 font-semibold',
 };
 
 const ColorlibConnector = withStyles({
@@ -168,13 +165,7 @@ export default function Programacao() {
 
   return (
     <Box className={style.main_box}>
-      <Box className={style.text_box}>
-        <h2 className={style.title}>Programação completa!</h2>
-        <Typography className={style.text}>
-          Acesse a programação completa da Semana de Recepção aos Calouros
-        </Typography>
-      </Box>
-
+      <SectionHeader title='Programação completa' subTitle='Confira tudo que planejamos para você!' />
       <Box className={style.stepper_box}>
         <Box className={style.stepper}>
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector/>}>
