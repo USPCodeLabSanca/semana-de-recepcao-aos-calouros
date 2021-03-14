@@ -30,7 +30,7 @@ function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
   return (<>
-    <header className='bg-black shadow h-20 fixed top-0 left-0 right-0'>
+    <header className='bg-black shadow h-20 fixed top-0 left-0 right-0 z-10'>
       <div className='flex h-full items-center justify-between container mx-auto px-4'>
         <Link className='h-full' to='/'><img
           src={Logo}
