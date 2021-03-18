@@ -2,10 +2,11 @@ import React from 'react';
 
 import {useHistory} from 'react-router-dom';
 
-import Header from '../components/header';
-import Countdown from '../components/countdown';
-import Eventos from '../components/eventos';
-import Flyer from '../components/flyer';
+import Hero from '../components/hero';
+import Presentation from '../components/presentation';
+import Live from '../components/live';
+// import Eventos from '../components/eventos';
+// import Flyer from '../components/flyer';
 import Programacao from '../components/programacao/programacao';
 import LinksImportantes from '../components/links-importantes';
 import Footer from '../components/footer';
@@ -44,10 +45,11 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
-      <Countdown />
-      <Flyer />
-      <Eventos />
+      <Hero />
+      <Presentation />
+      <Live />
+      {/* <Flyer /> */}
+      {/* <Eventos /> */}
       <span ref={programacaoComponent} />
       <Programacao />
       <LinksImportantes />
