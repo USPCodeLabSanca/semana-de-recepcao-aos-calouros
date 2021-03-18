@@ -40,7 +40,7 @@ function CallToAction() {
             <p className='py-4'>
               Durante a semana <b>de 12 a 16 de abril de 2021</b> preparamos uma programação para te ajudar a <b>conhecer a sua nova casa</b>.
             </p>
-            <div className='py-4'>
+            <div className='pb-14 pt-4 md:pb-4'>
               <a href='https://docs.google.com/forms/d/e/1FAIpQLScxUHu-s87JOR-lOXKML6T-wfTBhHv_8C1h2EAJYUdIL2zmbQ/viewform' target='_blank' rel='noopener noreferrer'>
                 <Button variant="contained" size="large">Quero participar!</Button>
               </a>
