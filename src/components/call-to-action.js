@@ -28,8 +28,8 @@ function CallToAction() {
       </div>
       <div className='flex items-center'>
         <div className='md:grid md:grid-cols-2 md:items-center container mx-auto px-8 pt-10'>
-          <div className='flex justify-center py-4'>
-            <div className='max-h-96'>
+          <div className='flex justify-center'>
+            <div className='max-h-96 py-4 md:px-4'>
               <img src={Detalhe} alt='A USP tranforma VOCÊ tranforma a USP'/>
             </div>
           </div>
