@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
 :root {
   --primary: #e68d13;
   --secondary: #2523a1;
