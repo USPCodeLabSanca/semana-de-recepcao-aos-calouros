@@ -9,7 +9,6 @@ import Home from './pages/home';
 import DisqueTrote from './pages/disque-trote';
 import Contato from './pages/contato';
 import Navbar from './components/navbar';
-// import CallToAction from './components/call-to-action';
 
 import './main-style.css';
 
@@ -42,9 +41,6 @@ function App() {
         </Switch>
       </BrowserRouter>
     </ThemeProvider>
-    // <ThemeProvider theme={theme}>
-    //   <CallToAction />
-    // </ThemeProvider>
   );
 }
 
