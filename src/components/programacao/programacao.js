@@ -165,7 +165,7 @@ export default function Programacao() {
 
   return (
     <Box className={style.main_box}>
-      <SectionHeader title='Programação completa' subTitle='Confira tudo que planejamos para você!' />
+      <SectionHeader title='Programação completa' subTitle={<p>Confira tudo que planejamos <b>para você!</b></p>} />
       <Box className={style.stepper_box}>
         <Box className={style.stepper}>
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector/>}>
