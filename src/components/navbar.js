@@ -5,7 +5,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import Logo from '../images/logo.svg';
+import Logo from '../images/logo.png';
 
 /**
  * Navbar
@@ -32,11 +32,9 @@ function Navbar() {
   return (<>
     <header className='bg-black shadow h-20 fixed top-0 left-0 right-0 z-10'>
       <div className='flex h-full items-center justify-between container mx-auto px-4'>
-        <Link className='h-full' to='/'><img
-          src={Logo}
-          alt="Logo do ICMC"
-          className='h-full py-4'
-        /></Link>
+        <Link className='h-full' to='/'>
+          <img src={Logo} alt='Logo ICMC 50 anos' className='p-4 h-full'/>
+        </Link>
         <div className='hidden lg:flex'>
           {links.map((link) => {
             return (<Link key={link.path} to={link.path} className='color-white p-4'><b>{link.text}</b></Link>);
