@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {useHistory} from 'react-router-dom';
 
@@ -10,6 +10,7 @@ import Live from '../components/live';
 import Programacao from '../components/programacao/programacao';
 import LinksImportantes from '../components/links-importantes';
 import Footer from '../components/footer';
+import API from '../lib/api';
 
 /**
  * Home Page
@@ -18,8 +19,19 @@ import Footer from '../components/footer';
  */
 export default function Home() {
   const programacaoComponent = React.useRef();
+  const [data, setData] = useState();
 
   const {location: {hash}, replace} = useHistory();
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await API.home.get();
+      setData(response);
+    };
+
+    fetchData();
+  }, []);
 
   /**
    * Scroll to 'Programacao'
@@ -47,7 +59,7 @@ export default function Home() {
     <div>
       <Hero />
       <Presentation />
-      <Live />
+      <Live url={data && data.URL_Live} />
       {/* <Flyer /> */}
       {/* <Eventos /> */}
       <span ref={programacaoComponent} />
