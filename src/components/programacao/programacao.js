@@ -18,7 +18,6 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 import SectionHeader from '../section-header';
-import {scheduleContent, steps, stepContent} from './programacao-data';
 
 const style = {
   card: 'my-4 shadow-sm w-5/6 md:w-3/5',
@@ -113,35 +112,37 @@ ColorlibStepIcon.propTypes = {
 /**
  * getScheduleContent
  *
- * @param {any} step
+ * @param {array} events
  *
  * @return {void}
  */
-function getScheduleContent(step) {
+function getScheduleContent(events) {
   const content = [];
   let current = {};
 
-  for (const index in scheduleContent[step].events) {
-    current = scheduleContent[step].events[index];
+  for (const index in events) {
+    current = events[index];
+    const [startHour, startMinute] = current.Inicio.split(':');
+    const [endHour, endMinute] = current.Fim.split(':');
 
     content.push(
         <Card className={style.card} key = {index} square variant='outlined'>
           <Box className={style.card_content}>
             <Box className={current.type === '1' ? style.time_box_1 : style.time_box_2}>
-              <Typography className={style.schedule_time}>{current.timeBegin}</Typography>
-              <Typography className={style.schedule_time}>{current.timeEnd}</Typography>
+              <Typography className={style.schedule_time}>{`${startHour}:${startMinute}`}</Typography>
+              <Typography className={style.schedule_time}>{`${endHour}:${endMinute}`}</Typography>
             </Box>
             <Box className={style.schedule_text_box}>
-              <Typography className={style.schedule_title} variant="body1">{current.title}</Typography>
+              <Typography className={style.schedule_title} variant="body1">{current.Titulo}</Typography>
               <br/>
               {
-                current.description &&
+                current.Descricao &&
                 <>
-                  <Typography className={style.schedule_description} variant="body2">{current.description}</Typography>
+                  <Typography className={style.schedule_description} variant="body2">{current.Descricao}</Typography>
                   <br/>
                 </>
               }
-              <Typography className={style.schedule_place} variant="caption">{current.place}</Typography>
+              <Typography className={style.schedule_place} variant="caption">{current.Local}</Typography>
             </Box>
           </Box>
         </Card>,
@@ -156,11 +157,56 @@ function getScheduleContent(step) {
  *
  * @return {void}
  */
-export default function Programacao() {
+export default function Programacao({events}) {
+  const dayName = [
+    {
+      short: 'seg',
+      long: 'Segunda-Feira',
+    }, {
+      short: 'ter',
+      long: 'Terça-Feira',
+    }, {
+      short: 'qua',
+      long: 'Quarta-Feira',
+    }, {
+      short: 'qui',
+      long: 'Quinta-Feira',
+    }, {
+      short: 'sex',
+      long: 'Sexta-Feira',
+    }, {
+      short: 'sáb',
+      long: 'Sábado',
+    }, {
+      short: 'dom',
+      long: 'Domingo',
+    },
+  ];
+
+  const dates = new Set();
+  events.forEach((event) => {
+    dates.add(event.Data);
+  });
+
+  const schedule = {};
+
+  dates.forEach((key, value) => {
+    schedule[value] = [];
+    events.forEach((event) => {
+      if (event.Data === value) {
+        schedule[value].push(event);
+      }
+    });
+  });
+
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleStep = (step) => () => {
     setActiveStep(step);
+  };
+
+  const getActiveDate = () => {
+    return new Date(Object.keys(schedule)[activeStep]);
   };
 
   return (
@@ -169,14 +215,16 @@ export default function Programacao() {
       <Box className={style.stepper_box}>
         <Box className={style.stepper}>
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector/>}>
-            {steps.map((label, index) => {
-              const [date, weekDay] = label.split(' ');
+            {Object.keys(schedule).map((dateString, index) => {
+              const date = new Date(dateString);
+              const formatedDate = `${date.getDate()+1}/${date.getMonth()+1}`;
+              const dayOfWeek = dayName[date.getDay()].short;
               return (
                 <Step key={index}>
                   <StepButton onClick={handleStep(index)} style={{outline: 'none'}}>
                     <StepLabel StepIconComponent={ColorlibStepIcon}>
-                      <div>{date}</div>
-                      <div>{weekDay}</div>
+                      <div>{formatedDate}</div>
+                      <div>{dayOfWeek}</div>
                     </StepLabel>
                   </StepButton>
                 </Step>
@@ -187,11 +235,13 @@ export default function Programacao() {
       </Box>
 
       <Box className={style.schedule_day}>
-        <Typography className={style.schedule} variant='h4'>{stepContent[activeStep]}</Typography>
+        <Typography className={style.schedule} variant='h4'>
+          {`${getActiveDate().getDate()+1}/${getActiveDate().getMonth()+1} - ${dayName[getActiveDate().getDay()].long}`}
+        </Typography>
       </Box>
 
       <Box className={style.schedule_events}>
-        {getScheduleContent(activeStep)}
+        {getScheduleContent(Object.values(schedule)[activeStep])}
       </Box>
     </Box>
   );

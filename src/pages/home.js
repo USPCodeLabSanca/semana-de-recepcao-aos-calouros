@@ -63,7 +63,10 @@ export default function Home() {
       {/* <Flyer /> */}
       {/* <Eventos /> */}
       <span ref={programacaoComponent} />
-      <Programacao />
+      {
+        data && data.Eventos &&
+        <Programacao events={data.Eventos} />
+      }
       <LinksImportantes />
       <Footer />
     </div>
