@@ -1,19 +1,11 @@
 import React from 'react';
 
-import {Box} from '@material-ui/core';
-
-const style = {
-  main_box: 'bg-primary px-10 md:px-20 py-12 color-white',
-  link: 'text-lg color-light-gray hover:underline break-all',
-  link_box: 'my-8 ',
-  link_title: 'font-medium text-2xl md:text-3xl',
-  title: 'font-semibold text-4xl md:text-5xl',
-};
+import SectionHeader from './section-header';
 
 const links = [
   {
-    title: 'Evento no Facebook',
-    link: 'facebook.com/events/170712444024695/',
+    title: 'Site ICMC',
+    link: 'icmc.usp.br',
   },
   {
     title: 'Sistema Júpiter Web',
@@ -40,18 +32,22 @@ const links = [
  */
 export default function LinksImportantes() {
   return (
-    <Box className={style.main_box}>
-      <h2 className={style.title}>Links Importantes</h2>
-      {links.map((link, index) => {
-        return (
-          <Box className={style.link_box} key={index}>
-            <h3 className={style.link_title}>{link.title}</h3>
-            <a rel='noreferrer noopener' className={style.link} href={`https://${link.link}`} target="_blank">
-              {link.link}
-            </a>
-          </Box>
-        );
-      })}
-    </Box>
+    <>
+      <SectionHeader title='Contatos' subTitle={<p>A gente pode não saber tudo, mas <b>conhecemos quem sabe</b>!</p>} />
+      <div className='bg-primary pb-8'>
+        <div className='container mx-auto px-8'>
+          {links.map((link, index) => {
+            return (
+              <div className='py-4' key={index}>
+                <h3 className='font-medium text-2xl md:text-3xl'>{link.title}</h3>
+                <a rel='noreferrer noopener' className='text-2xl hover:underline break-all' href={`https://${link.link}`} target="_blank">
+                  {link.link}
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 }
