@@ -10,6 +10,7 @@ import Flyer from '../components/flyer';
 import Programacao from '../components/programacao/programacao';
 import Services from '../components/services';
 import LinksImportantes from '../components/links-importantes';
+import Socials from '../components/socials';
 import Footer from '../components/footer';
 import API from '../lib/api';
 
@@ -70,6 +71,7 @@ export default function Home() {
       <Services />
       <Flyer />
       <LinksImportantes />
+      <Socials />
       <Footer />
     </div>
   );
