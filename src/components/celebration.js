@@ -19,8 +19,10 @@ export default function Celebration() {
             Durante o ano todo você vai poder conhecer mais sobre <b>a história e as pessoas</b> que fizeram e fazem parte dessa grande família
           </p>
         </div>
-        <div className='flex justify-center w-full py-8'>
-          <img src={Image} alt='50 Anos - Reconhecendo o passado e projetando o futuro'/>
+        <div className='flex justify-center py-8'>
+          <div className='w-3/4 h-full mb-8'>
+            <img src={Image} alt='50 Anos - Reconhecendo o passado e projetando o futuro'/>
+          </div>
         </div>
       </div>
     </div>
