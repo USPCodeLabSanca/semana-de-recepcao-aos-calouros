@@ -10,8 +10,8 @@ import LogoBixoquest from '../images/logo-bixoquest.png';
 export default function Flyer() {
   return (
     <div className='flex flex-col sm:flex-row justify-center shadow-md py-8'>
-      <div className='flex justify-center py-4 md:px-4'>
-        <div className='w-3/4 h-full'>
+      <div className='flex justify-center sm:py-4 md:px-4'>
+        <div className='w-3/4 h-full mb-8'>
           <img src={LogoBixoquest} alt='Logo Bixoquest'/>
         </div>
       </div>
