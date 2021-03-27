@@ -6,8 +6,9 @@ import Hero from '../components/hero';
 import Presentation from '../components/presentation';
 import Live from '../components/live';
 // import Eventos from '../components/eventos';
-// import Flyer from '../components/flyer';
+import Flyer from '../components/flyer';
 import Programacao from '../components/programacao/programacao';
+import Services from '../components/services';
 import LinksImportantes from '../components/links-importantes';
 import Footer from '../components/footer';
 import API from '../lib/api';
@@ -60,13 +61,14 @@ export default function Home() {
       <Hero />
       <Presentation />
       <Live url={data && data.URL_Live} />
-      {/* <Flyer /> */}
       {/* <Eventos /> */}
       <span ref={programacaoComponent} />
       {
         data && data.Eventos &&
         <Programacao events={data.Eventos} />
       }
+      <Services />
+      <Flyer />
       <LinksImportantes />
       <Footer />
     </div>
