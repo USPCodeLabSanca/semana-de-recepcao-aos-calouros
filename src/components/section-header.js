@@ -14,7 +14,7 @@ export default function SectionHeader({title, subTitle}) {
           <div className='pr-4 py-8 h-full md:pl-4'>
             <div className='bg-black w-1 h-full rounded-full'></div>
           </div>
-          <h2 className='text-lg max-w-xs md:text-xl lg:text-2xl'>
+          <h2 className='text-lg max-w-md md:text-xl lg:text-2xl'>
             {subTitle}
           </h2>
         </div>

@@ -38,9 +38,9 @@ export default function LinksImportantes() {
         <div className='container mx-auto px-8'>
           {links.map((link, index) => {
             return (
-              <div className='py-4' key={index}>
-                <h3 className='font-medium text-2xl md:text-3xl'>{link.title}</h3>
-                <a rel='noreferrer noopener' className='text-2xl hover:underline break-all' href={`https://${link.link}`} target="_blank">
+              <div className='py-4 text-lg sm:text-xl md:text-2xl lg:text-3xl' key={index}>
+                <h3 className='font-medium'>{link.title}</h3>
+                <a rel='noreferrer noopener' className='hover:underline break-all' href={`https://${link.link}`} target="_blank">
                   {link.link}
                 </a>
               </div>

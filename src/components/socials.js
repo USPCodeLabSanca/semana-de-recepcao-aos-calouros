@@ -45,7 +45,11 @@ export default function Socials() {
           {links.map((link, index) => {
             return (
               <div className='p-8' key={index}>
-                <a className='flex items-center justify-center bg-black rounded-full h-32 w-32' rel='noreferrer noopener' href={link.link} target="_blank">
+                <a
+                  className='flex items-center justify-center bg-black hover:bg-gray-800 rounded-full h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32'
+                  rel='noreferrer noopener'
+                  href={link.link} target="_blank"
+                >
                   {link.image}
                 </a>
               </div>
