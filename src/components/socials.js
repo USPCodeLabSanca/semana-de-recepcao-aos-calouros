@@ -10,23 +10,23 @@ import SectionHeader from './section-header';
 
 const links = [
   {
-    image: <FacebookIcon fontSize='large' color='primary' />,
+    image: <FacebookIcon color='primary' />,
     link: 'https://pt-br.facebook.com/icmc.usp',
   },
   {
-    image: <InstagramIcon fontSize='large' color='primary' />,
+    image: <InstagramIcon color='primary' />,
     link: 'https://www.instagram.com/icmc.usp',
   },
   {
-    image: <TwitterIcon fontSize='large' color='primary' />,
+    image: <TwitterIcon color='primary' />,
     link: 'https://twitter.com/icmc_usp',
   },
   {
-    image: <LinkedInIcon fontSize='large' color='primary' />,
+    image: <LinkedInIcon color='primary' />,
     link: 'https://www.linkedin.com/school/icmc-usp',
   },
   {
-    image: <YouTubeIcon fontSize='large' color='primary' />,
+    image: <YouTubeIcon color='primary' />,
     link: 'https://www.youtube.com/channel/UCAnzNH_nZcLIBVLWoiWY5KA',
   },
 ];
@@ -40,13 +40,13 @@ export default function Socials() {
   return (
     <>
       <SectionHeader title='Siga nossas redes sociais!' subTitle={<p>Você também pode <b>entrar em contato</b> em todos esses canais para <b>pedir informações</b></p>} />
-      <div className='bg-primary pb-8'>
+      <div className='bg-primary pb-4'>
         <div className='flex flex-wrap justify-center container mx-auto'>
           {links.map((link, index) => {
             return (
-              <div className='p-8' key={index}>
+              <div className='p-4' key={index}>
                 <a
-                  className='flex items-center justify-center transition-all bg-black hover:bg-gray-700 rounded-full h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32'
+                  className='flex items-center justify-center transition-all bg-black hover:bg-gray-700 rounded-full h-16 w-16 sm:h-20 sm:w-20'
                   rel='noreferrer noopener'
                   href={link.link} target="_blank"
                 >
