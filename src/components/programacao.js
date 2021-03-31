@@ -17,7 +17,7 @@ import AddIcon from '@material-ui/icons/Add';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-import SectionHeader from '../section-header';
+import SectionHeader from './section-header';
 
 const style = {
   card: 'my-4 shadow-sm w-5/6 md:w-3/5',

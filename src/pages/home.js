@@ -6,7 +6,7 @@ import Hero from '../components/hero';
 import Presentation from '../components/presentation';
 import Live from '../components/live';
 // import Eventos from '../components/eventos';
-import Programacao from '../components/programacao/programacao';
+import Programacao from '../components/programacao';
 import Services from '../components/services';
 import Flyer from '../components/flyer';
 import Celebration from '../components/celebration';
