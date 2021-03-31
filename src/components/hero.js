@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Button from '@material-ui/core/Button';
-
 import Detalhe from '../images/detalhe.png';
 
 /**
@@ -27,7 +25,9 @@ function Hero() {
           </p>
           <div className='pb-14 pt-4 md:pb-4'>
             <a href='https://docs.google.com/forms/d/e/1FAIpQLScxUHu-s87JOR-lOXKML6T-wfTBhHv_8C1h2EAJYUdIL2zmbQ/viewform' target='_blank' rel='noopener noreferrer'>
-              <Button variant="contained" size="large">Quero participar!</Button>
+              <button className='text-base sm:text-lg md:text-xl lg:text-2xl transition-all bg-white hover:bg-gray-100 shadow-md py-3 px-12 rounded w-100'>
+                Quero participar!
+              </button>
             </a>
           </div>
         </div>

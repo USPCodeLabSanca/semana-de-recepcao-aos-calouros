@@ -21,7 +21,7 @@ export default function Flyer() {
           Já pensou em transformar a Semana de Recepção em um grande jogo?!
         </p>
         <a href='https://bixoquest.icmc.usp.br' target='_blank' rel='noopener noreferrer'>
-          <button className='bg-secondary shadow-sm py-3 px-12 color-white rounded font-medium w-100'>
+          <button className='text-base sm:text-lg md:text-xl lg:text-2xl transition-all bg-secondary hover:bg-indigo-800 color-white shadow-md py-3 px-12 rounded w-100'>
             Clique aqui!
           </button>
         </a>
