@@ -1,42 +1,21 @@
 import React from 'react';
 
-import {Box, Card} from '@material-ui/core';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import {makeStyles, withStyles} from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
 import StepConnector from '@material-ui/core/StepConnector';
 import StepLabel from '@material-ui/core/StepLabel';
-import Typography from '@material-ui/core/Typography';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import PeopleIcon from '@material-ui/icons/People';
 import ChatIcon from '@material-ui/icons/Chat';
 import ClassIcon from '@material-ui/icons/Class';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import AddIcon from '@material-ui/icons/Add';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
 
 import SectionHeader from './section-header';
-
-const style = {
-  card: 'my-4 shadow-sm w-5/6 md:w-3/5',
-  card_content: 'flex',
-  main_box: 'min-h-screen',
-  schedule: 'text-center color-primary semibold px-2',
-  schedule_day: 'my-12',
-  schedule_text_box: 'flex flex-col justify-center py-2 px-3 w-full',
-  schedule_title: 'color-black',
-  schedule_description: 'color-dark-gray',
-  schedule_place: 'color-dark-gray',
-  schedule_events: 'flex flex-col items-center mb-6',
-  schedule_time: 'color-white semibold',
-  stepper: 'w-full sm:w-5/6 md:w-3/5 overflow-x-scroll sm:overflow-x-auto',
-  stepper_box: 'flex justify-center',
-  text_box: 'text-center mb-8 px-2',
-  time_box_1: 'bg-primary text-center w-1/4 sm:w-1/6 py-2',
-  time_box_2: 'bg-secondary text-center w-1/4 sm:w-1/6 py-2',
-};
 
 const ColorlibConnector = withStyles({
   alternativeLabel: {
@@ -126,26 +105,26 @@ function getScheduleContent(events) {
     const [endHour, endMinute] = current.Fim.split(':');
 
     content.push(
-        <Card className={style.card} key = {index} square variant='outlined'>
-          <Box className={style.card_content}>
-            <Box className={current.type === '1' ? style.time_box_1 : style.time_box_2}>
-              <Typography className={style.schedule_time}>{`${startHour}:${startMinute}`}</Typography>
-              <Typography className={style.schedule_time}>{`${endHour}:${endMinute}`}</Typography>
-            </Box>
-            <Box className={style.schedule_text_box}>
-              <Typography className={style.schedule_title} variant="body1">{current.Titulo}</Typography>
+        <div className='border-solid border-2 border-gray-100 my-4 shadow-md w-5/6 md:w-3/5' key={index}>
+          <div className='flex'>
+            <div className={current.type === '1' ? 'bg-primary text-center w-1/4 sm:w-1/6 py-2' : 'bg-secondary text-center w-1/4 sm:w-1/6 py-2'}>
+              <p className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-white'>{`${startHour}:${startMinute}`}</p>
+              <p className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-white'>{`${endHour}:${endMinute}`}</p>
+            </div>
+            <div className='flex flex-col justify-center py-2 px-3 w-full'>
+              <h1 className='text-sm sm:text-base md:text-lg lg:text-xl font-bold color-black'>{current.Titulo}</h1>
               <br/>
               {
                 current.Descricao &&
                 <>
-                  <Typography className={style.schedule_description} variant="body2">{current.Descricao}</Typography>
+                  <p className='text-xs sm:text-sm md:text-base lg:text-lg color-dark-gray'>{current.Descricao}</p>
                   <br/>
                 </>
               }
-              <Typography className={style.schedule_place} variant="caption">{current.Local}</Typography>
-            </Box>
-          </Box>
-        </Card>,
+              <h2 className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-dark-gray'>{current.Local}</h2>
+            </div>
+          </div>
+        </div>,
     );
   }
 
@@ -210,10 +189,10 @@ export default function Programacao({events}) {
   };
 
   return (
-    <Box className={style.main_box}>
+    <div className='min-h-screen'>
       <SectionHeader title='Programação completa' subTitle={<p>Confira tudo que planejamos <b>para você!</b></p>} />
-      <Box className={style.stepper_box}>
-        <Box className={style.stepper}>
+      <div className='flex justify-center'>
+        <div className='w-full sm:w-5/6 md:w-3/5 overflow-x-scroll sm:overflow-x-auto'>
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector/>}>
             {Object.keys(schedule).map((dateString, index) => {
               const date = new Date(dateString);
@@ -231,18 +210,18 @@ export default function Programacao({events}) {
               );
             })}
           </Stepper>
-        </Box>
-      </Box>
+        </div>
+      </div>
 
-      <Box className={style.schedule_day}>
-        <Typography className={style.schedule} variant='h4'>
+      <div className='my-12'>
+        <h1 className='text-lg sm:xl md:text-2xl lg:text-3xl font-bold text-center color-primary px-2'>
           {`${('0'+(getActiveDate().getDate()+1)).slice(-2)}/${('0'+(getActiveDate().getMonth()+1)).slice(-2)} - ${dayName[getActiveDate().getDay()].long}`}
-        </Typography>
-      </Box>
+        </h1>
+      </div>
 
-      <Box className={style.schedule_events}>
+      <div className='flex flex-col items-center mb-6'>
         {getScheduleContent(Object.values(schedule)[activeStep])}
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }
