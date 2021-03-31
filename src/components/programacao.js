@@ -191,7 +191,7 @@ export default function Programacao({events}) {
   return (
     <div className='min-h-screen'>
       <SectionHeader title='Programação completa' subTitle={<p>Confira tudo que planejamos <b>para você!</b></p>} />
-      <div className='flex justify-center'>
+      <div className='flex justify-center pt-8'>
         <div className='w-full sm:w-5/6 md:w-3/5 overflow-x-scroll sm:overflow-x-auto'>
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector/>}>
             {Object.keys(schedule).map((dateString, index) => {
@@ -213,13 +213,11 @@ export default function Programacao({events}) {
         </div>
       </div>
 
-      <div className='my-12'>
-        <h1 className='text-lg sm:xl md:text-2xl lg:text-3xl font-bold text-center color-primary px-2'>
-          {`${('0'+(getActiveDate().getDate()+1)).slice(-2)}/${('0'+(getActiveDate().getMonth()+1)).slice(-2)} - ${dayName[getActiveDate().getDay()].long}`}
-        </h1>
-      </div>
+      <h1 className='text-lg sm:xl md:text-2xl lg:text-3xl font-bold text-center color-primary px-2 my-8'>
+        {`${('0'+(getActiveDate().getDate()+1)).slice(-2)}/${('0'+(getActiveDate().getMonth()+1)).slice(-2)} - ${dayName[getActiveDate().getDay()].long}`}
+      </h1>
 
-      <div className='flex flex-col items-center mb-6'>
+      <div className='flex flex-col items-center mb-8'>
         {getScheduleContent(Object.values(schedule)[activeStep])}
       </div>
     </div>
