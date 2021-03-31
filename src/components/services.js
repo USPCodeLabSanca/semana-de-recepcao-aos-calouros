@@ -41,11 +41,13 @@ export default function Services({url}) {
     <div>
       <SectionHeader title='Serviços e setores' subTitle={<p>Você vai <b>precisar</b> desse pessoal!</p>} />
       <div className='bg-primary px-8 pb-8'>
-        <ReactPlayer
-          className='h-screen-without-navbar shadow'
-          width='100%'
-          url='https://www.youtube.com/playlist?list=UUAnzNH_nZcLIBVLWoiWY5KA'
-        />
+        <div className='container-16-9'>
+          <ReactPlayer
+            className='absolute inset-0 h-full-important shadow'
+            width='100%'
+            url='https://www.youtube.com/playlist?list=UUAnzNH_nZcLIBVLWoiWY5KA'
+          />
+        </div>
         <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 container mx-auto'>
           {services.map((service, index) => {
             return (

@@ -107,3 +107,13 @@ html,
 .link {
   color: #5ec8ae;
 }
+
+.container-16-9 {
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.h-full-important {
+  height: 100% !important;
+}
