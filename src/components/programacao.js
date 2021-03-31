@@ -191,7 +191,7 @@ export default function Programacao({events}) {
   return (
     <div className='min-h-screen'>
       <SectionHeader title='Programação completa' subTitle={<p>Confira tudo que planejamos <b>para você!</b></p>} />
-      <div className='flex justify-center pt-8'>
+      <div className='flex justify-center pt-4'>
         <div className='w-full sm:w-5/6 md:w-3/5 overflow-x-scroll sm:overflow-x-auto'>
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector/>}>
             {Object.keys(schedule).map((dateString, index) => {

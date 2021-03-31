@@ -9,7 +9,7 @@ import Image from '../images/50anos.png';
  */
 export default function Celebration() {
   return (
-    <div className='bg-black min-h-screen bg-primary py-24'>
+    <div className='flex items-center bg-black min-h-screen bg-primary py-24'>
       <div className='flex flex-col items-center container mx-auto text-center px-8 text-white'>
         <div className='max-w-4xl'>
           <p className='text-xl pt-8'>

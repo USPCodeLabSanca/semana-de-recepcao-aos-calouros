@@ -42,7 +42,7 @@ export default function Services({url}) {
       <SectionHeader title='Serviços e setores' subTitle={<p>Você vai <b>precisar</b> desse pessoal!</p>} />
       <div className='bg-primary pb-8'>
         <div className='container mx-auto'>
-          <div className='px-8'>
+          <div className='px-8 pt-4 pb-8'>
             <div className='container-16-9'>
               <ReactPlayer
                 className='absolute inset-0 h-full-important shadow'

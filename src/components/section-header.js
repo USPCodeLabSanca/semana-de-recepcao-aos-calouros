@@ -8,7 +8,7 @@ import React from 'react';
 export default function SectionHeader({title, subTitle}) {
   return (
     <div className='bg-primary h-48'>
-      <div className='flex flex-col h-full container mx-auto px-4 md:flex-row md:items-center'>
+      <div className='flex flex-col h-full container mx-auto px-8 md:flex-row md:items-center'>
         <h1 className='text-xl font-bold uppercase pt-8 md:text-2xl lg:text-4xl md:pt-0'>{title}</h1>
         <div className='flex items-center h-full'>
           <div className='pr-4 py-8 h-full md:pl-4'>

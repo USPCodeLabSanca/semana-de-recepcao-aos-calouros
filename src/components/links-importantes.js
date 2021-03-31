@@ -34,7 +34,7 @@ export default function LinksImportantes() {
   return (
     <>
       <SectionHeader title='Contatos' subTitle={<p>A gente pode não saber tudo, mas <b>conhecemos quem sabe</b>!</p>} />
-      <div className='bg-primary pb-8'>
+      <div className='bg-primary pt-4 pb-8'>
         <div className='container mx-auto px-8'>
           {links.map((link, index) => {
             return (
