@@ -46,7 +46,7 @@ export default function Socials() {
             return (
               <div className='p-4' key={index}>
                 <a
-                  className='flex items-center justify-center transition-all bg-black hover:bg-gray-700 rounded-full h-16 w-16 sm:h-20 sm:w-20'
+                  className='flex items-center justify-center transition-all bg-black hover:bg-gray-700 rounded-full h-12 w-12 sm:h-16 sm:w-16 sm:h-20 sm:w-20'
                   rel='noreferrer noopener'
                   href={link.link} target="_blank"
                 >
