@@ -59,7 +59,7 @@ export default function Home() {
   }, [hash]);
 
   return (
-    <div>
+    <main>
       <Hero />
       <Presentation />
       <Live url={data && data.URL_Live} />
@@ -75,6 +75,6 @@ export default function Home() {
       <LinksImportantes />
       <Socials />
       <Footer />
-    </div>
+    </main>
   );
 }
