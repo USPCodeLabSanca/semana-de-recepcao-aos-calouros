@@ -14,14 +14,11 @@ import Logo from '../images/logo.png';
  */
 function Navbar() {
   const links = [{
-    path: '/programacao',
+    path: '/',
     text: 'programação',
   }, {
     path: '/disque-trote',
     text: 'disque-trote',
-  }, {
-    path: '/informacoes',
-    text: 'informações',
   }, {
     path: '/contato',
     text: 'contato',
