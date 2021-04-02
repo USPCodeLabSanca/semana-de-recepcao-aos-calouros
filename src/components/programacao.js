@@ -16,6 +16,7 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import AddIcon from '@material-ui/icons/Add';
 
 import SectionHeader from './section-header';
+import markdownToHtml from '../lib/markdownToHtml';
 
 const ColorlibConnector = withStyles({
   alternativeLabel: {
@@ -104,6 +105,8 @@ function getScheduleContent(events) {
     const [startHour, startMinute] = current.Inicio.split(':');
     const [endHour, endMinute] = current.Fim.split(':');
 
+    current.Descricao = markdownToHtml(current.Descricao || '');
+
     content.push(
         <div className='border-solid border-2 border-gray-100 my-4 shadow-md w-5/6 md:w-3/5' key={index}>
           <div className='flex'>
@@ -117,7 +120,10 @@ function getScheduleContent(events) {
               {
                 current.Descricao &&
                 <>
-                  <p className='text-xs sm:text-sm md:text-base lg:text-lg color-dark-gray'>{current.Descricao}</p>
+                  <div
+                    className='text-xs sm:text-sm md:text-base lg:text-lg color-dark-gray'
+                    dangerouslySetInnerHTML={{__html: current.Descricao}}
+                  ></div>
                   <br/>
                 </>
               }
