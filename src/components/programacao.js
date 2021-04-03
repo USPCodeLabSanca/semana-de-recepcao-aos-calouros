@@ -16,7 +16,7 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import AddIcon from '@material-ui/icons/Add';
 
 import SectionHeader from './section-header';
-import markdownToHtml from '../lib/markdownToHtml';
+import markdownToHtml from '../lib/markdown-to-html';
 
 const ColorlibConnector = withStyles({
   alternativeLabel: {
