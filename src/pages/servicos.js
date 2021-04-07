@@ -117,7 +117,7 @@ export default function Servicos({match: {params: {service}}}) {
   return (<main className='bg-primary pt-20'>
     <SectionHeader title={services[service].title} />
     <div className='container mx-auto mb-6 p-8 bg-white color-black shadow-md'>
-      <div className='container-16-9'>
+      <div className='container-16-9 inset-0'>
         <ReactPlayer
           className='absolute inset-0 h-full-important shadow'
           width='100%'

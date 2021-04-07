@@ -15,7 +15,7 @@ export default function Live({url}) {
       <SectionHeader title='Programação ao vivo' subTitle={<p>A sua recepção começa aqui, <b>todos os dias</b>, sempre às <b>9 horas</b>.</p>} />
       <div className='bg-primary pt-4 pb-8'>
         <div className='container mx-auto px-8'>
-          { url ? (<div className='container-16-9'>
+          { url ? (<div className='container-16-9 inset-0'>
             <ReactPlayer
               className='absolute inset-0 h-full-important shadow'
               width='100%'

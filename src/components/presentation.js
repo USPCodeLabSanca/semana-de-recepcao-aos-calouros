@@ -9,7 +9,7 @@ import ReactPlayer from 'react-player';
  */
 export default function Presentation() {
   return (
-    <div className='container-16-9'>
+    <div className='container-16-9 inset-0'>
       <ReactPlayer
         className='absolute inset-0 h-full-important shadow'
         width='100%'

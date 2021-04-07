@@ -50,7 +50,7 @@ export default function Services({url}) {
       <div className='bg-primary pb-8'>
         <div className='container mx-auto'>
           <div className='px-8 pt-4 pb-8'>
-            <div className='container-16-9'>
+            <div className='container-16-9 inset-0'>
               <ReactPlayer
                 className='absolute inset-0 h-full-important shadow'
                 width='100%'
