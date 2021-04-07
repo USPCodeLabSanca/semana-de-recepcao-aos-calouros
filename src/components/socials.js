@@ -39,7 +39,7 @@ const links = [
 export default function Socials() {
   return (
     <>
-      <SectionHeader title='Siga nossas redes sociais!' subTitle={<p>Você também pode <b>entrar em contato</b> em todos esses canais para <b>pedir informações</b></p>} />
+      <SectionHeader title='Siga nossas redes sociais:' subTitle={<p>Você também pode <b>entrar em contato</b> em todos esses canais para <b>pedir informações</b></p>} />
       <div className='bg-primary pb-4'>
         <div className='flex flex-wrap justify-center container mx-auto'>
           {links.map((link, index) => {
