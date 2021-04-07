@@ -43,8 +43,8 @@ function Navbar() {
           </div>
         </div>
         <div className='hidden lg:flex'>
-          {links.map((link) => {
-            return (<Link key={link.path} to={link.path} className='color-white p-4'><b>{link.text}</b></Link>);
+          {links.map((link, index) => {
+            return (<Link key={index} to={link.path} className='color-white p-4'><b>{link.text}</b></Link>);
           })}
         </div>
         <div className='lg:hidden'>
