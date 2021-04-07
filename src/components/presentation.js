@@ -9,10 +9,12 @@ import ReactPlayer from 'react-player';
  */
 export default function Presentation() {
   return (
-    <ReactPlayer
-      className='h-screen-without-navbar'
-      width='100%'
-      url='https://youtu.be/4B7NOctCnW4'
-    />
+    <div className='container-16-9 inset-0'>
+      <ReactPlayer
+        className='absolute inset-0 h-full-important shadow'
+        width='100%'
+        url='https://youtu.be/4B7NOctCnW4'
+      />
+    </div>
   );
 }

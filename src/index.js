@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import {Switch, Route, BrowserRouter, Redirect} from 'react-router-dom';
+import {Switch, Route, BrowserRouter, Redirect} from 'react-router-dom';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
 
-// import Home from './pages/home';
-// import DisqueTrote from './pages/disque-trote';
-// import Contato from './pages/contato';
-// import Navbar from './components/navbar';
-import CallToAction from './components/call-to-action';
+import Home from './pages/home';
+import DisqueTrote from './pages/disque-trote';
+import Contato from './pages/contato';
+import Servicos from './pages/servicos';
+import Navbar from './components/navbar';
+import ScrollToTop from './lib/scroll-to-top';
 
 import './main-style.css';
 
@@ -31,19 +32,19 @@ const theme = createMuiTheme({
  */
 function App() {
   return (
-  // <ThemeProvider theme={theme}>
-  // <BrowserRouter>
-  // <Navbar />
-  // <Switch>
-  // <Route exact path='/' component={Home} />
-  // <Route exact path='/disque-trote' component={DisqueTrote} />
-  // <Route exact path='/contato' component={Contato} />
-  // <Redirect to='/' />
-  // </Switch>
-  // </BrowserRouter>
-  // </ThemeProvider>
     <ThemeProvider theme={theme}>
-      <CallToAction />
+      <BrowserRouter>
+        <Navbar />
+        <ScrollToTop>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/disque-trote' component={DisqueTrote} />
+            <Route exact path='/contato' component={Contato} />
+            <Route exact path='/servicos/:service' component={Servicos} />
+            <Redirect to='/' />
+          </Switch>
+        </ScrollToTop>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
