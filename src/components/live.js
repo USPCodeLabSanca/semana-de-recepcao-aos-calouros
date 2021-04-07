@@ -12,7 +12,11 @@ import SectionHeader from './section-header';
 export default function Live({url}) {
   return (
     <div>
-      <SectionHeader title='Programação ao vivo' subTitle={<p>A sua recepção começa aqui, <b>todos os dias</b>, sempre às <b>9 horas</b>.</p>} />
+      <SectionHeader title='Programação ao vivo' subTitle={(<p>
+        Acompanhe as transmissões por aqui ou diretamente no <a rel='noreferrer noopener' className='hover:underline break-all' href='https://tv.icmc.usp.br/' target="_blank">
+          Youtube
+        </a>!
+      </p>)} />
       <div className='bg-primary pt-4 pb-8'>
         <div className='container mx-auto px-8'>
           { url ? (<div className='container-16-9 inset-0'>
