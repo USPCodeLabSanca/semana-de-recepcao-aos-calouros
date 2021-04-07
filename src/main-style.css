@@ -6,6 +6,13 @@
   font-family: 'Raleway', sans-serif;
 }
 
+body,
+html,
+#root {
+  padding: 0;
+  margin: 0;
+}
+
 :root {
   --primary: #e68d13;
   --secondary: #2523a1;
@@ -68,50 +75,19 @@
   color: var(--black);
 }
 
-body,
-html,
-#root {
-  padding: 0;
-  margin: 0;
-}
-
 .pointer:hover {
   cursor: pointer !important;
-}
-
-.shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-}
-
-.shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
 .semibold {
   font-weight: 500 !important;
 }
 
-.z-1 {
-  z-index: -1;
-}
-
-.event-card-bg {
-  background-image: url('./images/Endless-Constellation.svg');
-  /* background by SVGBackgrounds.com */
-}
-
-.h-screen-without-navbar {
-  height: calc(100vh - 5rem) !important;
-}
-
-.link {
-  color: #5ec8ae;
-}
-
 .container-16-9 {
   width: 100%;
   padding-top: 56.25%;
   position: relative;
+  height: 100%;
 }
 
 .h-full-important {
