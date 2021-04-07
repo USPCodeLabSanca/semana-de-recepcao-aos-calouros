@@ -19,22 +19,22 @@ const services = [
   {
     path: '/servicos/assistencia-social',
     title: 'Assistência Social',
-    description: '',
+    description: 'bolsas & auxílios & moradia & alimentação',
   },
   {
     path: '/servicos/informatica',
     title: 'Informática',
-    description: '',
+    description: 'senha única & e-mail USP & recursos digitais',
   },
   {
     path: '/servicos/comunicacao',
     title: 'Comunicação',
-    description: '',
+    description: 'divulgações & mídias institucionais & eventos & cursos de extensão',
   },
   {
     path: '/',
-    title: '',
-    description: '',
+    title: 'Apoio Psicológico',
+    description: 'eventos & acolhimento & escuta & apoio & ajuda',
   },
 ];
 
@@ -64,11 +64,11 @@ export default function Services({url}) {
                 <div className='flex flex-col justify-center break-words transition-all bg-white hover:bg-gray-200 shadow-md hover:shadow-none m-8 p-8 h-96'>
                   {
                     service.description.length > 0 &&
-                    <p className='text-lg lg:text-xl xl:text-2xl pb-4'>{service.description}</p>
+                    <p className='text-base lg:text-lg xl:text-xl pb-4'>{service.description}</p>
                   }
                   {
                     service.title.length > 0 &&
-                    <h1 className='text-2xl lg:text-3xl xl:text-5xl'>{service.title}</h1>
+                    <h1 className='text-xl lg:text-2xl xl:text-4xl'>{service.title}</h1>
                   }
                 </div>
               </Link>);
