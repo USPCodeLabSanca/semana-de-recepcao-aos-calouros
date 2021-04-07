@@ -12,7 +12,7 @@ function Hero() {
     <div className='flex items-center min-h-screen bg-primary pt-24 md:pt-12'>
       <div className='md:grid md:grid-cols-2 md:items-center container mx-auto px-8'>
         <div className='flex justify-center'>
-          <div className='w-full max-w-xl py-4 md:px-4'>
+          <div className='w-full max-w-lg py-4 md:px-4'>
             <img src={Detalhe} alt='A USP tranforma VOCÊ tranforma a USP'/>
           </div>
         </div>
@@ -21,7 +21,10 @@ function Hero() {
             Você acababa de ingressar em uma <b>universidade pública, gratuita e reconhecida</b> como umas das melhores do mundo.
           </p>
           <p className='py-4'>
-            Durante a semana <b>de 12 a 16 de abril de 2021</b> preparamos uma programação para te ajudar a <b>conhecer a sua nova casa</b>.
+            Durante a semana de 12 a 16 de abril de 2021 preparamos uma programação para apresentar <b>a sua nova casa</b>.
+          </p>
+          <p className='py-4'>
+            Tudo será <b>virtual</b>, assim como as aulas deste primeiro semestre.
           </p>
           <div className='pb-14 pt-4 md:pb-4'>
             <a href='https://docs.google.com/forms/d/e/1FAIpQLScxUHu-s87JOR-lOXKML6T-wfTBhHv_8C1h2EAJYUdIL2zmbQ/viewform' target='_blank' rel='noopener noreferrer'>
