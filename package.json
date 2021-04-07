@@ -16,6 +16,7 @@
     "react-player": "^2.9.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^4.0.3",
+    "react-scroll": "^1.8.2",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1"
   },
