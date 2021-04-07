@@ -32,7 +32,7 @@ const services = [
     description: 'divulgações & mídias institucionais & eventos & cursos de extensão',
   },
   {
-    path: '/',
+    path: '/servicos/apoio-psicologico',
     title: 'Apoio Psicológico',
     description: 'eventos & acolhimento & escuta & apoio & ajuda',
   },
@@ -54,7 +54,7 @@ export default function Services({url}) {
               <ReactPlayer
                 className='absolute inset-0 h-full-important shadow'
                 width='100%'
-                url='https://www.youtube.com/playlist?list=UUAnzNH_nZcLIBVLWoiWY5KA'
+                url='https://www.youtube.com/watch?v=eG2VCdJH5Wc'
               />
             </div>
           </div>
