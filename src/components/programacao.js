@@ -8,11 +8,6 @@ import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
 import StepConnector from '@material-ui/core/StepConnector';
 import StepLabel from '@material-ui/core/StepLabel';
-import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
-import PeopleIcon from '@material-ui/icons/People';
-import ChatIcon from '@material-ui/icons/Chat';
-import ClassIcon from '@material-ui/icons/Class';
-import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import AddIcon from '@material-ui/icons/Add';
 
 import SectionHeader from './section-header';
@@ -65,21 +60,9 @@ function ColorlibStepIcon(props) {
   const classes = useColorlibStepIconStyles();
   const {active} = props;
 
-  const icons = {
-    1: <PeopleIcon/>,
-    2: <ChatIcon/>,
-    3: <ClassIcon/>,
-    4: <SportsEsportsIcon/>,
-    5: <EmojiEmotionsIcon/>,
-    6: <AddIcon/>,
-    7: <AddIcon/>,
-    8: <AddIcon/>,
-    9: <AddIcon/>,
-  };
-
   return (
     <div className={clsx(classes.root, {[classes.active]: active})}>
-      {icons[String(props.icon)]}
+      <AddIcon/>
     </div>
   );
 }
@@ -168,19 +151,31 @@ export default function Programacao({events}) {
     },
   ];
 
-  const dates = new Set();
+  let days = new Set();
   events.forEach((event) => {
-    dates.add(event.Data);
+    days.add(event.Data);
   });
+
+  days = [...days].sort();
 
   const schedule = {};
 
-  dates.forEach((key, value) => {
-    schedule[value] = [];
+  days.forEach((day) => {
+    schedule[day] = [];
     events.forEach((event) => {
-      if (event.Data === value) {
-        schedule[value].push(event);
+      if (event.Data === day) {
+        schedule[day].push(event);
       }
+    });
+    schedule[day].sort((event1, event2) => {
+      if (event1.Inicio < event2.Inicio) {
+        return -1;
+      }
+      if (event1.Inicio > event2.Inicio) {
+        return 1;
+      }
+
+      return 0;
     });
   });
 
