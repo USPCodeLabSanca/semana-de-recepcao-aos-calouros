@@ -10,7 +10,6 @@ import SectionHeader from './section-header';
  * @return {void}
  */
 export default function Live({url}) {
-  url = null;
   return (
     <div>
       <SectionHeader title='Programação ao vivo' subTitle={(<p>
