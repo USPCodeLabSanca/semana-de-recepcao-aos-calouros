@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import {Link as ScrollLink} from 'react-scroll';
-
 import Detalhe from '../images/detalhe.png';
 
 /**
@@ -34,17 +32,6 @@ function Hero() {
                 Quero participar!
               </button>
             </a>
-            {/* <ScrollLink
-              to="programacao"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            >
-              <button className='text-base sm:text-lg md:text-xl lg:text-2xl transition-all bg-white hover:bg-gray-100 shadow-md py-3 px-12 rounded w-100'>
-                Quero participar!
-              </button>
-            </ScrollLink> */}
           </div>
         </div>
       </div>
