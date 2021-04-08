@@ -1,7 +1,9 @@
 import {useEffect} from 'react';
 
-import {animateScroll as scroll} from 'react-scroll';
-import {withRouter} from 'react-router-dom';
+import {
+  useLocation,
+  withRouter,
+} from 'react-router-dom';
 
 /**
  * Scroll To Top
@@ -11,15 +13,10 @@ import {withRouter} from 'react-router-dom';
  * @return {object}
  */
 function ScrollToTop({history, children}) {
+  const {pathname} = useLocation();
   useEffect(() => {
-    const unlisten = history.listen(() => {
-      return scroll.scrollToTop({smooth: false, duration: 0, delay: 0});
-    });
-    return () => {
-      unlisten();
-    };
-  }, []);
-
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return children;
 }
 

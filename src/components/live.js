@@ -10,6 +10,7 @@ import SectionHeader from './section-header';
  * @return {void}
  */
 export default function Live({url}) {
+  url = null;
   return (
     <div>
       <SectionHeader title='Programação ao vivo' subTitle={(<p>
@@ -25,8 +26,8 @@ export default function Live({url}) {
               width='100%'
               url={url}
             />
-          </div>) : (<div className='py-24 md:py-48'>
-            <p className='text-4xl text-center'>
+          </div>) : (<div className='container-16-9 inset-0'>
+            <p className='flex items-center justify-center absolute inset-0 text-4xl'>
               <b>Sem eventos acontecendo ao vivo agora. Confira a programação abaixo.</b>
             </p>
           </div>)}

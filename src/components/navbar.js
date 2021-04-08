@@ -14,7 +14,7 @@ import Logo from '../images/logo.png';
  */
 function Navbar() {
   const links = [{
-    path: '/',
+    path: '/#programacao',
     text: 'programação',
   }, {
     path: '/disque-trote',
