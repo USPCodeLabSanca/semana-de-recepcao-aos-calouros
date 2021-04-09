@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Link} from 'react-router-dom';
+import {HashLink} from 'react-router-hash-link';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -30,9 +30,9 @@ function Navbar() {
     <header className='bg-black shadow h-20 fixed top-0 left-0 right-0 z-10'>
       <div className='flex h-full items-center justify-between container mx-auto px-4'>
         <div className='flex items-center h-full'>
-          <Link className='h-full' to='/'>
+          <HashLink className='h-full' to='/'>
             <img src={Logo} alt='Logo ICMC 50 anos' className='p-4 h-full'/>
-          </Link>
+          </HashLink>
           <div className='hidden sm:block color-white py-4'>
             <h1 className='text-xs md:text-sm lg uppercase'>
               <b>Instituto de Ciências Matemáticas e de Computação da USP</b>
@@ -44,7 +44,7 @@ function Navbar() {
         </div>
         <div className='hidden lg:flex'>
           {links.map((link, index) => {
-            return (<Link key={index} to={link.path} className='color-white p-4'><b>{link.text}</b></Link>);
+            return (<HashLink smooth key={index} to={link.path} className='color-white p-4'><b>{link.text}</b></HashLink>);
           })}
         </div>
         <div className='lg:hidden'>
@@ -65,7 +65,9 @@ function Navbar() {
           style={{minWidth: '260px'}}
         >
           {links.map((link) => {
-            return (<Link key={link.path} to={link.path} onClick={() => setIsDrawerOpen(false)} className='color-white p-4'><b>{link.text}</b></Link>);
+            return (<HashLink smooth key={link.path} to={link.path} onClick={() => setIsDrawerOpen(false)} className='color-white p-4'>
+              <b>{link.text}</b>
+            </HashLink>);
           })}
         </div>
       </SwipeableDrawer>
