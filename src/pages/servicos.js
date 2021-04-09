@@ -513,6 +513,16 @@ const services = {
   'assistencia-social': {
     title: 'Assistência Social',
     videoUrl: 'https://www.youtube.com/watch?v=eG2VCdJH5Wc',
+    text: <>
+      Antes de mais nada, leia atentamente o EDITAL PAPFE INGRESSANTES 2021 que dispõe sobre as normas do Programa de
+      Apoio à Permanência e Formação Estudantil, destinado aos ingressantes na Universidade de São Paulo no ano de 2021
+      (<a
+        rel='noreferrer noopener'
+        className='hover:underline break-all'
+        href='https://sites.usp.br/sas/wp-content/uploads/sites/265/2021/03/2021_03_26_Edital-PAPFE-INGRESSANTES-2021-site.pdf'
+        target="_blank"
+      >https://sites.usp.br/sas/wp-content/uploads/sites/265/2021/03/2021_03_26_Edital-PAPFE-INGRESSANTES-2021-site.pdf</a>)
+    </>,
     faq: [
       {
         question: 'Quem pode se inscrever nos benefícios do PAPFE?',
@@ -792,17 +802,14 @@ const services = {
   'informatica': {
     title: 'Informática',
     videoUrl: 'https://www.youtube.com/watch?v=eG2VCdJH5Wc',
-    faq: [],
   },
   'comunicacao': {
     title: 'Comunicação',
     videoUrl: 'https://www.youtube.com/watch?v=eG2VCdJH5Wc',
-    faq: [],
   },
   'apoio-psicologico': {
     title: 'Apoio Psicológico',
     videoUrl: 'https://www.youtube.com/watch?v=eG2VCdJH5Wc',
-    faq: [],
   },
 };
 
@@ -830,9 +837,12 @@ export default function Servicos({match: {params: {service}}}) {
           url={services[service].videoUrl}
         />
       </div>
-      <div className='pt-8'>
+      { services[service].text && <p className='text-sm md:text-base lg:text-lg pt-8'>
+        {services[service].text}
+      </p>}
+      { services[service].faq && <div className='pt-8'>
         <Faq items={services[service].faq}></Faq>
-      </div>
+      </div>}
     </div>
     <Footer />
   </main>);
