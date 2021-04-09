@@ -23,7 +23,7 @@ export default function Faq({items}) {
             <p className='text-sm md:text-base lg:text-lg font-bold'>{item.question}</p>
           </AccordionSummary>
           <AccordionDetails>
-            <p className='text-xs md:text-sm lg:text-base w-full'>{item.answer}</p>
+            <div className='text-xs md:text-sm lg:text-base w-full'>{item.answer}</div>
           </AccordionDetails>
         </Accordion>);
       })}
