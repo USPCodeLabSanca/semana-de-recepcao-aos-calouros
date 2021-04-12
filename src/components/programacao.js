@@ -44,7 +44,7 @@ const useColorlibStepIconStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   active: {
-    backgroundColor: '#4c51bf',
+    backgroundColor: '#303030',
     boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
   },
 }));
@@ -93,7 +93,7 @@ function getScheduleContent(events) {
     content.push(
         <div className='border-solid border-2 border-gray-100 my-4 shadow-md w-5/6 md:w-3/5' key={index}>
           <div className='flex'>
-            <div className={current.type === '1' ? 'bg-primary text-center w-1/4 sm:w-1/6 py-2' : 'bg-secondary text-center w-1/4 sm:w-1/6 py-2'}>
+            <div className={current.type === '1' ? 'bg-black text-center w-1/4 sm:w-1/6 py-2' : 'bg-black text-center w-1/4 sm:w-1/6 py-2'}>
               <p className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-white'>{`${startHour}:${startMinute}`}</p>
               <p className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-white'>{`${endHour}:${endMinute}`}</p>
             </div>
