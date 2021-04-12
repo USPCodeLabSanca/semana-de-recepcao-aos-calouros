@@ -6,8 +6,6 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 
-import SectionHeader from './section-header';
-
 const links = [
   {
     image: <FacebookIcon color='primary' />,
@@ -39,8 +37,12 @@ const links = [
 export default function Socials() {
   return (
     <>
-      <SectionHeader title='Siga nossas redes sociais:' subTitle={<p>Você também pode <b>entrar em contato</b> em todos esses canais para <b>pedir informações</b></p>} />
-      <div className='bg-primary pb-4'>
+      <div className='bg-primary h-48'>
+        <div className='flex items-center justify-center text-center h-full container mx-auto px-8'>
+          <h1 className='text-xl font-bold uppercase md:text-2xl lg:text-4xl'>Siga nossas redes sociais:</h1>
+        </div>
+      </div>
+      <div className='bg-primary pb-20'>
         <div className='flex flex-wrap justify-center container mx-auto'>
           {links.map((link, index) => {
             return (
