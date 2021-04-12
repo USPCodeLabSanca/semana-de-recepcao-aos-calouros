@@ -2,7 +2,7 @@ import React from 'react';
 
 export default {
   title: 'Assistência Social',
-  videoUrl: 'https://www.youtube.com/watch?v=eG2VCdJH5Wc',
+  videoUrl: 'https://youtu.be/ERMPUB3ZETo',
   text: <p>
     Antes de mais nada, leia atentamente o EDITAL PAPFE INGRESSANTES 2021 que dispõe sobre as normas do Programa de
     Apoio à Permanência e Formação Estudantil, destinado aos ingressantes na Universidade de São Paulo no ano de 2021

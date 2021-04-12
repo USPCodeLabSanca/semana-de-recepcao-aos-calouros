@@ -2,7 +2,7 @@ import React from 'react';
 
 export default {
   title: 'Biblioteca',
-  videoUrl: 'https://www.youtube.com/watch?v=eG2VCdJH5Wc',
+  videoUrl: 'https://youtu.be/80wR5PsiWsc',
   faq: [
     {
       question: 'Como faço minha inscrição na Biblioteca?',
