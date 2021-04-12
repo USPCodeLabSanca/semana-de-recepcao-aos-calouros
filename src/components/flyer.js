@@ -20,14 +20,11 @@ export default function Flyer() {
         <p className='color-black pb-10 pt-2 px-2 sm:px-0 text-lg'>
           Já pensou em transformar a Semana de Recepção em um grande jogo?!
         </p>
-        {/* <a href='https://bixoquest.icmc.usp.br' target='_blank' rel='noopener noreferrer'>
+        <a href='https://bixoquest.icmc.usp.br' target='_blank' rel='noopener noreferrer'>
           <button className='text-base sm:text-lg md:text-xl lg:text-2xl transition-all bg-secondary hover:bg-indigo-800 color-white shadow-md py-3 px-12 rounded w-100'>
             Clique aqui!
           </button>
-        </a> */}
-        <button className='pointer-events-none text-base sm:text-lg md:text-xl lg:text-2xl transition-all bg-gray color-white shadow-md py-3 px-12 rounded w-100'>
-            Em breve!
-        </button>
+        </a>
       </div>
     </div>
   );
