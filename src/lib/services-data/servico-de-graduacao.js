@@ -2,7 +2,7 @@ import React from 'react';
 
 export default {
   title: 'Serviço de Graduação',
-  videoUrl: 'https://www.youtube.com/watch?v=eG2VCdJH5Wc',
+  videoUrl: 'https://youtu.be/iOMAuWazXOA',
   faq: [
     {
       question: 'O que é número USP? Como eu sei o meu?',

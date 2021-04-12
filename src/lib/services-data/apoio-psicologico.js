@@ -2,7 +2,7 @@ import React from 'react';
 
 export default {
   title: 'Apoio Psicológico',
-  videoUrl: 'https://www.youtube.com/watch?v=eG2VCdJH5Wc',
+  videoUrl: 'https://youtu.be/EnJO1PIoTbw',
   faq: [
     {
       question: 'O que é o GAPsi?',

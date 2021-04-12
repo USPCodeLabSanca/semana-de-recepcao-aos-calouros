@@ -2,7 +2,7 @@ import React from 'react';
 
 export default {
   title: 'Comunicação',
-  videoUrl: 'https://www.youtube.com/watch?v=eG2VCdJH5Wc',
+  videoUrl: 'https://youtu.be/TxfDBPuzfsQ',
   faq: [
     {
       question: `Como faço para divulgar alguma coisa nas mídias do ICMC?`,
