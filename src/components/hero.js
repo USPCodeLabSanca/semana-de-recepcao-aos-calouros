@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {HashLink} from 'react-router-hash-link';
+
 import Detalhe from '../images/detalhe.png';
 
 /**
@@ -27,11 +29,11 @@ function Hero() {
             Tudo será <b>virtual</b>, assim como as aulas deste primeiro semestre.
           </p>
           <div className='pb-14 pt-4 md:pb-4'>
-            <a href='https://docs.google.com/forms/d/e/1FAIpQLScxUHu-s87JOR-lOXKML6T-wfTBhHv_8C1h2EAJYUdIL2zmbQ/viewform' target='_blank' rel='noopener noreferrer'>
+            <HashLink smooth to='/#programacao'>
               <button className='text-base sm:text-lg md:text-xl lg:text-2xl transition-all bg-white hover:bg-gray-100 shadow-md py-3 px-12 rounded w-100'>
                 Quero participar!
               </button>
-            </a>
+            </HashLink>
           </div>
         </div>
       </div>
