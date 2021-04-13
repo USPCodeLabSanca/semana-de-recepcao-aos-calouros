@@ -20,7 +20,7 @@ function Hero() {
         </div>
         <div className='text-base sm:text-lg md:text-xl lg:text-2xl'>
           <p className='py-4'>
-            Você acababa de ingressar em uma <b>universidade pública, gratuita e reconhecida</b> como umas das melhores do mundo.
+            Você acaba de ingressar em uma <b>universidade pública, gratuita e reconhecida</b> como umas das melhores do mundo.
           </p>
           <p className='py-4'>
             Durante a semana de 12 a 16 de abril de 2021 preparamos uma programação para apresentar <b>a sua nova casa</b>.
