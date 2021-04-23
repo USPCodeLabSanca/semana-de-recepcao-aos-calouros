@@ -179,7 +179,7 @@ export default function Programacao({events}) {
     });
   });
 
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(6);
 
   const handleStep = (step) => () => {
     setActiveStep(step);
@@ -191,7 +191,7 @@ export default function Programacao({events}) {
 
   return (
     <div className='min-h-screen' id='programacao'>
-      <SectionHeader title='Programação completa' subTitle={<p>Confira tudo que planejamos <b>para você!</b></p>} />
+      <SectionHeader title='Programação completa' subTitle={<p>Confira tudo que já aconteceu e que <b>ainda vai rolar!</b></p>} />
       <div className='flex justify-center pt-4'>
         <div className='w-full sm:w-5/6 md:w-3/5 overflow-x-scroll sm:overflow-x-auto'>
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector/>}>
