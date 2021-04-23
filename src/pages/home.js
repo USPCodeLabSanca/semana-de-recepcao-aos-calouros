@@ -4,7 +4,8 @@ import {useHistory} from 'react-router-dom';
 
 import Hero from '../components/hero';
 import Presentation from '../components/presentation';
-import Live from '../components/live';
+import Highlights from '../components/highlights';
+// import Live from '../components/live';
 // import Eventos from '../components/eventos';
 import Programacao from '../components/programacao';
 import Services from '../components/services';
@@ -62,7 +63,8 @@ export default function Home() {
     <main>
       <Hero />
       <Presentation />
-      <Live url={data && data.URL_Live} />
+      <Highlights />
+      {/* <Live url={data && data.URL_Live} /> */}
       {/* <Eventos /> */}
       <span ref={programacaoComponent} />
       {
