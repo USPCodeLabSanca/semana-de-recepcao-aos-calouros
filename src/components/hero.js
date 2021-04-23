@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {HashLink} from 'react-router-hash-link';
-
 import Detalhe from '../images/detalhe.png';
 
 /**
@@ -23,18 +21,8 @@ function Hero() {
             Você acaba de ingressar em uma <b>universidade pública, gratuita e reconhecida</b> como umas das melhores do mundo.
           </p>
           <p className='py-4'>
-            Durante a semana de 12 a 16 de abril de 2021 preparamos uma programação para apresentar <b>a sua nova casa</b>.
+            Preparamos diversos conteúdos para apresentar a sua nova casa. Tudo será <b>virtual</b>, assim como as aulas deste primeiro semestre.
           </p>
-          <p className='py-4'>
-            Tudo será <b>virtual</b>, assim como as aulas deste primeiro semestre.
-          </p>
-          <div className='pb-14 pt-4 md:pb-4'>
-            <HashLink smooth to='/#programacao'>
-              <button className='text-base sm:text-lg md:text-xl lg:text-2xl transition-all bg-white hover:bg-gray-100 shadow-md py-3 px-12 rounded w-100'>
-                Quero participar!
-              </button>
-            </HashLink>
-          </div>
         </div>
       </div>
     </div>
