@@ -179,7 +179,7 @@ export default function Programacao({events}) {
     });
   });
 
-  const [activeStep, setActiveStep] = React.useState(6);
+  const [activeStep, setActiveStep] = React.useState(0);
 
   const handleStep = (step) => () => {
     setActiveStep(step);
