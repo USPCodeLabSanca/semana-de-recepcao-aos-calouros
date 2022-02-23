@@ -63,12 +63,12 @@ export default function Services({url}) {
               return (<Link className='h-full' key={index} to={service.path}>
                 <div className='flex flex-col justify-center break-words transition-all bg-white hover:bg-gray-200 shadow-md hover:shadow-none m-8 p-8 h-96'>
                   {
-                    service.description.length > 0 &&
-                    <p className='text-base lg:text-lg xl:text-xl pb-4'>{service.description}</p>
-                  }
-                  {
                     service.title.length > 0 &&
                     <h1 className='text-xl lg:text-2xl xl:text-4xl'>{service.title}</h1>
+                  }
+                  {
+                    service.description.length > 0 &&
+                    <p className='text-base lg:text-lg xl:text-xl pb-4'>{service.description}</p>
                   }
                 </div>
               </Link>);

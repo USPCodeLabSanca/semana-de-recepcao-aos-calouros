@@ -37,6 +37,7 @@ function Navbar() {
             <h1 className='text-xs md:text-sm lg uppercase'>
               <b>Instituto de Ciências Matemáticas e de Computação da USP</b>
             </h1>
+            <p>Horrível</p>
             <h2 className='text-xs'>
               <b>semana de recepção aos calouros de 2021</b>
             </h2>
