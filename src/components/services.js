@@ -61,7 +61,7 @@ export default function Services({url}) {
           <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'>
             {services.map((service, index) => {
               return (<Link className='h-full' key={index} to={service.path}>
-                <div className='flex flex-col justify-center break-words transition-all bg-white hover:bg-gray-200 shadow-md hover:shadow-none m-8 p-8 h-96'>
+                <div className='card-servico flex flex-col justify-center break-words transition-all bg-white hover:bg-gray-200 shadow-md hover:shadow-none m-8 p-8 h-96'>
                   {
                     service.description.length > 0 &&
                     <p className='text-base lg:text-lg xl:text-xl pb-4'>{service.description}</p>
