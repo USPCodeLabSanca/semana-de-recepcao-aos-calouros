@@ -93,3 +93,10 @@ html,
 .h-full-important {
   height: 100% !important;
 }
+.card-servico{
+  transition: ease-in 0.3s;
+}
+
+.card-servico:hover{
+  transform: scale(1.05);
+}
