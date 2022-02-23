@@ -5,7 +5,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import Logo from '../images/logo.png';
+import Logo from '../images/ICMC_e_SANTANDER.png';
 
 /**
  * Navbar
@@ -31,17 +31,8 @@ function Navbar() {
       <div className='flex h-full items-center justify-between container mx-auto px-4'>
         <div className='flex items-center h-full'>
           <HashLink className='h-full' to='/'>
-            <img src={Logo} alt='Logo ICMC 50 anos' className='p-4 h-full'/>
+            <img src={Logo} alt='Logo ICMC 50 anos' className='p-2 h-full'/>
           </HashLink>
-          <div className='hidden sm:block color-white py-4'>
-            <h1 className='text-xs md:text-sm lg uppercase'>
-              <b>Instituto de Ciências Matemáticas e de Computação da USP</b>
-            </h1>
-            <p>Horrível</p>
-            <h2 className='text-xs'>
-              <b>semana de recepção aos calouros de 2021</b>
-            </h2>
-          </div>
         </div>
         <div className='hidden lg:flex'>
           {links.map((link, index) => {
