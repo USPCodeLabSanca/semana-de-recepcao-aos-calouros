@@ -11,8 +11,6 @@ import Programacao from '../components/programacao';
 import Services from '../components/services';
 import Flyer from '../components/flyer';
 import Celebration from '../components/celebration';
-import LinksImportantes from '../components/links-importantes';
-import Socials from '../components/socials';
 import Footer from '../components/footer';
 import API from '../lib/api';
 
@@ -74,8 +72,6 @@ export default function Home() {
       <Services />
       <Flyer />
       <Celebration />
-      <LinksImportantes />
-      <Socials />
       <Footer />
     </main>
   );

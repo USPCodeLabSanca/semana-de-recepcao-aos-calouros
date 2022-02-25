@@ -8,23 +8,23 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 
 const links = [
   {
-    image: <FacebookIcon color='primary' />,
+    image: <FacebookIcon color='black' />,
     link: 'https://pt-br.facebook.com/icmc.usp',
   },
   {
-    image: <InstagramIcon color='primary' />,
+    image: <InstagramIcon color='black' />,
     link: 'https://www.instagram.com/icmc.usp',
   },
   {
-    image: <TwitterIcon color='primary' />,
+    image: <TwitterIcon color='black' />,
     link: 'https://twitter.com/icmc_usp',
   },
   {
-    image: <LinkedInIcon color='primary' />,
+    image: <LinkedInIcon color='black' />,
     link: 'https://www.linkedin.com/school/icmc-usp',
   },
   {
-    image: <YouTubeIcon color='primary' />,
+    image: <YouTubeIcon color='black' />,
     link: 'https://www.youtube.com/channel/UCAnzNH_nZcLIBVLWoiWY5KA',
   },
 ];
@@ -37,18 +37,13 @@ const links = [
 export default function Socials() {
   return (
     <>
-      <div className='bg-primary h-48'>
-        <div className='flex items-center justify-center text-center h-full container mx-auto px-8'>
-          <h1 className='text-xl font-bold uppercase md:text-2xl lg:text-4xl'>Siga nossas redes sociais:</h1>
-        </div>
-      </div>
-      <div className='bg-primary pb-20'>
+      <div className='pb-2'>
         <div className='flex flex-wrap justify-center container mx-auto'>
           {links.map((link, index) => {
             return (
-              <div className='p-4' key={index}>
+              <div className='p-2' key={index}>
                 <a
-                  className='flex items-center justify-center transition-all bg-black hover:bg-gray-700 rounded-full h-12 w-12 sm:h-16 sm:w-16 sm:h-20 sm:w-20'
+                  className='flex items-center justify-center transition-all hover:bg-gray-200 rounded-full h-6 w-6 sm:h-12 sm:w-12'
                   rel='noreferrer noopener'
                   href={link.link} target="_blank"
                 >
