@@ -17,6 +17,9 @@ function Navbar() {
     path: '/#programacao',
     text: 'programação',
   }, {
+    path: '/#servicos',
+    text: 'serviços',
+  }, {
     path: '/disque-trote',
     text: 'disque-trote',
   }, {
