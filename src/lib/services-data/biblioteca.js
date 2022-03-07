@@ -37,7 +37,7 @@ export default {
             href='http://www.buscaintegrada.usp.br/'
             target="_blank"
           >Portal de Busca Integrada</a></u>.
-        </p>        
+        </p>
         <h1 className='py-4'><b>Renovações e reservas</b></h1>
         <p>
           As renovações e reservas podem ser efetuadas no balcão de atendimento ou on-line. São permitidas 03
