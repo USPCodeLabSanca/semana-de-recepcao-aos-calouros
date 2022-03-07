@@ -157,10 +157,6 @@ export default {
           do serviço e acordo com o estagiário, podendo ser realizados semanalmente, quinzenalmente e até
           mensalmente.
         </p>
-        <p>
-          No <b>formato presencial</b>, os acolhimentos ocorrem na Sala 4-008 (ICMC), já <b>no formato
-          online/remoto</b>, os encontros são realizados pelas plataformas do Google Meet, Hangouts e Skype.
-        </p>
       </>,
     },
     {

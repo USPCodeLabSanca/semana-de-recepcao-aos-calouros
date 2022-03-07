@@ -20,9 +20,6 @@ function Hero() {
           <p className='py-4'>
             Você acaba de ingressar em uma <b>universidade pública, gratuita e reconhecida</b> como umas das melhores do mundo.
           </p>
-          <p className='py-4'>
-            Preparamos diversos conteúdos para apresentar a sua nova casa. Tudo será <b>virtual</b>, assim como as aulas deste primeiro semestre.
-          </p>
         </div>
       </div>
     </div>
