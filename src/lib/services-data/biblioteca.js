@@ -10,7 +10,7 @@ export default {
         Podem cadastrar-se junto à Biblioteca para utilização de seus recursos e serviços os docentes, docentes visitantes e
         funcionários da unidade, os alunos de graduação, pós-graduação e visitantes e os docentes de outras instituições de
         ensino superior. Os alunos são automaticamente inscritos nas Bibliotecas da USP no ato da matrícula. Eles são
-        identificados pelo cartão USP, carteirinha Digital USP (e-card) que deve ser utilizado para empréstimos, reservas,
+        identificados pelo cartão USP ou carteirinha Digital USP (e-card) que deve ser utilizado para empréstimos, reservas,
         renovações e demais serviços das Bibliotecas.
       </p>,
     },
@@ -26,30 +26,18 @@ export default {
             href='http://www.leginf.usp.br/?portaria=portaria-gr-no-6915-de-28-de-junho-de-2017'
             target="_blank"
           >Portaria GR-6915</a> para saber mais sobre o Empréstimo Unificado. O
-          acervo disponível em todas as bibliotecas das USP pode ser consultado utilizando os buscadores  <a
+          acervo disponível em todas as bibliotecas das USP pode ser consultado utilizando os buscadores  <u><a
             rel='noreferrer noopener'
             className='hover:underline break-all'
             href='http://dedalus.usp.br/F?RN=454054470'
             target="_blank"
-          >Dedalus</a>
-          ou o <a
+          >Dedalus</a></u> ou o <u><a
             rel='noreferrer noopener'
             className='hover:underline break-all'
             href='http://www.buscaintegrada.usp.br/'
             target="_blank"
-          >Portal de Busca Integrada</a>.
-        </p>
-        <h1 className='py-4'><b>Pandemia: Empréstimos por agendamento</b></h1>
-        <p>
-          O empréstimo de materiais com agendamento é um serviço específico e temporário, oferecido em caráter
-          emergencial neste momento de pandemia e, por isso, com novas regras e procedimentos. O acervo
-          permanece fechado ao público, a consulta aos catálogos é feita exclusivamente pela internet, as
-          solicitações de livros e teses devem ser enviadas para o e-mail <b>biblio@icmc.usp.br</b>, com o nome
-          completo do usuário, e-mail, número USP, e os títulos desejados. A equipe da Biblioteca confirma
-          por e-mail a disponibilidade do material e informa data e hora agendadas para retirada. Dúvidas
-          durante esse processo e próximas à data e hora agendadas devem ser resolvidas por WhatsApp, por
-          ser um canal mais ágil.
-        </p>
+          >Portal de Busca Integrada</a></u>.
+        </p>        
         <h1 className='py-4'><b>Renovações e reservas</b></h1>
         <p>
           As renovações e reservas podem ser efetuadas no balcão de atendimento ou on-line. São permitidas 03
@@ -170,89 +158,6 @@ export default {
           href='mailto:biblio@icmc.usp.br'
         >biblio@icmc.usp.br</a> e ofereceremos o treinamento que você precisa.
       </p>,
-    },
-    {
-      question: `
-        Durante a pandemia, existem recursos on-line disponíveis, uma vez que o acesso à Biblioteca está suspenso?
-      `,
-      answer: <>
-        <p>
-          Sim. A Biblioteca disponibiliza alguns recursos on-line durante a pandemia:
-        </p>
-        <p>
-          <b>Serviço de VPN</b> (Virtual Private Network ou Rede Privada Virtual): Acesse: <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://servicos.sti.usp.br/en/vpn/'
-            target="_blank"
-          >https://servicos.sti.usp.br/en/vpn/</a>
-        </p>
-        <p>
-          <b>Biblioteca Virtual da Pearson</b>: Acesso em: <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://plataforma.bvirtual.com.br'
-            target="_blank"
-          >https://plataforma.bvirtual.com.br</a>. Solicitar login e senha à Biblioteca via e-mail <a
-            className='hover:underline break-all'
-            href='mailto:biblio@icmc.usp.br'
-          >biblio@icmc.usp.br</a>
-        </p>
-        <p>
-          <b>Minha Biblioteca</b>. Plataforma de e-Books que oferece acesso a milhares de livros eletrônicos das
-          principais editoras do país. É possível encontrar e acessar alguns títulos que constam da bibliografia
-          básica de disciplinas da área de Exatas. Acesse o vídeo instrucional <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://www.youtube.com/watch?v=A0gU_476OsA'
-            target="_blank"
-          >https://www.youtube.com/watch?v=A0gU_476OsA</a>
-        </p>
-        <p>
-          <b>E-books Springer</b>: Lista dos títulos disponível em: <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://www.springernature.com/gp/librarians/news-events/all-news-articles/industry-news-initiatives/free-access-to-textbooks-for-institutions-affected-by-coronaviru/17855960'
-            target="_blank"
-          >https://www.springernature.com/gp/librarians/news-events/all-news-articles/industry-news-initiatives/free-access-to-textbooks-for-institutions-affected-by-coronaviru/17855960</a>.
-        </p>
-        <p>
-          <b>E-books Elsevier</b>: 256 títulos de livros-texto de várias áreas do conhecimento. Acesso via site <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://www.sciencedirect.com/'
-            target="_blank"
-          >https://www.sciencedirect.com/</a> e é necessário estar conectado em um IP USP.
-        </p>
-        <p>
-          <b>Harvard Business Publishing</b>: disponibiliza acesso livre e ilimitado à coleção de e-books da Harvard
-          Business Review. É necessário estar conectado a um IP USP. Link: <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='bit.ly/usp-hbr'
-            target="_blank"
-          >bit.ly/usp-hbr</a>
-        </p>
-        <p>
-          <b>JoVE</b> - Journal of Visual Experimentation: <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://www.jove.com/coronavirusresource'
-            target="_blank"
-          >https://www.jove.com/coronavirusresource</a>.
-        </p>
-        <p>
-          Acesso liberado por meio de IP USP.
-        </p>
-        <p>
-          Mais informações acesse a home page da biblioteca: <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://www.icmc.usp.br/institucional/estrutura-administrativa/biblioteca'
-            target="_blank"
-          >https://www.icmc.usp.br/institucional/estrutura-administrativa/biblioteca</a>
-        </p>
-      </>,
     },
     {
       question: 'Qual o horário de funcionamento da Biblioteca?',
