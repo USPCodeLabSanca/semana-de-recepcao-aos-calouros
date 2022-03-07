@@ -13,7 +13,7 @@ export default function Celebration() {
       <div className='flex flex-col items-center container mx-auto text-center px-8 text-white'>
         <div className='max-w-4xl'>
           <p className='text-xl py-8'>
-            Em 2021 <b>o ICMC completou 50 anos</b> desde sua criação!!
+            Em 2021 <b>o ICMC completou 50 anos</b> desde sua criação!
             Durante o ano todo você vai poder conhecer mais sobre <b>a história e as pessoas</b> que fizeram e fazem parte dessa grande família.
           </p>
         </div>
