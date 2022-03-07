@@ -4,21 +4,21 @@ export default {
   title: 'Assistência Social',
   videoUrl: 'https://youtu.be/ERMPUB3ZETo',
   text: <p>
-    Antes de mais nada, leia atentamente o EDITAL PAPFE INGRESSANTES 2021 que dispõe sobre as normas do Programa de
-    Apoio à Permanência e Formação Estudantil, destinado aos ingressantes na Universidade de São Paulo no ano de 2021
+    Antes de mais nada, leia atentamente o EDITAL PAPFE INGRESSANTES 2022 que dispõe sobre as normas do Programa de
+    Apoio à Permanência e Formação Estudantil, destinado aos ingressantes na Universidade de São Paulo no ano de 2022
     (<a
       rel='noreferrer noopener'
       className='hover:underline break-all'
-      href='https://sites.usp.br/sas/wp-content/uploads/sites/265/2021/03/2021_03_26_Edital-PAPFE-INGRESSANTES-2021-site.pdf'
+      href='http://www.puspsc.usp.br/wp-content/uploads/sites/314/2022/02/Edital-PAPFE-2022-INGRESSANTES.pdf'
       target="_blank"
-    >https://sites.usp.br/sas/wp-content/uploads/sites/265/2021/03/2021_03_26_Edital-PAPFE-INGRESSANTES-2021-site.pdf</a>)
+    >www.puspsc.usp.br/wp-content/uploads/sites/314/2022/02/Edital-PAPFE-2022-INGRESSANTES.pdf</a>)
   </p>,
   faq: [
     {
       question: 'Quem pode se inscrever nos benefícios do PAPFE?',
       answer: <>
         <p>
-          Alunos regularmente matriculados em cursos de Graduação da USP, ingressantes em 2021, que estejam cursando
+          Alunos regularmente matriculados em cursos de Graduação da USP, ingressantes em 2022, que estejam cursando
           a primeira graduação, inclusive os estudantes intercambistas (não são aceitas inscrições de alunos já
           graduados – bacharelado, licenciatura ou tecnólogo).
         </p>
@@ -27,26 +27,20 @@ export default {
           completo e nº USP).
         </p>
         <p>
-          Período de inscrição dos alunos ingressantes:
-        </p>
-        <p>
-          Ingressantes FUVEST: de 29/03 a 14/04/2021
-        </p>
-        <p>
-          Ingressantes SiSU: de 15/04 a 21/05/2021
+          Período de inscrição dos alunos ingressantes: 14/02 a 15/04/2022, até as 20 horas.
         </p>
       </>,
     },
     {
       question: 'Sou veterano na USP, posso me inscrever agora?',
       answer: <p>
-        Não, a inscrição para alunos veteranos encerrou-se em 11/02/2021.
+        Não, a inscrição para alunos veteranos encerrou-se em 27/01/2022.
       </p>,
     },
     {
       question: 'O que é o questionário de avaliação socioeconômica (SASe)?',
       answer: <p>
-        Para a inscrição no PAPFE 2021, o candidato deverá preencher o questionário eletrônico de avaliação
+        Para a inscrição no PAPFE 2022, o candidato deverá preencher o questionário eletrônico de avaliação
         socioeconômica (SASe), no qual deve registrar as informações que correspondam fielmente à sua atual situação
         socioeconômica, assim como a de sua família. O candidato é integralmente responsável pela veracidade da
         informação fornecida.
@@ -148,7 +142,7 @@ export default {
       question: 'Quais documentos devo apresentar digitalmente no momento da inscrição?',
       answer: <>
         <p>
-          DOCUMENTOS OBRIGATÓRIOS – PAPFE 2021
+          DOCUMENTOS OBRIGATÓRIOS – PAPFE 2022
         </p>
         <p>
           Os documentos listados abaixo deverão ser, obrigatoriamente, anexados ao questionário do SASe. Caso o(a)
@@ -165,7 +159,7 @@ export default {
               CONTA DE LUZ ATUALIZADA (para comprovação de consumo/despesa).
             </p>
             <p>
-              A conta deverá ser da unidade residencial da família e relativa ao mês /ano da inscrição no PAPFE/2021
+              A conta deverá ser da unidade residencial da família e relativa ao mês /ano da inscrição no PAPFE/2022.
             </p>
           </li>
           <li>
@@ -175,7 +169,7 @@ export default {
             <p>
               O imposto deverá ser da unidade residencial da família para comprovação de casa própria; no caso de a
               moradia ser alugada/república, enviar o comprovante do pagamento de aluguel do mês/ano da inscrição do
-              PAPFE/2021
+              PAPFE/2022
             </p>
           </li>
           <li>
@@ -198,7 +192,7 @@ export default {
               escolas, pagamento de planos de saúde e outros)
             </p>
             <p>
-              Cópia completa da última declaração de IR (2019/2020), todas as folhas.
+              Cópia completa da última declaração de IR (2020/2021), todas as folhas.
             </p>
           </li>
         </ol>
@@ -255,7 +249,7 @@ export default {
       </p>,
     },
     {
-      question: 'Que uso será feito das informações e documentos que forneci na inscrição no PAPFE 2021?',
+      question: 'Que uso será feito das informações e documentos que forneci na inscrição no PAPFE 2022?',
       answer: <p>
         As informações e os documentos fornecidos no SASe têm a finalidade exclusiva de avaliação socioeconômica para
         o processo seletivo de bolsas, auxílios e apoios da Universidade de São Paulo, sendo de acesso restrito e
@@ -263,7 +257,7 @@ export default {
       </p>,
     },
     {
-      question: 'Ainda tenho dúvidas em relação ao PAPFE 2021. Como posso saná-las?',
+      question: 'Ainda tenho dúvidas em relação ao PAPFE 2022. Como posso saná-las?',
       answer: <>
         <p>
           Entre em contato com a Assistente Social. Você pode enviar um e-mail para a assistente social responsável
