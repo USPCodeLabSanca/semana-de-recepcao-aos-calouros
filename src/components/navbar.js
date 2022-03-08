@@ -34,7 +34,7 @@ function Navbar() {
       <div className='flex h-full items-center justify-between container mx-auto px-4'>
         <div className='flex items-center h-full'>
           <HashLink className='h-full' to='/'>
-            <img src={Logo} alt='Logo ICMC 50 anos' className='p-2 h-full'/>
+            <img src={Logo} alt='Logo ICMC 50 anos' className='p-2 h-full' id="imgnav"/>
           </HashLink>
         </div>
         <div className='hidden lg:flex'>
