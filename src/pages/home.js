@@ -4,15 +4,13 @@ import {useHistory} from 'react-router-dom';
 
 import Hero from '../components/hero';
 import Presentation from '../components/presentation';
-import Highlights from '../components/highlights';
+// import Highlights from '../components/highlights';
 // import Live from '../components/live';
 // import Eventos from '../components/eventos';
 import Programacao from '../components/programacao';
 import Services from '../components/services';
 import Flyer from '../components/flyer';
 import Celebration from '../components/celebration';
-import LinksImportantes from '../components/links-importantes';
-import Socials from '../components/socials';
 import Footer from '../components/footer';
 import API from '../lib/api';
 
@@ -63,7 +61,7 @@ export default function Home() {
     <main>
       <Hero />
       <Presentation />
-      <Highlights />
+      {/* <Highlights /> */}
       {/* <Live url={data && data.URL_Live} /> */}
       {/* <Eventos /> */}
       <span ref={programacaoComponent} />
@@ -74,8 +72,6 @@ export default function Home() {
       <Services />
       <Flyer />
       <Celebration />
-      <LinksImportantes />
-      <Socials />
       <Footer />
     </main>
   );
