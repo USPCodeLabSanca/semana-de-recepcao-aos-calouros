@@ -8,10 +8,10 @@ import Hero from '../components/hero';
 // import Live from '../components/live';
 // import Eventos from '../components/eventos';
 import Programacao from '../components/programacao';
-import Services from '../components/services';
-import Flyer from '../components/flyer';
-import Celebration from '../components/celebration';
-import Footer from '../components/footer';
+const Services = React.lazy(()=> import('../components/services'));
+const Flyer = React.lazy(()=> import('../components/flyer'));
+const Celebration = React.lazy(()=> import('../components/celebration'));
+const Footer = React.lazy(()=> import('../components/footer'));
 import API from '../lib/api';
 
 /**
@@ -69,10 +69,12 @@ export default function Home() {
         data && data.Eventos &&
         <Programacao events={data.Eventos} />
       }
-      <Services />
-      <Flyer />
-      <Celebration />
-      <Footer />
+      <React.Suspense fallback={<p>Loading</p>}>
+        <Services />
+        <Flyer />
+        <Celebration />
+        <Footer />
+      </React.Suspense>
     </main>
   );
 }
