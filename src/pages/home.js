@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import Hero from '../components/hero';
-import Presentation from '../components/presentation';
+// import Presentation from '../components/presentation';
 // import Highlights from '../components/highlights';
 // import Live from '../components/live';
 // import Eventos from '../components/eventos';
@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Presentation />
+      {/* <Presentation /> */}
       {/* <Highlights /> */}
       {/* <Live url={data && data.URL_Live} /> */}
       {/* <Eventos /> */}
