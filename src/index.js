@@ -5,10 +5,10 @@ import {Switch, Route, BrowserRouter, Redirect} from 'react-router-dom';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
 
-import Home from './pages/home';
-import DisqueTrote from './pages/disque-trote';
-import Contato from './pages/contato';
-import Servicos from './pages/servicos';
+const Home = React.lazy(()=> import('./pages/home'));
+const DisqueTrote = React.lazy(()=> import('./pages/disque-trote'));
+const Contato = React.lazy(()=> import('./pages/contato'));
+const Servicos = React.lazy(()=> import('./pages/servicos'));
 import Navbar from './components/navbar';
 import ScrollToTop from './lib/scroll-to-top';
 
@@ -37,10 +37,12 @@ function App() {
         <Navbar />
         <ScrollToTop>
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/disque-trote' component={DisqueTrote} />
-            <Route exact path='/contato' component={Contato} />
-            <Route exact path='/servicos/:service' component={Servicos} />
+            <React.Suspense fallback={<>Loading</>}>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/disque-trote' component={DisqueTrote} />
+              <Route exact path='/contato' component={Contato} />
+              <Route exact path='/servicos/:service' component={Servicos} />
+            </React.Suspense>
             <Redirect to='/' />
           </Switch>
         </ScrollToTop>
