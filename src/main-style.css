@@ -100,3 +100,7 @@ html,
 .card-servico:hover{
   transform: scale(1.05);
 }
+
+#imgnav{
+  max-width: 70%;
+}
