@@ -17,6 +17,10 @@ const usefulLinks = [
     link: 'https://usp.br/manualdocalouro/',
   },
   {
+    linkText: 'Dicas sobre alimentação, transporte e auxílios no Campus',
+    link: 'http://www.saocarlos.usp.br/calouros-2022-confira-algumas-dicas-sobre-alimentacao-transporte-e-auxilios-no-campus/',
+  },
+  {
     linkText: 'Programa de Apoio à Permanência e Formação Estudantil (PAPFE)',
     link: 'http://www.saocarlos.usp.br/calouros-com-dificuldades-socioeconomicas-podem-se-inscrever-em-programa-de-permanencia/',
   },
