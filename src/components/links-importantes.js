@@ -8,6 +8,10 @@ const links = [
     link: 'https://icmc.usp.br/',
   },
   {
+    linkText: 'Discord do ICMC',
+    link: 'https://discord.gg/QrbxjtwhBx',
+  },
+  {
     linkText: 'Manual do calouro USP',
     link: 'https://usp.br/manualdocalouro/',
   },
