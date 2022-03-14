@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LogoBixoquest from '../images/logo-bixoquest.png';
+// import LogoBixoquest from '../images/logo-bixoquest.png';
 import LogoBixoVentures from '../images/logo-bixoventures.png';
 
 /**
@@ -16,13 +16,13 @@ export default function Flyer() {
           <div>
             <h1 className='text-xl font-bold uppercase md:text-2xl lg:text-4xl'>Games</h1>
             <p className='text-xl pt-2'>
-              Divirta-se nesses <b>jogos temáticos</b> criados por seus vetaranos
+              Divirta-se nos <b>jogos temáticos</b> criados por seus vetaranos
             </p>
           </div>
         </div>
       </div>
       <div className='flex flex-col sm:flex-row justify-center shadow-md pb-8 h-full'>
-        <div className='sm:w-1/2 pb-8 sm:pb-0'>
+        {/* <div className='sm:w-1/2 pb-8 sm:pb-0'>
           <div className='flex justify-center sm:py-4 md:px-4'>
             <div className='w-3/4'>
               <div className='container-16-9 inset-0'>
@@ -39,7 +39,7 @@ export default function Flyer() {
               </button>
             </a>
           </div>
-        </div>
+        </div> */}
         <div className='sm:w-1/2 h-full'>
           <div className='flex justify-center items-center sm:py-4 md:px-4'>
             <div className='w-3/4'>
