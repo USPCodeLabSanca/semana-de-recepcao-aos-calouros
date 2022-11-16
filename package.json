@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^6.1.1",
+    "@craco/craco": "^7.0.0",
     "@material-ui/core": "^4.8.3",
     "@material-ui/icons": "^4.5.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -17,7 +17,7 @@
     "react-player": "^2.9.0",
     "react-router-dom": "^5.1.2",
     "react-router-hash-link": "^2.4.0",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1"
   },
