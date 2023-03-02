@@ -14,8 +14,9 @@ html,
 }
 
 :root {
-  --primary: #e68d13;
-  --secondary: #2523a1;
+  --primary: #F4D06F;
+  --secondary: #A7DDED;
+  --yellow: #F4D825;
   --white: #fafafa;
   --light-gray: #c7c5c5;
   --gray: #9b9a9a;
@@ -29,6 +30,10 @@ html,
 
 .bg-secondary {
   background-color: var(--secondary);
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
 }
 
 .bg-white {
@@ -53,6 +58,10 @@ html,
 
 .color-secondary {
   color: var(--secondary);
+}
+
+.color-yellow {
+  color: var(--yellow);
 }
 
 .color-white {
