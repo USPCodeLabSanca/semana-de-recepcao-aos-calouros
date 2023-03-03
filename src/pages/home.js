@@ -10,7 +10,6 @@ import Hero from '../components/hero';
 // import Programacao from '../components/programacao';
 const Services = React.lazy(()=> import('../components/services'));
 const Flyer = React.lazy(()=> import('../components/flyer'));
-const Celebration = React.lazy(()=> import('../components/celebration'));
 const Footer = React.lazy(()=> import('../components/footer'));
 // import API from '../lib/api';
 
@@ -72,7 +71,6 @@ export default function Home() {
       <React.Suspense fallback={<p>Loading</p>}>
         <Services />
         <Flyer />
-        <Celebration />
         <Footer />
       </React.Suspense>
     </main>
