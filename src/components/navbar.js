@@ -5,7 +5,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import Logo from '../images/ICMC_e_SANTANDER.png';
+import Logo from '../images/logo-icmc-branco.svg';
 
 /**
  * Navbar
