@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {Link} from 'react-router-dom';
-import ReactPlayer from 'react-player';
 
 import SectionHeader from './section-header';
 
@@ -49,15 +48,6 @@ export default function Services({url}) {
       <SectionHeader title='Serviços e setores' subTitle={<p>Você vai <b>precisar</b> desse pessoal!</p>} />
       <div className='bg-primary pb-8'>
         <div className='container mx-auto'>
-          <div className='px-8 pt-4 pb-8'>
-            <div className='container-16-9 inset-0'>
-              <ReactPlayer
-                className='absolute inset-0 h-full-important shadow'
-                width='100%'
-                url='https://www.youtube.com/watch?v=eG2VCdJH5Wc'
-              />
-            </div>
-          </div>
           <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'>
             {services.map((service, index) => {
               return (<Link className='h-full' key={index} to={service.path}>

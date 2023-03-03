@@ -2,7 +2,7 @@ import React from 'react';
 
 export default {
   title: 'Assistência Social',
-  videoUrl: 'https://youtu.be/ERMPUB3ZETo',
+  videoUrl: null,
   text: <p>
     Antes de mais nada, leia atentamente o EDITAL PAPFE INGRESSANTES 2022 que dispõe sobre as normas do Programa de
     Apoio à Permanência e Formação Estudantil, destinado aos ingressantes na Universidade de São Paulo no ano de 2022

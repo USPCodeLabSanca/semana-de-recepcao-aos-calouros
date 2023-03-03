@@ -39,17 +39,21 @@ export default function Servicos({match: {params: {service}}}) {
   return (<main className='bg-primary pt-20'>
     <SectionHeader title={services[service].title} />
     <div className='container mx-auto mb-6 p-8 bg-white color-black shadow-md'>
-      <div className='container-16-9 inset-0'>
-        <ReactPlayer
-          className='absolute inset-0 h-full-important shadow'
-          width='100%'
-          url={services[service].videoUrl}
-        />
-      </div>
-      { services[service].text && <p className='text-sm md:text-base lg:text-lg pt-8'>
+      {
+        services[service].videoUrl && (
+          <div className='container-16-9 inset-0 pb-8'>
+            <ReactPlayer
+              className='absolute inset-0 h-full-important shadow'
+              width='100%'
+              url={services[service].videoUrl}
+            />
+          </div>
+        )
+      }
+      { services[service].text && <p className='text-sm md:text-base lg:text-lg pb-8'>
         {services[service].text}
       </p>}
-      { services[service].faq && <div className='pt-8'>
+      { services[service].faq && <div className=''>
         <Faq items={services[service].faq}></Faq>
       </div>}
     </div>
