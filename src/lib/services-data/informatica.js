@@ -2,7 +2,7 @@ import React from 'react';
 
 export default {
   title: 'Informática',
-  videoUrl: 'https://youtu.be/HTdka-yx6AY',
+  videoUrl: null,
   faq: [
     {
       question: 'Como faço para criar minha senha única?',
