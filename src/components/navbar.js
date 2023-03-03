@@ -14,9 +14,9 @@ import Logo from '../images/logo-icmc-branco.svg';
  */
 function Navbar() {
   const links = [{
-    path: '/#programacao',
-    text: 'programação',
-  }, {
+  //   path: '/#programacao',
+  //   text: 'programação',
+  // }, {
     path: '/#servicos',
     text: 'serviços',
   }, {
