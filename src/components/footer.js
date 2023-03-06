@@ -21,20 +21,24 @@ const usefulLinks = [
     link: 'https://usp.br/manualdocalouro/',
   },
   {
-    linkText: 'Dicas sobre alimentação, transporte e auxílios no Campus',
-    link: 'http://www.saocarlos.usp.br/calouros-2022-confira-algumas-dicas-sobre-alimentacao-transporte-e-auxilios-no-campus/',
+    linkText: 'Transporte',
+    link: 'http://www.saocarlos.usp.br/onibus/',
+  },
+  {
+    linkText: 'Alimentação',
+    link: 'http://www.puspsc.usp.br/cardapio/',
+  },
+  {
+    linkText: 'Atendimento médico',
+    link: 'http://www.saocarlos.usp.br/servicos/atendimento-medico/',
+  },
+  {
+    linkText: 'Segurança e tráfego no campus',
+    link: 'http://www.saocarlos.usp.br/servicos/seguranca-e-trafego-no-campus/',
   },
   {
     linkText: 'Programa de Apoio à Permanência e Formação Estudantil (PAPFE)',
     link: 'http://www.saocarlos.usp.br/calouros-com-dificuldades-socioeconomicas-podem-se-inscrever-em-programa-de-permanencia/',
-  },
-  {
-    linkText: 'Acesso às disciplinas do semestre',
-    link: 'https://sites.google.com/icmc.usp.br/disciplinas-2021/disciplinas_servico',
-  },
-  {
-    linkText: 'Solicitação de equipamento (computador/notebook) e kit internet',
-    link: 'https://docs.google.com/forms/d/e/1FAIpQLSfrvos68papCtsSDSBWbpd7Fk7cN9SU1Wuxkt1GNgRR6P84kw/viewform',
   },
   {
     linkText: 'Cardápio do restaurante universitário',
