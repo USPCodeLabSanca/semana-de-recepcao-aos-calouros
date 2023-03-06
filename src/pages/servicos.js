@@ -41,7 +41,7 @@ export default function Servicos({match: {params: {service}}}) {
     <div className='container mx-auto mb-6 p-8 bg-white color-black shadow-md'>
       {
         services[service].videoUrl && (
-          <div className='container-16-9 inset-0 pb-8'>
+          <div className='container-16-9 inset-0 mb-8'>
             <ReactPlayer
               className='absolute inset-0 h-full-important shadow'
               width='100%'
@@ -53,9 +53,7 @@ export default function Servicos({match: {params: {service}}}) {
       { services[service].text && <p className='text-sm md:text-base lg:text-lg pb-8'>
         {services[service].text}
       </p>}
-      { services[service].faq && <div className=''>
-        <Faq items={services[service].faq}></Faq>
-      </div>}
+      { services[service].faq && <Faq items={services[service].faq}></Faq>}
     </div>
     <Footer />
   </main>);
