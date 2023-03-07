@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 
 import {useHistory} from 'react-router-dom';
 
@@ -7,11 +7,11 @@ import Hero from '../components/hero';
 // import Highlights from '../components/highlights';
 // import Live from '../components/live';
 // import Eventos from '../components/eventos';
-// import Programacao from '../components/programacao';
+import Programacao from '../components/programacao';
 const Services = React.lazy(()=> import('../components/services'));
 const Flyer = React.lazy(()=> import('../components/flyer'));
 const Footer = React.lazy(()=> import('../components/footer'));
-// import API from '../lib/api';
+import API from '../lib/api';
 
 /**
  * Home Page
@@ -19,20 +19,20 @@ const Footer = React.lazy(()=> import('../components/footer'));
  * @return {void}
  */
 export default function Home() {
-  const programacaoComponent = React.useRef();
-  // const [data, setData] = useState();
+  const programacaoComponent = useRef();
+  const [data, setData] = useState();
 
   const {location: {hash}, replace} = useHistory();
 
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await API.home.get();
-  //     setData(response);
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await API.home.get();
+      setData(response);
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   /**
    * Scroll to 'Programacao'
@@ -45,7 +45,7 @@ export default function Home() {
     replace('/');
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (hash === '#programacao') {
       if (document.readyState === 'complete') {
         moveScreenToProgramacao();
@@ -64,10 +64,10 @@ export default function Home() {
       {/* <Live url={data && data.URL_Live} /> */}
       {/* <Eventos /> */}
       <span ref={programacaoComponent} />
-      {/* {
+      {
         data && data.Eventos &&
         <Programacao events={data.Eventos} />
-      } */}
+      }
       <React.Suspense fallback={<p>Loading</p>}>
         <Services />
         <Flyer />
