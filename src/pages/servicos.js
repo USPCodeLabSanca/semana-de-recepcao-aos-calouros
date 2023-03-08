@@ -8,7 +8,6 @@ import Faq from '../components/faq';
 import Footer from '../components/footer';
 import servicoDeGraduacao from '../lib/services-data/servico-de-graduacao';
 import biblioteca from '../lib/services-data/biblioteca';
-import assistenciaSocial from '../lib/services-data/assistencia-social';
 import informatica from '../lib/services-data/informatica';
 import comunicacao from '../lib/services-data/comunicacao';
 import apoioPsicologico from '../lib/services-data/apoio-psicologico';
@@ -16,7 +15,6 @@ import apoioPsicologico from '../lib/services-data/apoio-psicologico';
 const services = {
   'servico-de-graduacao': servicoDeGraduacao,
   'biblioteca': biblioteca,
-  'assistencia-social': assistenciaSocial,
   'informatica': informatica,
   'comunicacao': comunicacao,
   'apoio-psicologico': apoioPsicologico,
