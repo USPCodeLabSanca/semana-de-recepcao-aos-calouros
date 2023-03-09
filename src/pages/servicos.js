@@ -50,10 +50,12 @@ export default function Servicos({match: {params: {service}}}) {
           </div>
         )
       }
-      { services[service].text && <p className='text-sm md:text-base lg:text-lg pb-8'>
+      { services[service].text && <p className='text-sm md:text-base lg:text-lg'>
         {services[service].text}
       </p>}
-      { services[service].faq && <Faq items={services[service].faq}></Faq>}
+      { services[service].faq && <div className='pt-8'>
+        <Faq items={services[service].faq}></Faq>
+      </div>}
     </div>
     <Footer />
   </main>);
