@@ -14,9 +14,9 @@ html,
 }
 
 :root {
-  --primary: #F4D06F;
-  --secondary: #A7DDED;
-  --yellow: #F4D825;
+  --primary: #1d82ac;
+  --secondary: #f9db39;
+  --blue: #388db3;
   --white: #fafafa;
   --light-gray: #c7c5c5;
   --gray: #9b9a9a;
@@ -112,7 +112,7 @@ html,
 
 @media only screen and (max-width: 720px){
   #imgnav{
-    width: 70%;
-    height: auto;    
+    width: 55%;
+    height: auto;
   }
 }
