@@ -37,6 +37,10 @@ const usefulLinks = [
     link: 'http://www.saocarlos.usp.br/servicos/seguranca-e-trafego-no-campus/',
   },
   {
+    linkText: 'pró-reitoria de Inclusão e Pertencimento (PRIP)',
+    link: 'https://prip.usp.br/',
+  },
+  {
     linkText: 'Programa de Apoio à Permanência e Formação Estudantil (PAPFE)',
     link: 'http://www.saocarlos.usp.br/calouros-com-dificuldades-socioeconomicas-podem-se-inscrever-em-programa-de-permanencia/',
   },
