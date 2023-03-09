@@ -8,6 +8,7 @@ import Faq from '../components/faq';
 import Footer from '../components/footer';
 import servicoDeGraduacao from '../lib/services-data/servico-de-graduacao';
 import biblioteca from '../lib/services-data/biblioteca';
+import assistenciaSocial from '../lib/services-data/assistencia-social';
 import informatica from '../lib/services-data/informatica';
 import comunicacao from '../lib/services-data/comunicacao';
 import apoioPsicologico from '../lib/services-data/apoio-psicologico';
@@ -15,6 +16,7 @@ import apoioPsicologico from '../lib/services-data/apoio-psicologico';
 const services = {
   'servico-de-graduacao': servicoDeGraduacao,
   'biblioteca': biblioteca,
+  'assistencia-social': assistenciaSocial,
   'informatica': informatica,
   'comunicacao': comunicacao,
   'apoio-psicologico': apoioPsicologico,
@@ -48,10 +50,12 @@ export default function Servicos({match: {params: {service}}}) {
           </div>
         )
       }
-      { services[service].text && <p className='text-sm md:text-base lg:text-lg pb-8'>
+      { services[service].text && <p className='text-sm md:text-base lg:text-lg'>
         {services[service].text}
       </p>}
-      { services[service].faq && <Faq items={services[service].faq}></Faq>}
+      { services[service].faq && <div className='pt-8'>
+        <Faq items={services[service].faq}></Faq>
+      </div>}
     </div>
     <Footer />
   </main>);

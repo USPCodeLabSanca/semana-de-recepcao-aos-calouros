@@ -16,6 +16,11 @@ const services = [
     description: 'livros & empréstimos & sites & informação',
   },
   {
+    path: '/servicos/assistencia-social',
+    title: 'Assistência Social',
+    description: 'bolsas & auxílios & moradia & alimentação',
+  },
+  {
     path: '/servicos/informatica',
     title: 'Informática',
     description: 'senha única & e-mail USP & recursos digitais',
