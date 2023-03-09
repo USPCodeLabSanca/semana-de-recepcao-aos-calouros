@@ -37,8 +37,8 @@ const usefulLinks = [
     link: 'http://www.saocarlos.usp.br/servicos/seguranca-e-trafego-no-campus/',
   },
   {
-    linkText: 'Programa de Apoio à Permanência e Formação Estudantil (PAPFE)',
-    link: 'http://www.saocarlos.usp.br/calouros-com-dificuldades-socioeconomicas-podem-se-inscrever-em-programa-de-permanencia/',
+    linkText: 'pró-reitoria de Inclusão e Pertencimento (PRIP)',
+    link: 'https://prip.usp.br/',
   },
   {
     linkText: 'Cardápio do restaurante universitário',
@@ -66,34 +66,43 @@ export default function Footer() {
   return (
     <footer>
       <div className='bg-primary color-white px-4'>
-        <Socials/>
+        <Socials />
         <div className='grid gap-1 grid-cols-1 md:grid-cols-3  sm:grid-cols-1'>
-          <Card title="UNIVERSIDADE DE SÃO PAULO INSTITUTO DE CIÊNCIAS MATEMÁTICAS E DE COMPUTAÇÃO" icon={<PublicIcon color='' />}>
+          <Card
+            title='UNIVERSIDADE DE SÃO PAULO INSTITUTO DE CIÊNCIAS MATEMÁTICAS E DE COMPUTAÇÃO'
+            icon={<PublicIcon color='' />}
+          >
             <div className='text-sl'>
               Avenida Trabalhador São-carlense, 400 - Centro <br></br>
               CEP: 13566-590 - São Carlos - SP
             </div>
           </Card>
-          <Card title="Links Úteis">
+          <Card title='Links Úteis'>
             {usefulLinks.map((link, index) => {
               return (
                 <div className='text-sl' key={index}>
-                  {
-                    link.link &&
-                    (<a rel='noreferrer noopener' className='hover:underline break-all' href={link.link} target="_blank">
+                  {link.link && (
+                    <a
+                      rel='noreferrer noopener'
+                      className='hover:underline break-all'
+                      href={link.link}
+                      target='_blank'
+                    >
                       {link.linkText}
-                    </a>)
-                  }
+                    </a>
+                  )}
                 </div>
               );
             })}
           </Card>
-          <Card title="Contato">
+          <Card title='Contato'>
             {contacts.map((contact, index) => {
               return (
                 <div className='text-sl' key={index}>
                   {
-                    (<p>{contact.image} {contact.text}</p>)
+                    <p>
+                      {contact.image} {contact.text}
+                    </p>
                   }
                 </div>
               );
