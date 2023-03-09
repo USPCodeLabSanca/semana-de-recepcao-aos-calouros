@@ -16,7 +16,7 @@ export default function Flyer() {
           <div>
             <h1 className='text-xl font-bold uppercase md:text-2xl lg:text-4xl'>Games</h1>
             <p className='text-xl pt-2'>
-              Divirta-se nos <b>jogos temáticos</b> criados por seus vetaranos
+              Divirta-se nos <b>jogos temáticos</b> criados por seus veteranos
             </p>
           </div>
         </div>
