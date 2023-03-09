@@ -65,7 +65,7 @@ const contacts = [
 export default function Footer() {
   return (
     <footer>
-      <div className='bg-primary px-4'>
+      <div className='bg-primary color-white px-4'>
         <Socials/>
         <div className='grid gap-1 grid-cols-1 md:grid-cols-3  sm:grid-cols-1'>
           <Card title="UNIVERSIDADE DE SÃO PAULO INSTITUTO DE CIÊNCIAS MATEMÁTICAS E DE COMPUTAÇÃO" icon={<PublicIcon color='' />}>

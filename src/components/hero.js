@@ -9,7 +9,7 @@ import React from 'react';
  */
 function Hero() {
   return (<>
-    <div className='flex items-center min-h-screen bg-primary pt-24 md:pt-12'>
+    <div className='flex items-center min-h-screen bg-primary color-white pt-24 md:pt-12'>
       <div className='md:grid md:grid-cols-2 md:items-center container mx-auto px-8'>
         <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>
           BEM-VINDOS AO INESQUECÍVEL
