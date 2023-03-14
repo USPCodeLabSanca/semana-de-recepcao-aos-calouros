@@ -53,7 +53,7 @@ export default function Flyer() {
           <div className='flex-grow'></div>
           <div className='px-4 pt-8'>
             <a href='https://fog-icmc.itch.io/bixoventures' target='_blank' rel='noopener noreferrer'>
-              <button className='text-base sm:text-lg md:text-xl lg:text-2xl transition-all bg-secondary hover:bg-indigo-800 color-white shadow-md py-3 px-12 rounded w-full'>
+              <button className='color-black text-base sm:text-lg md:text-xl lg:text-2xl transition-all bg-secondary hover:bg-indigo-800 color-white shadow-md py-3 px-12 rounded w-full'>
                 Clique aqui!
               </button>
             </a>
