@@ -197,7 +197,8 @@ export default function Programacao({events}) {
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector/>}>
             {Object.keys(schedule).map((dateString, index) => {
               const date = new Date(dateString);
-              const formatedDate = `${('0'+(date.getDate()+1)).slice(-2)}/${('0'+(date.getMonth()+1)).slice(-2)}`;
+              // const formatedDate = `${('0'+(date.getDate()+1)).slice(-2)}/${('0'+(date.getMonth()+1)).slice(-2)}`;
+              const formatedDate = `${date.getDate()} / ${date.getMonth()}`;
               const dayOfWeek = dayName[date.getDay()].short;
               return (
                 <Step key={index}>
