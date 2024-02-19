@@ -113,6 +113,7 @@ html,
 
 .card-servico-imagem{
   background-position: center;
+  background-size: cover;
   color: white;
 }
 
