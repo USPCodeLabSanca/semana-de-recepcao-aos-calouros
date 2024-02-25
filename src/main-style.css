@@ -111,6 +111,12 @@ html,
   transition: ease-in 0.3s;
 }
 
+.card-servico-imagem{
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
 .card-servico:hover{
   transform: scale(1.05);
 }
