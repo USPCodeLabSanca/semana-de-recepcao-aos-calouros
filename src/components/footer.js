@@ -113,7 +113,7 @@ export default function Footer() {
 
       <div className='bg-black w-full h-10 text-center flex flex-col justify-center items-center'>
         <p className='text-xs color-white'>
-          ©2022 Instituto de Ciências Matemáticas e de Computação
+          ©2024 Instituto de Ciências Matemáticas e de Computação
         </p>
       </div>
     </footer>
