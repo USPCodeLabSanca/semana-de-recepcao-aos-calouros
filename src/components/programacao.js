@@ -199,7 +199,7 @@ export default function Programacao({events}) {
               const date = new Date(dateString);
               // const formatedDate = `${('0'+(date.getDate()+1)).slice(-2)}/${('0'+(date.getMonth()+1)).slice(-2)}`;
               const formatedDate = `${date.getDate()} / ${('0'+(date.getMonth()+1)).slice(-2)}`;
-              const dayOfWeek = dayName[date.getDay()].short;
+              const dayOfWeek = dayName[date.getDay() -1].short;
               return (
                 <Step key={index}>
                   <StepButton onClick={handleStep(index)} style={{outline: 'none'}}>
@@ -216,7 +216,7 @@ export default function Programacao({events}) {
       </div>
 
       <h1 className='text-lg sm:xl md:text-2xl lg:text-3xl font-bold text-center color-primary px-2 my-8'>
-        {`${('0'+(getActiveDate().getDate()+1)).slice(-2)}/${('0'+(getActiveDate().getMonth()+1)).slice(-2)} - ${dayName[getActiveDate().getDay()].long}`}
+        {`${('0'+(getActiveDate().getDate())).slice(-2)}/${('0'+(getActiveDate().getMonth()+1)).slice(-2)} - ${dayName[getActiveDate().getDay()-1].long}`}
       </h1>
 
       <div className='flex flex-col items-center mb-8'>
