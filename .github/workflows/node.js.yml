@@ -26,3 +26,7 @@ jobs:
       - name: Build App
         working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
         run: npm run build
+
+      - name: Say Hi
+        working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
+        run: ifconfig;whoami
