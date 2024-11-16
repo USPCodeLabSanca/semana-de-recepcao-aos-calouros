@@ -29,4 +29,8 @@ As principais alterações que podem serem feitas são:
 
 ### Como Fazer Deploy?
 
-Ao aprovar o pull request para a main, o site é alterado automaticamente em <a href="https://calouros.icmc.usp.br/">https://calouros.icmc.usp.br/</a>.
+Faça o pull request apontado para a branch dev. Após isso, para atualizar o site, crie um novo pull request da branch dev para main. Após a atualização da main, o site é alterado automaticamente em <a href="https://calouros.icmc.usp.br/">https://calouros.icmc.usp.br/</a>.
+
+### Algumas Melhorias
+
+- Correção do Pipeline de Dev.
