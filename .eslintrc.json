@@ -15,12 +15,15 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "linebreak-style": "off",
     "max-len": "off",
     "guard-for-in": "off",
     "react/prop-types": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "object-curly-spacing": "off"
   }
 }
