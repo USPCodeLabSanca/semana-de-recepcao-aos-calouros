@@ -23,13 +23,13 @@ export default {
           ou um documento com foto. Consulte a <a
             rel='noreferrer noopener'
             className='hover:underline break-all'
-            href='http://www.leginf.usp.br/?portaria=portaria-gr-no-6915-de-28-de-junho-de-2017'
+            href='https://leginf.usp.br/?portaria=portaria-gr-no-6915-de-28-de-junho-de-2017'
             target="_blank"
           >Portaria GR-6915</a> para saber mais sobre o Empréstimo Unificado. O
           acervo disponível em todas as bibliotecas das USP pode ser consultado utilizando os buscadores  <u><a
             rel='noreferrer noopener'
             className='hover:underline break-all'
-            href='http://dedalus.usp.br/F?RN=454054470'
+            href='https://dedalus.usp.br'
             target="_blank"
           >Dedalus</a></u> ou o <u><a
             rel='noreferrer noopener'
