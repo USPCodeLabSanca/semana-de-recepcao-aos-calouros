@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {HashLink} from 'react-router-hash-link';
+import { HashLink } from 'react-router-hash-link';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -14,9 +14,9 @@ import Logo from '../images/logo-icmc-preto.svg';
  */
 function Navbar() {
   const links = [{
-  //   path: '/#programacao',
-  //   text: 'programação',
-  // }, {
+    //   path: '/#programacao',
+    //   text: 'programação',
+    // }, {
     path: '/#servicos',
     text: 'serviços',
   }, {
@@ -34,7 +34,7 @@ function Navbar() {
       <div className='flex h-full items-center justify-between container mx-auto px-4'>
         <div className='flex items-center h-full'>
           <HashLink className='h-full' to='/'>
-            <img src={Logo} alt='Logo ICMC 50 anos' className='p-2 h-full' id="imgnav"/>
+            <img src={Logo} alt='Logo ICMC 50 anos' className='p-2 h-full' id="imgnav" />
           </HashLink>
         </div>
         <div className='hidden lg:flex'>
@@ -43,7 +43,7 @@ function Navbar() {
           })}
         </div>
         <div className='lg:hidden'>
-          <IconButton color='black' aria-label='Abrir menu' onClick={() =>setIsDrawerOpen(true)}>
+          <IconButton color='primary' aria-label='Abrir menu' onClick={() => setIsDrawerOpen(true)}>
             <MenuIcon />
           </IconButton>
         </div>
@@ -53,11 +53,11 @@ function Navbar() {
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
         onOpen={() => setIsDrawerOpen(true)}
-        PaperProps={{style: {backgroundColor: '#fafafa'}}}
+        PaperProps={{ style: { backgroundColor: '#fafafa' } }}
       >
         <div
           className='flex flex-col items-center pt-4'
-          style={{minWidth: '260px'}}
+          style={{ minWidth: '260px' }}
         >
           {links.map((link) => {
             return (<HashLink smooth key={link.path} to={link.path} onClick={() => setIsDrawerOpen(false)} className='color-black p-4'>

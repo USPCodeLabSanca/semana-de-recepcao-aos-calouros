@@ -8,23 +8,23 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 
 const links = [
   {
-    image: <FacebookIcon color='black' />,
+    image: <FacebookIcon />,
     link: 'https://pt-br.facebook.com/icmc.usp',
   },
   {
-    image: <InstagramIcon color='black' />,
+    image: <InstagramIcon />,
     link: 'https://www.instagram.com/icmc.usp',
   },
   {
-    image: <TwitterIcon color='black' />,
+    image: <TwitterIcon />,
     link: 'https://twitter.com/icmc_usp',
   },
   {
-    image: <LinkedInIcon color='black' />,
+    image: <LinkedInIcon />,
     link: 'https://www.linkedin.com/school/icmc-usp',
   },
   {
-    image: <YouTubeIcon color='black' />,
+    image: <YouTubeIcon />,
     link: 'https://www.youtube.com/channel/UCAnzNH_nZcLIBVLWoiWY5KA',
   },
 ];
@@ -43,7 +43,7 @@ export default function Socials() {
             return (
               <div className='p-2' key={index}>
                 <a
-                  className='flex items-center justify-center transition-all hover:bg-gray-200 rounded-full h-6 w-6 sm:h-12 sm:w-12'
+                  className='flex items-center justify-center transition-all hover:bg-gray-200 hover:text-black rounded-full h-6 w-6 sm:h-12 sm:w-12'
                   rel='noreferrer noopener'
                   href={link.link} target="_blank"
                 >

@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {Switch, Route, BrowserRouter, Redirect} from 'react-router-dom';
-import {createMuiTheme} from '@material-ui/core/styles';
-import {ThemeProvider} from '@material-ui/styles';
+import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
+import { createTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 
-const Home = React.lazy(()=> import('./pages/home'));
-const DisqueTrote = React.lazy(()=> import('./pages/disque-trote'));
-const Contato = React.lazy(()=> import('./pages/contato'));
-const Servicos = React.lazy(()=> import('./pages/servicos'));
+const Home = React.lazy(() => import('./pages/home'));
+const DisqueTrote = React.lazy(() => import('./pages/disque-trote'));
+const Contato = React.lazy(() => import('./pages/contato'));
+const Servicos = React.lazy(() => import('./pages/servicos'));
 import Navbar from './components/navbar';
 import ScrollToTop from './lib/scroll-to-top';
 
 import './main-style.css';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#e68d13',

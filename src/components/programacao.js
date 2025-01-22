@@ -190,7 +190,7 @@ export default function Programacao({events}) {
   };
 
   return (
-    <div className='min-h-screen' id='programacao'>
+    <div className='min-h-screen bg-secondary' id='programacao'>
       <SectionHeader title='Programação completa' subTitle={<p>Confira tudo que já aconteceu e que <b>ainda vai rolar!</b></p>} />
       <div className='flex justify-center pt-4'>
         <div className='w-full sm:w-5/6 md:w-3/5 overflow-x-scroll sm:overflow-x-auto'>
