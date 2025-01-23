@@ -6,6 +6,7 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import TelegramIcon from '@material-ui/icons/Telegram';
 
 import PublicIcon from '@material-ui/icons/Public';
+import { Mail } from '@material-ui/icons';
 
 const usefulLinks = [
   {
@@ -13,28 +14,28 @@ const usefulLinks = [
     link: 'https://icmc.usp.br/',
   },
   {
-    linkText: 'Discord do ICMC',
-    link: 'https://discord.gg/QrbxjtwhBx',
+    linkText: 'Grupo do ICMC',
+    link: 'https://t.me/joinchat/bakayQMJ5rkwYTZh',
+  },
+  {
+    linkText: 'Grupo de Feirão do ICMC',
+    link: 'https://t.me/+9sNawgOy8NpjMjEx',
   },
   {
     linkText: 'Manual do calouro USP',
     link: 'https://usp.br/manualdocalouro/',
   },
   {
-    linkText: 'Transporte',
-    link: 'http://www.saocarlos.usp.br/onibus/',
-  },
-  {
-    linkText: 'Alimentação',
-    link: 'http://www.puspsc.usp.br/cardapio/',
+    linkText: 'Transporte e Alimentação',
+    link: 'https://www.puspsc.usp.br/transporte-alimentacao-e-moradia/',
   },
   {
     linkText: 'Atendimento médico',
-    link: 'http://www.saocarlos.usp.br/servicos/atendimento-medico/',
+    link: 'https://saocarlos.usp.br/servicos/atendimento-medico/',
   },
   {
     linkText: 'Segurança e tráfego no campus',
-    link: 'http://www.saocarlos.usp.br/servicos/seguranca-e-trafego-no-campus/',
+    link: 'https://www.puspsc.usp.br/seguranca-e-acesso-ao-campus/',
   },
   {
     linkText: 'pró-reitoria de Inclusão e Pertencimento (PRIP)',
@@ -42,18 +43,22 @@ const usefulLinks = [
   },
   {
     linkText: 'Cardápio do restaurante universitário',
-    link: 'http://www.puspsc.usp.br/cardapio/',
+    link: 'https://www.puspsc.usp.br/cardapio/',
   },
 ];
 
 const contacts = [
   {
-    image: <PhoneIcon color='' />,
-    text: '+55 (16) 3373-9700',
+    image: <PhoneIcon />,
+    text: '+55 (16) 3373-9639',
   },
   {
-    image: <TelegramIcon color='' />,
+    image: <TelegramIcon />,
     text: 'Grupo LGBT+ do ICMC (procure no Telegram: @dan3u, @lcrodolfo, @nextlevelgih, @Ami_gayatri, @roassaf, @mcarvalhor, @allanmaniero, @milenacsilva)',
+  },
+  {
+    image: <Mail />,
+    text: 'Para mais contatos, cheque o header do site.',
   },
 ];
 
@@ -65,12 +70,12 @@ const contacts = [
 export default function Footer() {
   return (
     <footer>
-      <div className='bg-primary color-white px-4'>
+      <div className='bg-primary color-white px-4 pb-10'>
         <Socials />
-        <div className='grid gap-1 grid-cols-1 md:grid-cols-3  sm:grid-cols-1'>
+        <div className='grid gap-1 grid-cols-1 md:grid-cols-3 sm:grid-cols-1'>
           <Card
             title='UNIVERSIDADE DE SÃO PAULO INSTITUTO DE CIÊNCIAS MATEMÁTICAS E DE COMPUTAÇÃO'
-            icon={<PublicIcon color='' />}
+            icon={<PublicIcon />}
           >
             <div className='text-sl'>
               Avenida Trabalhador São-carlense, 400 - Centro <br></br>
@@ -113,7 +118,7 @@ export default function Footer() {
 
       <div className='bg-black w-full h-10 text-center flex flex-col justify-center items-center'>
         <p className='text-xs color-white'>
-          ©2024 Instituto de Ciências Matemáticas e de Computação
+          ©2025 Instituto de Ciências Matemáticas e de Computação
         </p>
       </div>
     </footer>

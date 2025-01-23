@@ -1,16 +1,18 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import Hero from '../components/hero';
 // import Presentation from '../components/presentation';
 // import Highlights from '../components/highlights';
 // import Live from '../components/live';
 // import Eventos from '../components/eventos';
+import WorkInProgress from './work-in-progress';
 import Programacao from '../components/programacao';
-const Services = React.lazy(()=> import('../components/services'));
-const Flyer = React.lazy(()=> import('../components/flyer'));
-const Footer = React.lazy(()=> import('../components/footer'));
+const Services = React.lazy(() => import('../components/services'));
+const Essentials = React.lazy(() => import('../components/essentials'));
+const Flyer = React.lazy(() => import('../components/flyer'));
+const Footer = React.lazy(() => import('../components/footer'));
 import API from '../lib/api';
 
 /**
@@ -22,7 +24,7 @@ export default function Home() {
   const programacaoComponent = useRef();
   const [data, setData] = useState();
 
-  const {location: {hash}, replace} = useHistory();
+  const { location: { hash }, replace } = useHistory();
 
 
   useEffect(() => {
@@ -41,7 +43,7 @@ export default function Home() {
    */
   function moveScreenToProgramacao() {
     const top = programacaoComponent.current.offsetTop;
-    window.scrollTo({top, behavior: 'smooth'});
+    window.scrollTo({ top, behavior: 'smooth' });
     replace('/');
   }
 
@@ -65,11 +67,15 @@ export default function Home() {
       {/* <Eventos /> */}
       <span ref={programacaoComponent} />
       {
-        data && data.Eventos &&
-        <Programacao events={data.Eventos} />
+        data && data.Eventos ? (
+          <Programacao events={data.Eventos} />
+        ) : (
+          <WorkInProgress />
+        )
       }
       <React.Suspense fallback={<p>Loading</p>}>
         <Services />
+        <Essentials />
         <Flyer />
         <Footer />
       </React.Suspense>

@@ -14,8 +14,8 @@ html,
 }
 
 :root {
-  --primary: #F69325;
-  --secondary: #62a8c9;
+  --primary: #fbc10d;
+  --secondary: #fdc70c;
   --blue: #388db3;
   --white: #fafafa;
   --light-gray: #c7c5c5;
@@ -107,22 +107,23 @@ html,
 .h-full-important {
   height: 100% !important;
 }
-.card-servico{
+
+.card-servico {
   transition: ease-in 0.3s;
 }
 
-.card-servico-imagem{
+.card-servico-imagem {
   background-position: center;
   background-size: cover;
   color: white;
 }
 
-.card-servico:hover{
+.card-servico:hover {
   transform: scale(1.05);
 }
 
-@media only screen and (max-width: 720px){
-  #imgnav{
+@media only screen and (max-width: 720px) {
+  #imgnav {
     width: 55%;
     height: auto;
   }
