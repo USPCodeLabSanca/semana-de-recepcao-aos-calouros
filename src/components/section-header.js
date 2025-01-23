@@ -5,9 +5,9 @@ import React from 'react';
  *
  * @return {void}
  */
-export default function SectionHeader({title, subTitle}) {
+export default function SectionHeader({ title, subTitle }) {
   return (
-    <div className='bg-primary color-white h-48'>
+    <div className='color-white h-48 md:h-36'>
       <div className='flex flex-col md:flex-row  md:items-center justify-center md:justify-start h-full container mx-auto px-8'>
         <div className='flex-grow md:flex-grow-0 h-full'></div>
         <h1 className='text-xl font-bold uppercase md:text-2xl lg:text-4xl'>{title}</h1>

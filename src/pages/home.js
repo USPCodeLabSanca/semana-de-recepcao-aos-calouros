@@ -10,6 +10,7 @@ import Hero from '../components/hero';
 import WorkInProgress from './work-in-progress';
 import Programacao from '../components/programacao';
 const Services = React.lazy(() => import('../components/services'));
+const Essentials = React.lazy(() => import('../components/essentials'));
 const Flyer = React.lazy(() => import('../components/flyer'));
 const Footer = React.lazy(() => import('../components/footer'));
 import API from '../lib/api';
@@ -74,6 +75,7 @@ export default function Home() {
       }
       <React.Suspense fallback={<p>Loading</p>}>
         <Services />
+        <Essentials />
         <Flyer />
         <Footer />
       </React.Suspense>
