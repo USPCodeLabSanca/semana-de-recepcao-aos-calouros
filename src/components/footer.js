@@ -18,10 +18,6 @@ const usefulLinks = [
     link: 'https://t.me/joinchat/bakayQMJ5rkwYTZh',
   },
   {
-    linkText: 'Grupo de Feirão do ICMC',
-    link: 'https://t.me/+9sNawgOy8NpjMjEx',
-  },
-  {
     linkText: 'Manual do calouro USP',
     link: 'https://usp.br/manualdocalouro/',
   },
@@ -38,7 +34,7 @@ const usefulLinks = [
     link: 'https://www.puspsc.usp.br/seguranca-e-acesso-ao-campus/',
   },
   {
-    linkText: 'pró-reitoria de Inclusão e Pertencimento (PRIP)',
+    linkText: 'Pró-reitoria de Inclusão e Pertencimento (PRIP)',
     link: 'https://prip.usp.br/',
   },
   {
@@ -54,7 +50,7 @@ const contacts = [
   },
   {
     image: <TelegramIcon />,
-    text: 'Grupo LGBT+ do ICMC (procure no Telegram: @dan3u, @lcrodolfo, @nextlevelgih, @Ami_gayatri, @roassaf, @mcarvalhor, @allanmaniero, @milenacsilva)',
+    text: 'Grupo LGBT+ do ICMC (contate a SACIM)',
   },
   {
     image: <Mail />,
