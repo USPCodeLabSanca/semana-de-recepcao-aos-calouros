@@ -43,7 +43,7 @@ function Navbar() {
           })}
         </div>
         <div className='lg:hidden'>
-          <IconButton color='primary' aria-label='Abrir menu' onClick={() => setIsDrawerOpen(true)}>
+          <IconButton aria-label='Abrir menu' onClick={() => setIsDrawerOpen(true)}>
             <MenuIcon />
           </IconButton>
         </div>

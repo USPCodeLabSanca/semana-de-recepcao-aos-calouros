@@ -49,7 +49,7 @@ export default function Flyer() {
               return (<a className='h-full' target='_blank' rel='noreferrer' key={index} href={service.path}>
                 <div
                   style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${service.image})` }}
-                  className='card-servico card-servico-imagem flex flex-col justify-center break-words transition-all bg-white hover:bg-gray-200 shadow-md hover:shadow-none m-8 p-8 h-96'>
+                  className='card-servico card-servico-imagem flex flex-col justify-center break-words transition-all bg-white hover:bg-gray-100 shadow-md hover:shadow-xl m-8 p-8 h-96'>
                   {
                     service.title.length > 0 &&
                     <h1 className='text-xl lg:text-2xl xl:text-4xl'>{service.title}</h1>
@@ -66,7 +66,7 @@ export default function Flyer() {
             <a className='h-full' target='_blank' rel='noreferrer' href="https://folki.com.br">
               <div
                 style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://i.imgur.com/E7qGMeR.png)` }}
-                className='card-servico card-servico-imagem flex flex-col justify-center break-words transition-all bg-white hover:bg-gray-200 shadow-md hover:shadow-none m-8 p-8 h-96'>
+                className='card-servico card-servico-imagem flex flex-col justify-center break-words transition-all bg-white hover:bg-gray-100 shadow-md hover:shadow-xl m-8 p-8 h-96'>
                 <h1 className='text-xl lg:text-2xl xl:text-4xl'>Folki - O App para se Organizar na USP</h1>
                 <p className='text-base lg:text-lg xl:text-xl pb-4'>Organize suas atividades, faltas, aulas e notas. Tudo em um só lugar! Mais de 5 mil USPianos usam e aprovam!</p>
               </div>
