@@ -29,11 +29,8 @@ jobs:
 
       - name: Prepare build directory
         run: |
-          sudo rm -rf /var/www/semana-de-recepcao-aos-calouros
-          sudo mkdir -p /var/www/semana-de-recepcao-aos-calouros
+          rm -rf /var/www/semana-de-recepcao-aos-calouros
+          mkdir -p /var/www/semana-de-recepcao-aos-calouros
 
       - name: Deploy build
-        run: sudo mv /home/calouros/semana-de-recepcao-aos-calouros/build /var/www/semana-de-recepcao-aos-calouros/
-
-      - name: Reload Nginx
-        run: sudo systemctl reload nginx
+        run: mv /home/calouros/semana-de-recepcao-aos-calouros/build /var/www/semana-de-recepcao-aos-calouros/
