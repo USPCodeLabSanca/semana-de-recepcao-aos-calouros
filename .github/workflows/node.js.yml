@@ -26,3 +26,14 @@ jobs:
       - name: Build App
         working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
         run: npm run build
+
+      - name: Prepare build directory
+        run: |
+          sudo rm -rf /var/www/semana-de-recepcao-aos-calouros
+          sudo mkdir -p /var/www/semana-de-recepcao-aos-calouros
+
+      - name: Deploy build
+        run: sudo mv /home/calouros/semana-de-recepcao-aos-calouros/build /var/www/semana-de-recepcao-aos-calouros/
+
+      - name: Reload Nginx
+        run: sudo systemctl reload nginx
