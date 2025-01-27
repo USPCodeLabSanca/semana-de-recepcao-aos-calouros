@@ -1,4 +1,5 @@
 import React from 'react';
+import ResponsivePlayer from '../../components/responsive-player';
 
 export default {
   title: 'Serviço de Graduação',
@@ -29,13 +30,9 @@ export default {
           e-mail com essa informação), o e-mail alternativo e siga os passos de validação para criar sua senha única.
         </p>
         <p>
-          Se preferir, assista o vídeo &quot;informações senha única e e-mail USP&quot; no link: <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://www.youtube.com/watch?v=Izv-qS1cQbs3'
-            target="_blank"
-          >https://www.youtube.com/watch?v=Izv-qS1cQbs</a>
+          Se preferir, assista o vídeo &quot;informações senha única e e-mail USP&quot; disponível abaixo:
         </p>
+        <ResponsivePlayer link='https://www.youtube.com/watch?v=Izv-qS1cQbs' />
       </>,
     },
     {
@@ -60,13 +57,9 @@ export default {
           >http://email.usp.br</a>
         </p>
         <p>
-          Se preferir, assista o vídeo &quot;informações senha única e e-mail USP&quot; no link: <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://www.youtube.com/watch?v=Izv-qS1cQbs'
-            target="_blank"
-          >https://www.youtube.com/watch?v=Izv-qS1cQbs</a>
+          Se preferir, assista o vídeo &quot;informações senha única e e-mail USP&quot; disponível abaixo:
         </p>
+        <ResponsivePlayer link='https://www.youtube.com/watch?v=Izv-qS1cQbs' />
       </>,
     },
     {
@@ -85,13 +78,9 @@ export default {
           É sua carteira de identificação na USP.
         </p>
         <p>
-          No vídeo <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://www.youtube.com/watch?v=D0rM7BjxdeE'
-            target="_blank"
-          >https://www.youtube.com/watch?v=D0rM7BjxdeE</a> há o passo a passo para solicitar o seu cartão USP.
+          No vídeo abaixo há o passo a passo para solicitar o seu cartão USP:
         </p>
+        <ResponsivePlayer link='https://www.youtube.com/watch?v=D0rM7BjxdeE' />
         <p>
           Enquanto você não tem seu cartão USP, você também pode usar o aplicativo e-card USP: O aplicativo está
           disponível nas lojas Apple e Google Play e poderá ser acessado por meio da senha única do usuário USP.
@@ -137,13 +126,9 @@ export default {
           Você acessa o sistema da Graduação, vai em Emissão de Documentos e seleciona o documento que precisa.
         </p>
         <p>
-          Há o vídeo &quot;Emissão de Documentos&quot;, que explica o passo a passo: <a
-            rel='noreferrer noopener'
-            className='hover:underline break-all'
-            href='https://www.icmc.usp.br/graduacao/informacoes-gerais-e-servicos/horarios-de-aulas'
-            target="_blank"
-          >https://www.youtube.com/watch?v=mFJa2wUj7I4</a>
+          Há o vídeo &quot;Emissão de Documentos&quot;, que explica o passo a passo:
         </p>
+        <ResponsivePlayer link='https://www.youtube.com/watch?v=mFJa2wUj7I4' />
         <p>
           Caso não encontre o documento que precisa, pode entrar em contato com o Serviço de Graduação (grad@icmc.usp.br).
         </p>
