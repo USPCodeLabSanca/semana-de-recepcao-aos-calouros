@@ -1,12 +1,10 @@
 import React from 'react';
+
+import { HashLink } from 'react-router-hash-link';
+import { Phone, Public, Mail, WhatsApp } from '@material-ui/icons';
+
 import Card from './card';
 import Socials from './socials';
-
-import PhoneIcon from '@material-ui/icons/Phone';
-import TelegramIcon from '@material-ui/icons/Telegram';
-
-import PublicIcon from '@material-ui/icons/Public';
-import { Mail } from '@material-ui/icons';
 
 const usefulLinks = [
   {
@@ -45,16 +43,36 @@ const usefulLinks = [
 
 const contacts = [
   {
-    image: <PhoneIcon />,
-    text: '+55 (16) 3373-9639',
+    image: <Phone />,
+    text: <a
+      rel='noreferrer noopener'
+      className='hover:underline break-all'
+      href="tel:55-16-33739639"
+      target='_blank'
+    >
+      +55 (16) 3373-9639
+    </a>,
   },
   {
-    image: <TelegramIcon />,
-    text: 'Grupo LGBT+ do ICMC (contate a SACIM)',
+    image: <WhatsApp />,
+    text: (
+      <>
+        Grupo LGBT+ do ICMC (contate em{' '}
+        <a
+          rel='noreferrer noopener'
+          className='hover:underline break-all'
+          href="https://wa.me/5516992888314"
+          target='_blank'
+        >
+          +55 16 99288-8314
+        </a>
+        )
+      </>
+    ),
   },
   {
     image: <Mail />,
-    text: 'Para mais contatos, cheque o header do site.',
+    text: <HashLink smooth to='/contato' className='hover:underline break-all'>Clique para ver mais contatos</HashLink>,
   },
 ];
 
@@ -71,7 +89,7 @@ export default function Footer() {
         <div className='grid gap-1 grid-cols-1 md:grid-cols-3 sm:grid-cols-1'>
           <Card
             title='UNIVERSIDADE DE SÃO PAULO INSTITUTO DE CIÊNCIAS MATEMÁTICAS E DE COMPUTAÇÃO'
-            icon={<PublicIcon />}
+            icon={<Public />}
           >
             <div className='text-sl'>
               Avenida Trabalhador São-carlense, 400 - Centro <br></br>
