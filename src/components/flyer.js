@@ -6,7 +6,7 @@ import prgImage from '../images/bg-prgusp.webp';
 
 const services = [
   {
-    path: 'http://saocarlos.usp.br/bem-vindos-a-usp/',
+    path: 'https://jornal.usp.br/universidade/manual-do-calouro-apresenta-a-usp-aos-novos-ingressantes/',
     title: 'Manual do Calouro Oficial da USP',
     description: 'apps, oportunidades e muito mais',
     image: manualImage,
