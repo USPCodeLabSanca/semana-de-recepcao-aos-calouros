@@ -88,26 +88,25 @@ function getScheduleContent(events) {
     const [startHour, startMinute] = current.Inicio.split(':');
     const [endHour, endMinute] = current.Fim.split(':');
 
-    current.Descricao = markdownToHtml(current.Descricao || '');
+    const originalDescription = current.Descricao;
+    const convertedDescription = markdownToHtml(originalDescription || '');
 
     content.push(
-        <div className='border-solid border-2 border-gray-100 my-4 shadow-md w-5/6 md:w-3/5' key={index}>
+        <div className='bg-gray-100 border-solid border-gray-100 my-2 shadow-md w-5/6' key={index}>
           <div className='flex'>
-            <div className={current.type === '1' ? 'bg-black text-center w-1/4 sm:w-1/6 py-2' : 'bg-black text-center w-1/4 sm:w-1/6 py-2'}>
+            <div className={current.type === '1' ? 'bg-black text-center w-1/4 sm:w-1/6 py-2 flex flex-col justify-center' : 'bg-black text-center w-1/4 sm:w-1/6 py-2'}>
               <p className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-white'>{`${startHour}:${startMinute}`}</p>
               <p className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-white'>{`${endHour}:${endMinute}`}</p>
             </div>
             <div className='flex flex-col justify-center py-2 px-3 w-full'>
               <h1 className='text-sm sm:text-base md:text-lg lg:text-xl font-bold color-black'>{current.Titulo}</h1>
-              <br/>
               {
-                current.Descricao &&
+                convertedDescription &&
                 <>
                   <div
                     className='text-xs sm:text-sm md:text-base lg:text-lg color-dark-gray'
-                    dangerouslySetInnerHTML={{__html: current.Descricao}}
+                    dangerouslySetInnerHTML={{__html: convertedDescription}}
                   ></div>
-                  <br/>
                 </>
               }
               <h2 className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-dark-gray'>{current.Local}</h2>
@@ -125,7 +124,7 @@ function getScheduleContent(events) {
  *
  * @return {void}
  */
-export default function Programacao({events}) {
+export default function Programacao({ events }) {
   const dayName = [
     {
       short: 'seg',
@@ -190,16 +189,17 @@ export default function Programacao({events}) {
   };
 
   return (
-    <div className='min-h-screen bg-secondary' id='programacao'>
+    <div className='min-h-screen bg-secondary flex flex-col items-center' id='programacao'>
       <SectionHeader title='Programação completa' subTitle={<p>Confira tudo que já aconteceu e que <b>ainda vai rolar!</b></p>} />
-      <div className='flex justify-center pt-4'>
-        <div className='w-full sm:w-5/6 md:w-3/5 overflow-x-scroll sm:overflow-x-auto'>
-          <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector/>}>
+
+      <div className='w-full sm:w-5/6 md:w-3/5'>
+        <div className='overflow-x-scroll sm:overflow-x-auto'>
+          <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector />}>
             {Object.keys(schedule).map((dateString, index) => {
               const date = new Date(dateString);
               // const formatedDate = `${('0'+(date.getDate()+1)).slice(-2)}/${('0'+(date.getMonth()+1)).slice(-2)}`;
-              const formatedDate = `${date.getDate()} / ${('0'+(date.getMonth()+1)).slice(-2)}`;
-              const dayOfWeek = dayName[date.getDay() -1].short;
+              const formatedDate = `${date.getDate() + 1} / ${('0'+(date.getMonth()+1)).slice(-2)}`;
+              const dayOfWeek = dayName[date.getDay()].short;
               return (
                 <Step key={index}>
                   <StepButton onClick={handleStep(index)} style={{outline: 'none'}}>
@@ -213,14 +213,14 @@ export default function Programacao({events}) {
             })}
           </Stepper>
         </div>
-      </div>
 
-      <h1 className='text-lg sm:xl md:text-2xl lg:text-3xl font-bold text-center color-primary px-2 my-8'>
-        {`${('0'+(getActiveDate().getDate())).slice(-2)}/${('0'+(getActiveDate().getMonth()+1)).slice(-2)} - ${dayName[getActiveDate().getDay()-1].long}`}
-      </h1>
+        <h1 className='text-lg sm:xl md:text-2xl lg:text-3xl font-bold text-center px-2 py-8 bg-white'>
+          {`${('0'+(getActiveDate().getDate() + 1)).slice(-2)}/${('0'+(getActiveDate().getMonth()+1)).slice(-2)} - ${dayName[getActiveDate().getDay()].long}`}
+        </h1>
 
-      <div className='flex flex-col items-center mb-8'>
-        {getScheduleContent(Object.values(schedule)[activeStep])}
+        <div className='flex flex-col items-center bg-white pb-12'>
+          {getScheduleContent(Object.values(schedule)[activeStep])}
+        </div>
       </div>
     </div>
   );
