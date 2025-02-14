@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -13,7 +13,9 @@ const Services = React.lazy(() => import('../components/services'));
 const Essentials = React.lazy(() => import('../components/essentials'));
 const Flyer = React.lazy(() => import('../components/flyer'));
 const Footer = React.lazy(() => import('../components/footer'));
-import API from '../lib/api';
+// import API from '../lib/api';
+
+import {events} from '../lib/schedule-data/events';
 
 /**
  * Home Page
@@ -22,19 +24,19 @@ import API from '../lib/api';
  */
 export default function Home() {
   const programacaoComponent = useRef();
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
 
   const { location: { hash }, replace } = useHistory();
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await API.home.get();
-      setData(response);
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await API.home.get();
+  //     setData(response);
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   /**
    * Scroll to 'Programacao'
@@ -67,8 +69,8 @@ export default function Home() {
       {/* <Eventos /> */}
       <span ref={programacaoComponent} />
       {
-        data && data.Eventos ? (
-          <Programacao events={data.Eventos} />
+        events ? (
+          <Programacao events={events} />
         ) : (
           <WorkInProgress />
         )
