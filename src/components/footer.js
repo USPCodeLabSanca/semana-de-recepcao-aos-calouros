@@ -130,9 +130,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className='bg-black w-full h-10 text-center flex flex-col justify-center items-center'>
+      <div className='bg-black w-full p-4 text-center flex flex-col justify-center items-center'>
         <p className='text-xs color-white'>
           ©2025 Instituto de Ciências Matemáticas e de Computação
+        </p>
+        <p className='text-xs color-white'>
+          Desenvolvido por <a className='text-blue-300' href='https://codelab.icmc.usp.br/'>
+            Codelab
+          </a>
         </p>
       </div>
     </footer>
