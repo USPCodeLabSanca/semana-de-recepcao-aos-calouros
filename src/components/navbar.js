@@ -14,9 +14,12 @@ import Logo from '../images/logo-icmc-preto.svg';
  */
 function Navbar() {
   const links = [{
-    //   path: '/#programacao',
-    //   text: 'programação',
-    // }, {
+    path: '/',
+    text: 'página inicial',
+  }, {
+    path: '/#programacao',
+    text: 'programação',
+  }, {
     path: '/#servicos',
     text: 'serviços',
   }, {
@@ -33,9 +36,9 @@ function Navbar() {
     <header className='bg-white color-black shadow h-20 fixed top-0 left-0 right-0 z-10'>
       <div className='flex h-full items-center justify-between container mx-auto px-4'>
         <div className='flex items-center h-full'>
-          <HashLink className='h-full' to='/'>
+          <a className='h-full' href='https://www.icmc.usp.br/'>
             <img src={Logo} alt='Logo ICMC 50 anos' className='p-2 h-full' id="imgnav" />
-          </HashLink>
+          </a>
         </div>
         <div className='hidden lg:flex'>
           {links.map((link, index) => {
