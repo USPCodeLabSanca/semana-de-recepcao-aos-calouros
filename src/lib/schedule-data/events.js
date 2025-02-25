@@ -130,7 +130,7 @@ export const events = [
     Inicio: '09:00',
     Fim: '10:00',
     Titulo: 'Palestra: Desafios da Computação na Atualidade',
-    Descricao: 'Palestrante: Professora Maria da Graça',
+    Descricao: 'Palestrante: Professora Maria das Graças Volpe Nunes',
     Local: 'Auditório Fernão',
     type: '1',
   },
