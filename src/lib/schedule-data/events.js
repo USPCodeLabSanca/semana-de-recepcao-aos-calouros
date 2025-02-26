@@ -183,7 +183,7 @@ export const events = [
     Data: '2025-02-26',
     Inicio: '18:00',
     Fim: '21:00',
-    Titulo: 'Aulão de Matemática/Estatística/Computação',
+    Titulo: 'Aulão de Matemática, Estatística e Computação',
     Descricao: 'Aula introdutório para os novos alunos',
     Local: 'Auditório Fernão',
     type: '1',
