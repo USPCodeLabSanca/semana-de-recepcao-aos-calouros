@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
-import { createTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const Home = React.lazy(() => import('./pages/home'));
 const DisqueTrote = React.lazy(() => import('./pages/disque-trote'));
@@ -14,7 +13,7 @@ import ScrollToTop from './lib/scroll-to-top';
 
 import './main-style.css';
 
-const theme = createTheme({
+const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#e68d13',
