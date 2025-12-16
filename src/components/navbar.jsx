@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { HashLink } from 'react-router-hash-link';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 import Logo from '../images/logo-icmc-preto.svg';
 

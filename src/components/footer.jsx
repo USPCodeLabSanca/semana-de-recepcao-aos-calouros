@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { HashLink } from 'react-router-hash-link';
-import { Phone, Public, Mail, WhatsApp } from '@material-ui/icons';
+import { Phone, Public, Mail, WhatsApp } from '@mui/icons-material';
 
 import Card from './card';
 import Socials from './socials';

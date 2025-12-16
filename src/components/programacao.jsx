@@ -2,13 +2,13 @@ import React from 'react';
 
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import {makeStyles, withStyles} from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepButton from '@material-ui/core/StepButton';
-import StepConnector from '@material-ui/core/StepConnector';
-import StepLabel from '@material-ui/core/StepLabel';
-import AddIcon from '@material-ui/icons/Add';
+import { makeStyles } from 'tss-react/mui';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepButton from '@mui/material/StepButton';
+import StepConnector from '@mui/material/StepConnector';
+import StepLabel from '@mui/material/StepLabel';
+import AddIcon from '@mui/icons-material/Add';
 
 import SectionHeader from './section-header';
 import markdownToHtml from '../lib/markdown-to-html';
@@ -25,7 +25,7 @@ const ColorlibConnector = withStyles({
   },
 })(StepConnector);
 
-const useColorlibStepIconStyles = makeStyles((theme) => ({
+const useColorlibStepIconStyles = makeStyles()((theme) => ({
   root: {
     backgroundColor: '#ccc',
     zIndex: 1,

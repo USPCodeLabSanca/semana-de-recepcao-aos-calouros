@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const Home = React.lazy(() => import('./pages/home'));
 const DisqueTrote = React.lazy(() => import('./pages/disque-trote'));
@@ -13,7 +13,7 @@ import ScrollToTop from './lib/scroll-to-top';
 
 import './main-style.css';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#e68d13',
@@ -50,4 +50,6 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const container = document.getElementById('app');
+const root = createRoot(container);
+root.render(<App tab="home" />);
