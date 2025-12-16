@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import Hero from '../components/hero';
 // import Presentation from '../components/presentation';
@@ -26,8 +26,8 @@ export default function Home() {
   const programacaoComponent = useRef();
   // const [data, setData] = useState();
 
-  const { location: { hash }, replace } = useHistory();
-
+  const { hash } = useLocation();
+  const navigate = useNavigate();
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -46,7 +46,7 @@ export default function Home() {
   function moveScreenToProgramacao() {
     const top = programacaoComponent.current.offsetTop;
     window.scrollTo({ top, behavior: 'smooth' });
-    replace('/');
+    navigate('/', { replace: true });
   }
 
   useEffect(() => {

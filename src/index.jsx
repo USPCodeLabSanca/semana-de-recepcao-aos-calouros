@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const Home = React.lazy(() => import('./pages/home'));
@@ -35,15 +35,29 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <ScrollToTop>
-          <Switch>
-            <React.Suspense fallback={<>Loading</>}>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/disque-trote' component={DisqueTrote} />
-              <Route exact path='/contato' component={Contato} />
-              <Route exact path='/servicos/:service' component={Servicos} />
-            </React.Suspense>
-            <Redirect to='/' />
-          </Switch>
+          <Routes>
+            <Route path='/' element={
+              <React.Suspense fallback={<>Loading</>}>
+                <Home />
+              </React.Suspense>
+            } />
+            <Route path='/disque-trote' element={
+              <React.Suspense fallback={<>Loading</>}>
+                <DisqueTrote />
+              </React.Suspense>
+            } />
+            <Route path='/contato' element={
+              <React.Suspense fallback={<>Loading</>}>
+                <Contato />
+              </React.Suspense>
+            } />
+            <Route path='/servicos/:service' element={
+              <React.Suspense fallback={<>Loading</>}>
+                <Servicos />
+              </React.Suspense>
+            } />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
         </ScrollToTop>
       </BrowserRouter>
     </ThemeProvider>
