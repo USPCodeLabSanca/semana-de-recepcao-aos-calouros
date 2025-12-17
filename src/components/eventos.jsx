@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {Box, CardContent} from '@material-ui/core';
+import {Box, CardContent} from '@mui/material';
 
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import RoomIcon from '@material-ui/icons/Room';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import RoomIcon from '@mui/icons-material/Room';
 
 import Recepcao from '../images/recepcao.jpg';
 import RecepcaoConjunta from '../images/recepcaoconjunta.jpg';

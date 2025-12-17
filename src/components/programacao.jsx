@@ -1,52 +1,49 @@
 import React from 'react';
 
-import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import {makeStyles, withStyles} from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepButton from '@material-ui/core/StepButton';
-import StepConnector from '@material-ui/core/StepConnector';
-import StepLabel from '@material-ui/core/StepLabel';
-import AddIcon from '@material-ui/icons/Add';
+import { styled } from '@mui/material/styles';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepButton from '@mui/material/StepButton';
+import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
+import StepLabel from '@mui/material/StepLabel';
+import AddIcon from '@mui/icons-material/Add';
 
 import SectionHeader from './section-header';
 import markdownToHtml from '../lib/markdown-to-html';
 
-const ColorlibConnector = withStyles({
-  alternativeLabel: {
+const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
+  [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 22,
   },
-  line: {
+  [`& .${stepConnectorClasses.line}`]: {
     height: 3,
     border: 0,
     backgroundColor: '#eaeaf0',
     borderRadius: 1,
   },
-})(StepConnector);
+}));
 
-const useColorlibStepIconStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: '#ccc',
-    zIndex: 1,
-    color: '#fff',
-    [theme.breakpoints.down('sm')]: {
-      width: 40,
-      height: 40,
-    },
-    [theme.breakpoints.up('md')]: {
-      width: 50,
-      height: 50,
-    },
-    display: 'flex',
-    borderRadius: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
+const ColorlibStepIconRoot = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'active',
+})(({ theme, active }) => ({
+  backgroundColor: '#ccc',
+  zIndex: 1,
+  color: '#fff',
+  width: 50,
+  height: 50,
+  display: 'flex',
+  borderRadius: '50%',
+  justifyContent: 'center',
+  alignItems: 'center',
+  [theme.breakpoints.down('sm')]: {
+    width: 40,
+    height: 40,
   },
-  active: {
+  ...(active && {
     backgroundColor: '#303030',
     boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
-  },
+  }),
 }));
 
 /**
@@ -57,18 +54,18 @@ const useColorlibStepIconStyles = makeStyles((theme) => ({
  * @return {void}
  */
 function ColorlibStepIcon(props) {
-  const classes = useColorlibStepIconStyles();
-  const {active} = props;
+  const { active, className } = props;
 
   return (
-    <div className={clsx(classes.root, {[classes.active]: active})}>
-      <AddIcon/>
-    </div>
+    <ColorlibStepIconRoot active={active} className={className}>
+      <AddIcon />
+    </ColorlibStepIconRoot>
   );
 }
 
 ColorlibStepIcon.propTypes = {
   active: PropTypes.bool,
+  className: PropTypes.string,
   icon: PropTypes.node,
 };
 
@@ -102,12 +99,12 @@ function getScheduleContent(events) {
               <h1 className='text-sm sm:text-base md:text-lg lg:text-xl font-bold color-black'>{current.Titulo}</h1>
               {
                 convertedDescription &&
-                <>
-                  <div
-                    className='text-xs sm:text-sm md:text-base lg:text-lg color-dark-gray'
-                    dangerouslySetInnerHTML={{__html: convertedDescription}}
-                  ></div>
-                </>
+              <>
+                <div
+                  className='text-xs sm:text-sm md:text-base lg:text-lg color-dark-gray'
+                  dangerouslySetInnerHTML={{__html: convertedDescription}}
+                ></div>
+              </>
               }
               <h2 className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-dark-gray'>{current.Local}</h2>
             </div>
@@ -185,15 +182,21 @@ export default function Programacao({ events }) {
   };
 
   const getActiveDate = () => {
-    return new Date(Object.keys(schedule)[activeStep]);
+    const dates = Object.keys(schedule);
+    if (dates.length === 0) return new Date();
+    return new Date(dates[activeStep]);
   };
+
+  if (!events || events.length === 0) {
+    return null;
+  }
 
   return (
     <div className='min-h-screen bg-secondary flex flex-col items-center' id='programacao'>
       <SectionHeader title='Programação completa' subTitle={<p>Confira tudo que já aconteceu e que <b>ainda vai rolar!</b></p>} />
 
-      <div className='w-full sm:w-5/6 md:w-3/5'>
-        <div className='overflow-x-scroll sm:overflow-x-auto'>
+      <div className='w-full sm:w-5/6 md:w-3/5 bg-white'>
+        <div className='p-6'>
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector />}>
             {Object.keys(schedule).map((dateString, index) => {
               const date = new Date(dateString);

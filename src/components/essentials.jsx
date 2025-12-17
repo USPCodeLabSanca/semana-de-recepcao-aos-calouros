@@ -22,9 +22,15 @@ export default function Essentials({ url }) {
           <div className='grid grid-cols-1'>
             {links.map((link, index) => {
               return (
-                <>
-                  <a className='card-servico transition-all bg-white hover:bg-gray-100 shadow-md hover:shadow-xl font-bold py-4 mx-8 text-center text-base sm:text-lg md:text-xl lg:text-2xl text-black' target='_blank' rel='noreferrer' href={link.path}>{link.title}</a>
-                </>
+                <a
+                  key={index}
+                  className='card-servico transition-all bg-white hover:bg-gray-100 shadow-md hover:shadow-xl font-bold py-4 mx-8 text-center text-base sm:text-lg md:text-xl lg:text-2xl text-black'
+                  target='_blank'
+                  rel='noreferrer'
+                  href={link.path}
+                >
+                  {link.title}
+                </a>
               );
             })}
           </div>

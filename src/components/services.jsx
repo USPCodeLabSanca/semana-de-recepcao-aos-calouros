@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import SectionHeader from './section-header';
-import { ComputerOutlined, ForumOutlined, LocalHospitalOutlined, MenuBookOutlined, PeopleOutline, SchoolOutlined } from '@material-ui/icons';
+import { ComputerOutlined, ForumOutlined, LocalHospitalOutlined, MenuBookOutlined, PeopleOutline, SchoolOutlined } from '@mui/icons-material';
 
 const services = [
   {
