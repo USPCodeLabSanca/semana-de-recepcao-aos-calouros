@@ -28,6 +28,17 @@ function Phrase({ text, color }) {
   );
 }
 
+const CarouselImage = ({ src, alt }) => (
+  <div className="select-none" style={{ userSelect: 'none' }}>
+    <img
+      src={src}
+      alt={alt}
+      onDragStart={(e) => e.preventDefault()}
+      style={{ pointerEvents: 'none', width: '100%', height: 'auto' }}
+    />
+  </div>
+);
+
 /**
  * Hero
  *
@@ -80,30 +91,29 @@ function Hero() {
     <>
       <div>
         <div className="flex flex-col items-center min-h-screen bg-primary color-white pt-20 md:pt-16">
-          <div className='top-20 left-0 w-full h-full'>
+          <div className='top-20 left-0 w-full h-full select-none'>
+            {/* DESKTOP */}
             <Carousel
               className='hidden md:block items-center'
               showArrows={false}
               onChange={onChange}
               infiniteLoop={true}
               transitionTime={500}
-              showThumbs={false}>
-              <div>
-                <img src={Faixa1} alt='Banner sobre acolhimento: Onde eu estudo, o acolhimento faz parte da nossa essência!' />
-              </div>
-              <div>
-                <img src={Faixa2} alt='Banner sobre pesquisa: Onde eu estudo, nossas pesquisas abrem portas!' />
-              </div>
-              <div>
-                <img src={Faixa3} alt='Banner sobre história: Onde eu estudo, vivo um legado de excelência!' />
-              </div>
-              <div>
-                <img src={Faixa4} alt='Banner sobre bandejão: Onde eu estudo, bandejar é parte da experiência universitária!' />
-              </div>
-              <div>
-                <img src={Faixa5} alt='Banner sobre atlética: Onde eu estudo, os campeonatos são parte da nossa rotina!' />
-              </div>
+              showThumbs={false}
+              showStatus={false}
+              emulateTouch={true}
+              swipeable={true}
+              swipeScrollTolerance={50}
+              preventMovementUntilSwipeScrollTolerance={true}
+            >
+              <div><CarouselImage src={Faixa1} alt='Banner 1' /></div>
+              <div><CarouselImage src={Faixa2} alt='Banner 2' /></div>
+              <div><CarouselImage src={Faixa3} alt='Banner 3' /></div>
+              <div><CarouselImage src={Faixa4} alt='Banner 4' /></div>
+              <div><CarouselImage src={Faixa5} alt='Banner 5' /></div>
             </Carousel>
+
+            {/* MOBILE */}
             <Carousel
               className='md:hidden'
               onChange={onChange}
@@ -111,23 +121,17 @@ function Hero() {
               showStatus={false}
               showThumbs={false}
               infiniteLoop={true}
-              transitionTime={1000}
+              transitionTime={500}
+              swipeable={true}
+              emulateTouch={true}
+              swipeScrollTolerance={50}
+              preventMovementUntilSwipeScrollTolerance={true}
             >
-              <div>
-                <img src={Mobile1} />
-              </div>
-              <div>
-                <img src={Mobile2} />
-              </div>
-              <div>
-                <img src={Mobile3} />
-              </div>
-              <div>
-                <img src={Mobile4} />
-              </div>
-              <div>
-                <img src={Mobile5} />
-              </div>
+              <div><CarouselImage src={Mobile1} alt='Mobile 1' /></div>
+              <div><CarouselImage src={Mobile2} alt='Mobile 2' /></div>
+              <div><CarouselImage src={Mobile3} alt='Mobile 3' /></div>
+              <div><CarouselImage src={Mobile4} alt='Mobile 4' /></div>
+              <div><CarouselImage src={Mobile5} alt='Mobile 5' /></div>
             </Carousel>
           </div>
           <div className='h-40 flex flex-col justify-center items-center'>

@@ -122,6 +122,19 @@ html,
   transform: scale(1.05);
 }
 
+.carousel .slide img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.carousel .slide {
+  pointer-events: auto;
+}
+
 @media only screen and (max-width: 720px) {
   #imgnav {
     width: 55%;
