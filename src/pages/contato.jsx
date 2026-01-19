@@ -14,7 +14,7 @@ export default function Contato() {
     <div className='container mx-auto mb-6 p-8 bg-white color-black shadow-md'>
       <h1 className='text-xl md:text-2xl lg:text-4xl font-bold pb-4'>Serviço de Graduação</h1>
       <p className='text-base md:text-lg lg:text-xl'>Atendendo normalmente pelos canais:</p>
-      <p className='text-base md:text-lg lg:text-xl'>Telefone: (16) 3373-9639</p>
+      <p className='text-base md:text-lg lg:text-xl'>Telefone: (16) 3373-9700</p>
       <p className='text-base md:text-lg lg:text-xl'>Instagram: <a
         rel='noreferrer noopener'
         className='text-blue-700 hover:underline break-all'

@@ -78,7 +78,7 @@ export default function Home() {
       }
       <React.Suspense fallback={<p>Loading</p>}>
         <Services />
-        <Essentials />
+        {/* <Essentials /> */}
         <Flyer />
         <Footer />
       </React.Suspense>

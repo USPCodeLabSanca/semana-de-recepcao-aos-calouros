@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 
-import Faixa1 from '../images/2025_calouros_faixa1.webp';
-import Faixa2 from '../images/2025_calouros_faixa2.webp';
-import Faixa3 from '../images/2025_calouros_faixa3.webp';
-import Faixa4 from '../images/2025_calouros_faixa4.webp';
-import Faixa5 from '../images/2025_calouros_faixa5.webp';
-import Mobile1 from '../images/2025_calouros_mobile1.webp';
-import Mobile2 from '../images/2025_calouros_mobile2.webp';
-import Mobile3 from '../images/2025_calouros_mobile3.webp';
-import Mobile4 from '../images/2025_calouros_mobile4.webp';
-import Mobile5 from '../images/2025_calouros_mobile5.webp';
+import Faixa1 from '../images/2026_calouros_faixa1.webp';
+import Faixa2 from '../images/2026_calouros_faixa2.webp';
+import Faixa3 from '../images/2026_calouros_faixa3.webp';
+import Faixa4 from '../images/2026_calouros_faixa4.webp';
+import Faixa5 from '../images/2026_calouros_faixa5.webp';
+import Mobile1 from '../images/2026_calouros_mobile1.webp';
+import Mobile2 from '../images/2026_calouros_mobile2.webp';
+import Mobile3 from '../images/2026_calouros_mobile3.webp';
+import Mobile4 from '../images/2026_calouros_mobile4.webp';
+import Mobile5 from '../images/2026_calouros_mobile5.webp';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
@@ -36,8 +36,8 @@ function Phrase({ text, color }) {
 function Hero() {
   const [index, setIndex] = useState(0);
   useEffect(() => {
-    document.documentElement.style.setProperty('--primary', '#fbc10d');
-    document.documentElement.style.setProperty('--secondary', '#fdc70c');
+    document.documentElement.style.setProperty('--primary', '#1c93d2');
+    document.documentElement.style.setProperty('--secondary', '#1879aa');
   }, []);
   const onChange = (index, item) => {
     setIndex(index);
@@ -48,32 +48,32 @@ function Hero() {
     {
       title: 'Você já notou como a inclusão é uma prioridade na USP? Essa abordagem fortalece o pertencimento e o acolhimento, criando um espaço onde todos os estudantes podem se sentir parte integrante da comunidade USP.',
       text: 'No ICMC, a diversidade é um valor inegociável. Temos, por exemplo, um grupo de apoio para estudantes LGBTQIA+!',
-      primary: '#fbc10d',
-      secondary: '#fdc70c',
+      primary: '#1c93d2',
+      secondary: '#1879aa',
     },
     {
       title: 'Você sabe qual a importância das pesquisas acadêmicas? Com mais de 20% da produção científica do Brasil, a USP se destaca mundialmente, formando uma comunidade acadêmica que valoriza a excelência e a inovação em todos os seus projetos e práticas educacionais.',
       text: 'No ICMC, temos aproximadamente 450 publicações anuais, com apoio constante das agências de fomento (FAPESP, CNPq, CAPES, FINEP). Nesse <a href="https://www.icmc.usp.br/pesquisa/grupos" class="underline text-gray-200 hover:text-gray-300" target="_blank" rel="noopener noreferrer">link</a>, você pode conhecer todos os grupos de pesquisa do instituto.',
-      primary: '#32a750',
-      secondary: '#36ac54',
+      primary: '#259063',
+      secondary: '#1b704d',
     },
     {
       title: 'Você já conhece a história da USP? Aqui, cada canto da universidade reflete um legado de excelência, onde o conhecimento e a tradição se entrelaçam para formar uma comunidade engajada e inovadora.',
       text: 'O ICMC foi fundado em 1971, e desde então, tem se destacado como um dos principais centros de ensino e pesquisa em computação e matemática do Brasil!',
-      primary: '#557dba',
-      secondary: '#5b83be',
+      primary: '#d61d4c',
+      secondary: '#b01b40',
     },
     {
       title: 'Você já experimentou o bandejão? Os restaurantes universitários, conhecidos na USP como bandejões, estão disponíveis em todos os campi. A comunidade universitária paga apenas R$ 2,00 no almoço e no jantar, e R$ 0,50 no café da manhã.',
       text: 'Na USP São Carlos, temos 2 bandejões: um no campus 1 e outro no campus 2. Ambos oferecem refeições balanceadas e de qualidade. ',
-      primary: '#693688',
-      secondary: '#693586',
+      primary: '#fdc217',
+      secondary: '#cf9f07',
     },
     {
       title: 'Você já descobriu qual é a sua atlética? Na USP, cada atlética é um espaço vibrante onde o esporte e a amizade se encontram com um único propósito: celebrar conquistas e cultivar laços duradouros.',
       text: 'Na USP São Carlos, possuímos uma única atlética, o Centro Acadêmico Armando Salles de Oliveira (CAASO), que organiza eventos esportivos e culturais para toda a comunidade. No ICMC, contamos com a Secretaria Acadêmica do ICMC (SACIM).',
-      primary: '#e13228',
-      secondary: '#e33c2f',
+      primary: '#e9581e',
+      secondary: '#c94017',
     },
   ];
   return (

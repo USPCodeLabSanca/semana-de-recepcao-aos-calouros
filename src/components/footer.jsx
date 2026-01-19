@@ -47,10 +47,10 @@ const contacts = [
     text: <a
       rel='noreferrer noopener'
       className='hover:underline break-all'
-      href="tel:55-16-33739639"
+      href="tel:55-16-33739700"
       target='_blank'
     >
-      +55 (16) 3373-9639
+      +55 (16) 3373-9700
     </a>,
   },
   {
