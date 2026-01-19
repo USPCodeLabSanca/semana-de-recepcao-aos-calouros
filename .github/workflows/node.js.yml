@@ -19,6 +19,11 @@ jobs:
         working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
         run: git pull origin main
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
       - name: Install dependencies
         working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
         run: npm install
@@ -33,4 +38,4 @@ jobs:
           mkdir -p /var/www/semana-de-recepcao-aos-calouros
 
       - name: Deploy build
-        run: mv /home/calouros/semana-de-recepcao-aos-calouros/build /var/www/semana-de-recepcao-aos-calouros/
+        run: mv /home/calouros/semana-de-recepcao-aos-calouros/dist /var/www/semana-de-recepcao-aos-calouros/
