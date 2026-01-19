@@ -86,7 +86,8 @@ function Hero() {
               showArrows={false}
               onChange={onChange}
               infiniteLoop={true}
-              transitionTime={500}>
+              transitionTime={500}
+              showThumbs={false}>
               <div>
                 <img src={Faixa1} alt='Banner sobre acolhimento: Onde eu estudo, o acolhimento faz parte da nossa essência!' />
               </div>
