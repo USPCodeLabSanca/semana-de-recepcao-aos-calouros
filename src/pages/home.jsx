@@ -68,7 +68,7 @@ export default function Home() {
       {/* <Highlights /> */}
       {/* <Live url={data && data.URL_Live} /> */}
       {/* <Eventos /> */}
-      <span ref={programacaoComponent} />
+      <span id="programacao" ref={programacaoComponent} />
       {
         events ? (
           <Programacao events={events} />
@@ -77,7 +77,10 @@ export default function Home() {
         )
       }
       <React.Suspense fallback={<p>Loading</p>}>
-        <Services />
+        <div id="servicos">
+          <Services />
+        </div>
+
         {/* <Essentials /> */}
         <Flyer />
         <Footer />

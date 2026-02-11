@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import IconButton from '@mui/material/IconButton';
@@ -16,12 +16,15 @@ function Navbar() {
   const links = [{
     path: '/',
     text: 'página inicial',
+    id: 'home',
   }, {
     path: '/#programacao',
     text: 'programação',
+    id: 'programacao',
   }, {
     path: '/#servicos',
     text: 'serviços',
+    id: 'servicos',
   }, {
     path: '/disque-trote',
     text: 'disque-trote',
@@ -30,7 +33,71 @@ function Navbar() {
     text: 'contato',
   }];
 
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const location = useLocation();
+
+  // Monitora a rolagem para atualizar o link ativo na navbar
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      setActiveSection('');
+      return;
+    }
+
+    const handleScroll = () => {
+      const headerOffset = 100;
+      const scrollPosition = window.scrollY + headerOffset;
+
+      if (scrollPosition < 300) {
+        setActiveSection('home');
+        return;
+      }
+
+      // Verifica seções
+      links.forEach((link) => {
+        if (link.id) {
+          const element = document.getElementById(link.id);
+          if (element) {
+            if (scrollPosition >= element.offsetTop) {
+              setActiveSection(link.id);
+            }
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location]);
+
+  // Verifica se o link deve ser marcado como ativo
+  const checkActive = (link) => {
+    // Para páginas externas (contato, disque-trote)
+    if (link.path && !link.path.includes('#') && link.path !== '/') {
+      return location.pathname === link.path;
+    }
+
+    // Para Home e seções
+    if (location.pathname === '/') {
+      if (link.path === '/') {
+        return activeSection === 'home' || (activeSection === '' && location.hash === '');
+      }
+      if (link.id && activeSection === link.id) return true;
+    }
+    return false;
+  };
+
+  // O que acontece ao clicar em um link da navbar
+  const handleClick = (link) => {
+    setIsDrawerOpen(false);
+
+    if (link.path === '/' && location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const activeClass = 'text-yellow-600';
+  const inactiveClass = 'color-black';
 
   return (<>
     <header className='bg-white color-black shadow h-20 fixed top-0 left-0 right-0 z-10'>
@@ -42,7 +109,12 @@ function Navbar() {
         </div>
         <div className='hidden lg:flex'>
           {links.map((link, index) => {
-            return (<HashLink smooth key={index} to={link.path} className='color-black p-4'><b>{link.text}</b></HashLink>);
+            const isActive = checkActive(link);
+            return (
+              <HashLink smooth key={index} to={link.path} onClick={() => handleClick(link)} className={`p-4 transition-colors duration-200 ${isActive ? activeClass : inactiveClass}`}>
+                <b>{link.text}</b>
+              </HashLink>
+            );
           })}
         </div>
         <div className='lg:hidden'>
@@ -56,16 +128,19 @@ function Navbar() {
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
         onOpen={() => setIsDrawerOpen(true)}
-        PaperProps={{ style: { backgroundColor: '#fafafa' } }}
+        slotProps={{ paper: { style: { backgroundColor: '#fafafa' } } }}
       >
         <div
           className='flex flex-col items-center pt-4'
           style={{ minWidth: '260px' }}
         >
-          {links.map((link) => {
-            return (<HashLink smooth key={link.path} to={link.path} onClick={() => setIsDrawerOpen(false)} className='color-black p-4'>
-              <b>{link.text}</b>
-            </HashLink>);
+          {links.map((link, index) => {
+            const isActive = checkActive(link);
+            return (
+              <HashLink smooth key={index} to={link.path} onClick={() => handleClick(link)} className={`p-4 transition-colors duration-200 ${isActive ? activeClass : inactiveClass}`}>
+                <b>{link.text}</b>
+              </HashLink>
+            );
           })}
         </div>
       </SwipeableDrawer>
