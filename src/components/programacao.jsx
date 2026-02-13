@@ -193,7 +193,7 @@ export default function Programacao({ events }) {
 
   return (
     <div className='min-h-screen bg-secondary flex flex-col items-center' id='programacao'>
-      <SectionHeader title='Programação completa' subTitle={<p>Confira tudo que já aconteceu e que <b>ainda vai rolar!</b></p>} />
+      <SectionHeader title='Programação parcial' subTitle={<p>Sujeita a mudanças</p>} />
 
       <div className='w-full sm:w-5/6 md:w-3/5 bg-white'>
         <div className='p-6'>

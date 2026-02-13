@@ -15,8 +15,8 @@ const Flyer = React.lazy(() => import('../components/flyer'));
 const Footer = React.lazy(() => import('../components/footer'));
 // import API from '../lib/api';
 
-// import {events} from '../lib/schedule-data/events';
-const events = false;
+import {events} from '../lib/schedule-data/events';
+// const events = false;
 
 /**
  * Home Page
