@@ -192,11 +192,11 @@ export default function Programacao({ events }) {
   }
 
   return (
-    <div className='min-h-screen bg-secondary flex flex-col items-center' id='programacao'>
+    <div className='bg-secondary flex flex-col items-center pb-8' id='programacao'>
       <SectionHeader title='Programação parcial' subTitle={<p>Sujeita a mudanças</p>} />
 
-      <div className='w-full sm:w-5/6 md:w-3/5 bg-white'>
-        <div className='p-6'>
+      <div className='w-full sm:w-5/6 lg:w-3/5 bg-white'>
+        <div className='px-6 py-8'>
           <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector />}>
             {Object.keys(schedule).map((dateString, index) => {
               const date = new Date(dateString);
@@ -207,8 +207,8 @@ export default function Programacao({ events }) {
                 <Step key={index}>
                   <StepButton onClick={handleStep(index)} style={{outline: 'none'}}>
                     <StepLabel StepIconComponent={ColorlibStepIcon}>
-                      <div>{formatedDate}</div>
-                      <div>{dayOfWeek}</div>
+                      <p className='md:text-lg text-xs'>{formatedDate}</p>
+                      <p className='md:text-lg text-sm'>{dayOfWeek}</p>
                     </StepLabel>
                   </StepButton>
                 </Step>
@@ -217,11 +217,11 @@ export default function Programacao({ events }) {
           </Stepper>
         </div>
 
-        <h1 className='text-lg sm:xl md:text-2xl lg:text-3xl font-bold text-center px-2 py-8 bg-white'>
+        <h1 className='text-lg sm:xl md:text-2xl lg:text-3xl font-bold text-center px-2 pb-6 bg-white'>
           {`${('0'+(getActiveDate().getDate() + 1)).slice(-2)}/${('0'+(getActiveDate().getMonth()+1)).slice(-2)} - ${dayName[getActiveDate().getDay()].long}`}
         </h1>
 
-        <div className='flex flex-col items-center bg-white pb-12'>
+        <div className='flex flex-col items-center bg-white pb-8'>
           {getScheduleContent(Object.values(schedule)[activeStep])}
         </div>
       </div>
