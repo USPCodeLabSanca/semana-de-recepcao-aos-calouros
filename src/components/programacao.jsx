@@ -70,50 +70,63 @@ ColorlibStepIcon.propTypes = {
 };
 
 /**
- * getScheduleContent
+ * EventContentItem
  *
- * @param {array} events
+ * @param {Event} events
  *
  * @return {void}
  */
-function getScheduleContent(events) {
-  const content = [];
-  let current = {};
+function EventContentItem({ event }) {
+  const [startHour, startMinute] = event.Inicio.split(':');
+  const [endHour, endMinute] = event.Fim.split(':');
 
-  for (const index in events) {
-    current = events[index];
-    const [startHour, startMinute] = current.Inicio.split(':');
-    const [endHour, endMinute] = current.Fim.split(':');
+  const originalDescription = event.Descricao;
+  const convertedDescription = markdownToHtml(originalDescription || '');
 
-    const originalDescription = current.Descricao;
-    const convertedDescription = markdownToHtml(originalDescription || '');
-
-    content.push(
-        <div className='bg-gray-100 border-solid border-gray-100 my-2 shadow-md w-5/6' key={index}>
-          <div className='flex'>
-            <div className={current.type === '1' ? 'bg-black text-center w-1/4 sm:w-1/6 py-2 flex flex-col justify-center' : 'bg-black text-center w-1/4 sm:w-1/6 py-2'}>
-              <p className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-white'>{`${startHour}:${startMinute}`}</p>
-              <p className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-white'>{`${endHour}:${endMinute}`}</p>
-            </div>
-            <div className='flex flex-col justify-center py-2 px-3 w-full'>
-              <h1 className='text-sm sm:text-base md:text-lg lg:text-xl font-bold color-black'>{current.Titulo}</h1>
-              {
-                convertedDescription &&
-              <>
-                <div
-                  className='text-xs sm:text-sm md:text-base lg:text-lg color-dark-gray'
-                  dangerouslySetInnerHTML={{__html: convertedDescription}}
-                ></div>
-              </>
-              }
-              <h2 className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-dark-gray'>{current.Local}</h2>
-            </div>
-          </div>
-        </div>,
-    );
+  /**
+  * handleLocationClick
+  *
+  * @param {string} local
+  *
+  * @return {void}
+  */
+  function handleLocationClick(local) {
+    console.log(local);
   }
 
-  return content;
+  return (
+    <div className='bg-gray-100 border-solid border-gray-100 my-2 shadow-md w-5/6'>
+      <div className='flex'>
+        <div className={event.type === '1' ? 'bg-black text-center w-1/4 sm:w-1/6 py-2 flex flex-col justify-center' : 'bg-black text-center w-1/4 sm:w-1/6 py-2'}>
+          <p className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-white'>{`${startHour}:${startMinute}`}</p>
+          <p className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-white'>{`${endHour}:${endMinute}`}</p>
+        </div>
+        <div className='flex flex-col justify-center py-2 px-3 w-full'>
+          <h1 className='text-sm sm:text-base md:text-lg lg:text-xl font-bold color-black'>{event.Titulo}</h1>
+          {
+            convertedDescription &&
+            <>
+              <div
+                className='text-xs sm:text-sm md:text-base lg:text-lg color-dark-gray'
+                dangerouslySetInnerHTML={{ __html: convertedDescription }}
+              ></div>
+            </>
+          }
+          <div className='flex gap-2'>
+            {event.Local.split(',').map((local, idx) => {
+              return (
+                <h2
+                  key={idx}
+                  className='text-xs sm:text-sm md:text-base lg:text-lg font-bold color-dark-gray cursor-pointer hover:underline'
+                  onClick={() => handleLocationClick(local.trim())}
+                >{local.trim()}</h2>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 /**
@@ -222,7 +235,7 @@ export default function Programacao({ events }) {
         </h1>
 
         <div className='flex flex-col items-center bg-white pb-8'>
-          {getScheduleContent(Object.values(schedule)[activeStep])}
+          {Object.values(schedule)[activeStep].map((event, idx) => <EventContentItem event={event} key={idx}/>)}
         </div>
       </div>
     </div>
