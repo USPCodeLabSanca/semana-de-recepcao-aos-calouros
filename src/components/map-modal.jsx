@@ -21,11 +21,10 @@ const style = {
     md: '70%',
     lg: '60%',
   },
-  height: { xs: '65vh', md: '70vh' },
   bgcolor: 'white',
   border: '2px solid #000',
   boxShadow: 24,
-  p: 4,
+  p: 1,
 };
 
 
@@ -67,10 +66,12 @@ export default function MapLocationModal() {
           </IconButton>
         </Box>
         {open && (<div className='p-4'>
-          <MapContainer center={[location.lat, location.lon]} zoom={20} scrollWheelZoom={false} className="w-full h-[40vh]">
+          <MapContainer center={[location.lat, location.lon]} zoom={18} scrollWheelZoom={true} className="w-full sm:h-[70vh] h-[50vh]">
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              maxZoom={22}
+              maxNativeZoom={19}
             />
             <Marker position={[location.lat, location.lon]}/>
           </MapContainer>
