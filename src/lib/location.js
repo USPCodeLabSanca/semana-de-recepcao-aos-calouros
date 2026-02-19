@@ -36,6 +36,11 @@ export const Locations = {
     lat: -22.007278766924777,
     lon: -47.89451516652856,
   },
+  'favaro': {
+    name: 'Auditório Fávaro',
+    lat: -22.007256580401413,
+    lon: -47.89441738232872,
+  },
   'usp': {
     name: 'USP São Carlos',
     lat: -22.00707221830916,
@@ -46,10 +51,12 @@ export const Locations = {
 const LocationsSearch = [
   { search: 'biblioteca', id: 'biblioteca' },
   { search: 'fernão', id: 'fernao' },
-  { search: '3', id: 'bloco-3' },
-  { search: '4', id: 'bloco-4' },
+  { search: '3-', id: 'bloco-3' },
+  { search: 'bloco 3', id: 'bloco-3' },
+  { search: '4-', id: 'bloco-4' },
   { search: 'eventos', id: 'eventos' },
   { search: 'redondo', id: 'redondo' },
+  { search: 'fávaro', id: 'favaro' },
   { search: 'caaso', id: 'caaso' },
 ];
 

@@ -122,7 +122,7 @@ export const events = [
     'Fim': '10:30',
     'Titulo': 'Bate-Papo com Veteranos',
     'Descricao': '',
-    'Local': 'BCC  (sala 4-001), MAT-NG (sala 3-011), BCDados (sala 3-012), BMACC (sala 4-005)',
+    'Local': 'BCC  (Auditório Fávaro), MAT-NG (sala 3-010), BCDados (sala 4-003), BMACC (sala 4-005)',
     'type': '1',
   },
   {
@@ -131,7 +131,7 @@ export const events = [
     'Fim': '12:00',
     'Titulo': 'Bate-Papo com Coordenação',
     'Descricao': '',
-    'Local': 'BCC (sala 4-001), MAT-NG (sala 3-011), BCDados (sala 3-012), BMACC (sala 4-005)',
+    'Local': 'BCC  (Auditório Fávaro), MAT-NG (sala 3-010), BCDados (sala 4-003), BMACC (sala 4-005)',
     'type': '1',
   },
   {
@@ -167,7 +167,7 @@ export const events = [
     'Fim': '21:00',
     'Titulo': 'Bate-Papo com Veteranos',
     'Descricao': '',
-    'Local': 'BSI (sala 3-009), BECD (sala 3-011)',
+    'Local': 'BSI (sala 4-001), BECD (sala 3-011)',
     'type': '1',
   },
   {
@@ -176,7 +176,7 @@ export const events = [
     'Fim': '22:30',
     'Titulo': 'Bate-Papo com Coordenação',
     'Descricao': '',
-    'Local': 'BSI (sala 3-009), BECD (sala 3-011)',
+    'Local': 'BSI (sala 4-001), BECD (sala 3-011)',
     'type': '1',
   },
   {
