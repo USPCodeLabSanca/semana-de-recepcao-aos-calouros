@@ -8,7 +8,20 @@ import IconButton from '@mui/material/IconButton';
 import { Close } from '@mui/icons-material';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+
+import iconUrl from 'leaflet/dist/images/marker-icon.png';
+import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
+import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
+
+// Devolve o ícone padrão do leaflet ao buildar para prod
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: iconRetinaUrl,
+  iconUrl: iconUrl,
+  shadowUrl: shadowUrl,
+});
 
 const style = {
   position: 'absolute',
