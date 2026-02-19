@@ -11,6 +11,8 @@ import AddIcon from '@mui/icons-material/Add';
 
 import SectionHeader from './section-header';
 import markdownToHtml from '../lib/markdown-to-html';
+import { getLocationId, useLocationSearch } from '../lib/location';
+import MapLocationModal from './map-modal';
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -83,6 +85,8 @@ function EventContentItem({ event }) {
   const originalDescription = event.Descricao;
   const convertedDescription = markdownToHtml(originalDescription || '');
 
+  const { setLocation, setOpen } = useLocationSearch();
+
   /**
   * handleLocationClick
   *
@@ -91,7 +95,8 @@ function EventContentItem({ event }) {
   * @return {void}
   */
   function handleLocationClick(local) {
-    console.log(local);
+    setLocation(getLocationId(local));
+    setOpen(true);
   }
 
   return (
@@ -229,6 +234,8 @@ export default function Programacao({ events }) {
             })}
           </Stepper>
         </div>
+
+        <MapLocationModal/>
 
         <h1 className='text-lg sm:xl md:text-2xl lg:text-3xl font-bold text-center px-2 pb-6 bg-white'>
           {`${('0'+(getActiveDate().getDate() + 1)).slice(-2)}/${('0'+(getActiveDate().getMonth()+1)).slice(-2)} - ${dayName[getActiveDate().getDay()].long}`}

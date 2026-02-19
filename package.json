@@ -12,10 +12,12 @@
     "autoprefixer": "^10.4.23",
     "axios": "^1.13.2",
     "clsx": "^2.1.1",
+    "leaflet": "^1.9.4",
     "moment": "^2.24.0",
     "postcss": "^8.5.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.0.0",
     "react-material-ui-carousel": "^3.4.2",
     "react-player": "^2.9.0",
     "react-responsive-carousel": "^3.2.23",
@@ -23,7 +25,8 @@
     "react-router-hash-link": "^2.4.0",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "zustand": "^5.0.11"
   },
   "scripts": {
     "start": "vite",
