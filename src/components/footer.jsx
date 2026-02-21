@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { HashLink } from 'react-router-hash-link';
-import { Phone, Public, Mail, WhatsApp } from '@mui/icons-material';
+import { Phone, Mail, WhatsApp } from '@mui/icons-material';
 
 import Card from './card';
 import Socials from './socials';
@@ -16,7 +16,7 @@ const usefulLinks = [
     link: 'https://t.me/joinchat/bakayQMJ5rkwYTZh',
   },
   {
-    linkText: 'Manual do calouro USP',
+    linkText: 'Manual do Calouro USP',
     link: 'https://usp.br/manualdocalouro/',
   },
   {
@@ -24,19 +24,19 @@ const usefulLinks = [
     link: 'https://www.puspsc.usp.br/transporte-alimentacao-e-moradia/',
   },
   {
-    linkText: 'Atendimento médico',
+    linkText: 'Atendimento Médico',
     link: 'https://saocarlos.usp.br/servicos/atendimento-medico/',
   },
   {
-    linkText: 'Segurança e tráfego no campus',
+    linkText: 'Segurança e Tráfego no Campus',
     link: 'https://www.puspsc.usp.br/seguranca-e-acesso-ao-campus/',
   },
   {
-    linkText: 'Pró-reitoria de Inclusão e Pertencimento (PRIP)',
+    linkText: 'Pró-Reitoria de Inclusão e Pertencimento',
     link: 'https://prip.usp.br/',
   },
   {
-    linkText: 'Cardápio do restaurante universitário',
+    linkText: 'Cardápio do Restaurante Universitário',
     link: 'https://www.puspsc.usp.br/cardapio/',
   },
 ];
@@ -83,18 +83,17 @@ const contacts = [
  */
 export default function Footer() {
   return (
-    <footer>
-      <div className='bg-primary color-white px-4 pb-10'>
-        <Socials />
+    <footer className='bg-primary'>
+      <div className='color-white px-4 py-10 mx-auto container'>
         <div className='grid gap-1 grid-cols-1 md:grid-cols-3 sm:grid-cols-1'>
-          <Card
-            title='UNIVERSIDADE DE SÃO PAULO INSTITUTO DE CIÊNCIAS MATEMÁTICAS E DE COMPUTAÇÃO'
-            icon={<Public />}
-          >
-            <div className='text-sl'>
-              Avenida Trabalhador São-carlense, 400 - Centro <br></br>
-              CEP: 13566-590 - São Carlos - SP
+          <Card>
+            <div className='sm:justify-start in:justify-center flex gap-4'>
+              <img src='src/images/logo-usp-branco.png' alt='Logo USP' className='h-12 mb-4' />
+              <img src='src/images/logo-icmc-branco.svg' alt='Logo ICMC' className='h-12 mb-4' />
             </div>
+            <p className='sm:text-left in:text-center text-xl font-bold'>Universidade de São Paulo</p>
+            <p className='sm:text-left in:text-center text-xl'>Instituto de Ciências Matemáticas e de Computação</p>
+            <Socials />
           </Card>
           <Card title='Links Úteis'>
             {usefulLinks.map((link, index) => {
@@ -103,7 +102,7 @@ export default function Footer() {
                   {link.link && (
                     <a
                       rel='noreferrer noopener'
-                      className='hover:underline break-all'
+                      className='hover:underline break-all text-white/75'
                       href={link.link}
                       target='_blank'
                     >
@@ -115,9 +114,13 @@ export default function Footer() {
             })}
           </Card>
           <Card title='Contato'>
+            <div className='mb-2 text-white/75'>
+              Avenida Trabalhador São-carlense, 400 - Centro <br></br>
+              CEP: 13566-590 - São Carlos - SP
+            </div>
             {contacts.map((contact, index) => {
               return (
-                <div className='text-sl' key={index}>
+                <div key={index}>
                   {
                     <p>
                       {contact.image} {contact.text}

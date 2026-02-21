@@ -37,13 +37,13 @@ const links = [
 export default function Socials() {
   return (
     <>
-      <div className='pb-2'>
-        <div className='flex flex-wrap justify-center container mx-auto'>
+      <div className='sm:pt-0 pt-2'>
+        <div className='flex flex-wrap sm:justify-start in:justify-center container mx-auto'>
           {links.map((link, index) => {
             return (
-              <div className='p-2' key={index}>
+              <div className='sm:p-1 p-4' key={index}>
                 <a
-                  className='flex items-center justify-center transition-all hover:bg-gray-200 hover:text-black rounded-full h-6 w-6 sm:h-12 sm:w-12'
+                  className='flex items-center justify-center transition-all hover:bg-gray-200 hover:text-black rounded-full h-6 w-6 md:h-8 md:w-8 sm:h-10 sm:w-10'
                   rel='noreferrer noopener'
                   href={link.link} target="_blank"
                 >

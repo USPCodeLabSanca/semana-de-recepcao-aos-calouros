@@ -7,7 +7,6 @@ import Step from '@mui/material/Step';
 import StepButton from '@mui/material/StepButton';
 import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
 import StepLabel from '@mui/material/StepLabel';
-import AddIcon from '@mui/icons-material/Add';
 
 import SectionHeader from './section-header';
 import markdownToHtml from '../lib/markdown-to-html';
@@ -38,6 +37,7 @@ const ColorlibStepIconRoot = styled('div', {
   borderRadius: '50%',
   justifyContent: 'center',
   alignItems: 'center',
+  transition: 'transform 0.3s ease',
   [theme.breakpoints.down('sm')]: {
     width: 40,
     height: 40,
@@ -56,11 +56,13 @@ const ColorlibStepIconRoot = styled('div', {
  * @return {void}
  */
 function ColorlibStepIcon(props) {
-  const { active, className } = props;
+  const { active, className, dayText } = props;
 
   return (
     <ColorlibStepIconRoot active={active} className={className}>
-      <AddIcon />
+      <span className={`text-lg font-bold ${active ? 'text-white' : 'text-gray-600'}`}>
+        {dayText}
+      </span>
     </ColorlibStepIconRoot>
   );
 }
@@ -143,19 +145,19 @@ export default function Programacao({ events }) {
   const dayName = [
     {
       short: 'seg',
-      long: 'Segunda-Feira',
+      long: 'Segunda-feira',
     }, {
       short: 'ter',
-      long: 'Terça-Feira',
+      long: 'Terça-feira',
     }, {
       short: 'qua',
-      long: 'Quarta-Feira',
+      long: 'Quarta-feira',
     }, {
       short: 'qui',
-      long: 'Quinta-Feira',
+      long: 'Quinta-feira',
     }, {
       short: 'sex',
-      long: 'Sexta-Feira',
+      long: 'Sexta-feira',
     }, {
       short: 'sáb',
       long: 'Sábado',
@@ -193,7 +195,35 @@ export default function Programacao({ events }) {
     });
   });
 
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(() => {
+    // Pega o dia de hoje formatado como número (MMDD)
+    const today = new Date();
+    const todayNumber = (today.getMonth() + 1) * 100 + today.getDate();
+
+    const dateStrings = Object.keys(schedule);
+    if (dateStrings.length === 0) return 0;
+
+    // Verifica se a data de hoje corresponde a alguma das datas do cronograma
+    const foundIndex = dateStrings.findIndex((dateString) => {
+      const d = new Date(dateString);
+      const eventNumber = (d.getMonth() + 1) * 100 + (d.getDate() + 1);
+      return eventNumber === todayNumber;
+    });
+
+    // Se corresponder mostra a programação de hoje
+    if (foundIndex !== -1) {
+      return foundIndex;
+    }
+
+    const lastDate = new Date(dateStrings[dateStrings.length - 1]);
+    const lastEventNumber = (lastDate.getMonth() + 1) * 100 + (lastDate.getDate() + 1);
+
+    if (todayNumber > lastEventNumber) {
+      return dateStrings.length - 1; // Retorna o último dia do evento
+    }
+
+    return 0; // Retorna o primeiro dia do evento
+  });
 
   const handleStep = (step) => () => {
     setActiveStep(step);
@@ -220,13 +250,21 @@ export default function Programacao({ events }) {
               const date = new Date(dateString);
               // const formatedDate = `${('0'+(date.getDate()+1)).slice(-2)}/${('0'+(date.getMonth()+1)).slice(-2)}`;
               const formatedDate = `${date.getDate() + 1}/${('0'+(date.getMonth()+1)).slice(-2)}`;
+              const dayNumber = formatedDate.split('/')[0];
               const dayOfWeek = dayName[date.getDay()].short;
               return (
                 <Step key={index}>
-                  <StepButton onClick={handleStep(index)} style={{outline: 'none'}}>
-                    <StepLabel StepIconComponent={ColorlibStepIcon}>
-                      <p className='md:text-lg text-xs'>{formatedDate}</p>
-                      <p className='md:text-lg text-sm'>{dayOfWeek}</p>
+                  <StepButton
+                    onClick={handleStep(index)}
+                    className='group md:hover:bg-black/5 transition-colors duration-200 ease-in-out'
+                  >
+                    <StepLabel dayText={dayNumber}slots={{stepIcon: ColorlibStepIcon}} slotProps={{
+                      stepIcon: {
+                        className: 'group-hover:scale-110 group-focus:scale-110 transition-transform duration-300',
+                        dayText: dayNumber,
+                      },
+                    }}>
+                      <p className="md:text-lg text-sm">{dayOfWeek}</p>
                     </StepLabel>
                   </StepButton>
                 </Step>
