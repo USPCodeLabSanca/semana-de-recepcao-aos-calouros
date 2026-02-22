@@ -5,6 +5,8 @@ import { Phone, Mail, WhatsApp } from '@mui/icons-material';
 
 import Card from './card';
 import Socials from './socials';
+import ICMC from '../images/logo-icmc-branco.svg';
+import USP from '../images/logo-usp-branco.png';
 
 const usefulLinks = [
   {
@@ -88,8 +90,8 @@ export default function Footer() {
         <div className='grid gap-1 grid-cols-1 md:grid-cols-3 sm:grid-cols-1'>
           <Card>
             <div className='sm:justify-start in:justify-center flex gap-4'>
-              <img src='src/images/logo-usp-branco.png' alt='Logo USP' className='h-12 mb-4' />
-              <img src='src/images/logo-icmc-branco.svg' alt='Logo ICMC' className='h-12 mb-4' />
+              <img src={USP} alt='Logo USP' className='h-12 mb-4' />
+              <img src={ICMC} alt='Logo ICMC' className='h-12 mb-4' />
             </div>
             <p className='sm:text-left in:text-center text-xl font-bold'>Universidade de São Paulo</p>
             <p className='sm:text-left in:text-center text-xl'>Instituto de Ciências Matemáticas e de Computação</p>
