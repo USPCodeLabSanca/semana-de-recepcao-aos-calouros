@@ -36,6 +36,11 @@ export const Locations = {
     lat: -22.007278766924777,
     lon: -47.89451516652856,
   },
+  'bloco-6': {
+    name: 'ICMC - Bloco 6',
+    lat: -22.0070097170172,
+    lon: -47.89499460681919,
+  },
   'favaro': {
     name: 'Auditório Fávaro',
     lat: -22.007256580401413,
@@ -58,6 +63,7 @@ const LocationsSearch = [
   { search: 'redondo', id: 'redondo' },
   { search: 'fávaro', id: 'favaro' },
   { search: 'caaso', id: 'caaso' },
+  { search: '6-', id: 'bloco-6' },
 ];
 
 /**

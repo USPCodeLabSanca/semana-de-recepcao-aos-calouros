@@ -176,7 +176,7 @@ export const events = [
     'Fim': '22:30',
     'Titulo': 'Bate-Papo com Coordenação',
     'Descricao': '',
-    'Local': 'BSI (sala 4-001), BECD (sala 3-011)',
+    'Local': 'BSI (sala 4-001), BECD (laboratórios 6-305/6-306)',
     'type': '1',
   },
   {
