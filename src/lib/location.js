@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import axios from 'axios';
 
 export const Locations = {
   'biblioteca': {
@@ -47,71 +48,91 @@ export const Locations = {
     lon: -47.89441738232872,
   },
   'usp': {
-    name: 'USP São Carlos',
+    name: 'USP São Carlos (Campus 1)',
     lat: -22.00707221830916,
     lon: -47.89683843242551,
   },
 };
 
-const LocationsSearch = [
+export const LocationsSearch = [
   { search: 'biblioteca', id: 'biblioteca' },
   { search: 'fernão', id: 'fernao' },
+  { search: 'fernao', id: 'fernao' },
   { search: '3-', id: 'bloco-3' },
   { search: 'bloco 3', id: 'bloco-3' },
   { search: '4-', id: 'bloco-4' },
+  { search: 'bloco 4', id: 'bloco-4' },
   { search: 'eventos', id: 'eventos' },
   { search: 'redondo', id: 'redondo' },
   { search: 'fávaro', id: 'favaro' },
+  { search: 'favaro', id: 'favaro' },
   { search: 'caaso', id: 'caaso' },
   { search: '6-', id: 'bloco-6' },
+  { search: 'bloco 6', id: 'bloco-6' },
 ];
 
 /**
- * getLocationId
- *
- * @param {string} local
- *
- * @return {string} id
+ * Zustand Store for dynamic locations and search state
+ */
+export const useLocationSearch = create((set, get) => ({
+  location: null,
+  open: false,
+  locations: [],
+  locationsMap: { ...Locations },
+  searchKeywords: [...LocationsSearch],
+  isLoaded: false,
+
+  setLocation: (location) => set(() => ({ location })),
+  setOpen: (open) => set(() => ({ open })),
+  reset: () => set(() => ({ location: null, open: false })),
+
+  /**
+   * Loads dynamic locations from the CMS backend
+   */
+  loadDynamicLocations: async () => {
+    try {
+      const response = await axios.get('/api/locations');
+      if (response.data && response.data.locationsMap) {
+        set({
+          locations: response.data.locations || [],
+          locationsMap: { ...Locations, ...response.data.locationsMap },
+          searchKeywords: response.data.searchKeywords?.length > 0 ? response.data.searchKeywords : LocationsSearch,
+          isLoaded: true,
+        });
+      }
+    } catch (err) {
+      console.warn('Usando locais locais do campus como fallback:', err.message);
+    }
+  },
+
+  getLocationObject: (id) => {
+    const { locationsMap } = get();
+    return locationsMap[id] || Locations[id] || Locations['usp'];
+  },
+}));
+
+/**
+ * Dynamically resolves location ID from event text using active keyword rules
+ * @param {string} local - Name or text of location
+ * @return {string} Matching location ID or 'usp'
  */
 export function getLocationId(local) {
-  // Normalize string for search
-  local = local.trim().toLowerCase();
+  if (!local) return 'usp';
+  const cleanLocal = local.trim().toLowerCase();
 
-  // Search id
-  for (const loc of LocationsSearch) {
-    if (local.includes(loc.search)) {
+  const state = useLocationSearch.getState();
+  const searchRules = state.searchKeywords && state.searchKeywords.length > 0 ? state.searchKeywords : LocationsSearch;
+
+  for (const loc of searchRules) {
+    if (cleanLocal.includes(loc.search)) {
       return loc.id;
     }
   }
 
-  // Fallback (podemos mudar isso)
   return 'usp';
 }
 
-/*
-Store para armazenar o estado da busca, fora do
-ciclo de vida do react e evitando prop drilling.
-Pode ser usando dentro e fora de components (só
-ver o uso correto do hook).
- */
-export const useLocationSearch = create((set) => ({
-  // Store state
-  location: null,
-  open: false,
-
-  setLocation: (location) =>
-    set(() => ({
-      location,
-    })),
-
-  setOpen: (open) =>
-    set(() => ({
-      open,
-    })),
-
-  reset: () =>
-    set(() => ({
-      location: null,
-      open: false,
-    })),
-}));
+// Auto-trigger load on module import in browser
+if (typeof window !== 'undefined') {
+  useLocationSearch.getState().loadDynamicLocations();
+}

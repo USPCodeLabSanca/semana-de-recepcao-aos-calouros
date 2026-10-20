@@ -1,22 +1,14 @@
-import React, { useEffect, useRef } from 'react';
-
+import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Hero from '../components/hero';
-// import Presentation from '../components/presentation';
-// import Highlights from '../components/highlights';
-// import Live from '../components/live';
-// import Eventos from '../components/eventos';
 import WorkInProgress from './work-in-progress';
 import Programacao from '../components/programacao';
 const Services = React.lazy(() => import('../components/services'));
-// const Essentials = React.lazy(() => import('../components/essentials'));
 const Flyer = React.lazy(() => import('../components/flyer'));
 const Footer = React.lazy(() => import('../components/footer'));
-// import API from '../lib/api';
-
-import {events} from '../lib/schedule-data/events';
-// const events = false;
+import API from '../lib/api';
+import { events as defaultEvents } from '../lib/schedule-data/events';
 
 /**
  * Home Page
@@ -25,19 +17,26 @@ import {events} from '../lib/schedule-data/events';
  */
 export default function Home() {
   const programacaoComponent = useRef();
-  // const [data, setData] = useState();
-
+  const [scheduleEvents, setScheduleEvents] = useState(defaultEvents);
   const { location: { hash }, replace } = useHistory();
 
+  // Load active dynamic schedule from SQLite backend
+  useEffect(() => {
+    let isMounted = true;
+    API.schedule.getActive()
+        .then((res) => {
+          if (isMounted && res && res.events && res.events.length > 0) {
+            setScheduleEvents(res.events);
+          }
+        })
+        .catch((err) => {
+          console.warn('Using local fallback schedule dataset:', err.message);
+        });
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await API.home.get();
-  //     setData(response);
-  //   };
-
-  //   fetchData();
-  // }, []);
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   /**
    * Scroll to 'Programacao'
@@ -45,9 +44,11 @@ export default function Home() {
    * @return {void}
    */
   function moveScreenToProgramacao() {
-    const top = programacaoComponent.current.offsetTop;
-    window.scrollTo({ top, behavior: 'smooth' });
-    replace('/');
+    if (programacaoComponent.current) {
+      const top = programacaoComponent.current.offsetTop;
+      window.scrollTo({ top, behavior: 'smooth' });
+      replace('/');
+    }
   }
 
   useEffect(() => {
@@ -64,14 +65,10 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      {/* <Presentation /> */}
-      {/* <Highlights /> */}
-      {/* <Live url={data && data.URL_Live} /> */}
-      {/* <Eventos /> */}
       <span id="programacao" ref={programacaoComponent} />
       {
-        events ? (
-          <Programacao events={events} />
+        scheduleEvents ? (
+          <Programacao events={scheduleEvents} />
         ) : (
           <WorkInProgress />
         )
@@ -80,8 +77,6 @@ export default function Home() {
         <div id="servicos">
           <Services />
         </div>
-
-        {/* <Essentials /> */}
         <Flyer />
         <Footer />
       </React.Suspense>

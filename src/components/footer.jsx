@@ -142,6 +142,8 @@ export default function Footer() {
         <p className='text-xs color-white'>
           Desenvolvido por <a className='text-blue-300' href='https://codelab.icmc.usp.br/'>
             Codelab
+          </a> · <a className='text-amber-400/80 hover:text-amber-400 hover:underline' href='/admin'>
+            Painel Admin
           </a>
         </p>
       </div>

@@ -1,0 +1,7 @@
+{
+  "name": "Semana de Recepção aos Calouros ICMC USP",
+  "description": "Portal da Semana de Recepção aos Calouros do ICMC USP São Carlos com programação, serviços, contatos e mapa do campus.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

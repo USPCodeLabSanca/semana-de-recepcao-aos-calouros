@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@google/genai": "^2.30.0",
     "@mui/icons-material": "^7.3.6",
     "@mui/material": "^7.3.6",
     "@testing-library/jest-dom": "^4.2.4",
@@ -12,8 +13,11 @@
     "autoprefixer": "^10.4.23",
     "axios": "^1.13.2",
     "clsx": "^2.1.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0",
     "leaflet": "^1.9.4",
     "moment": "^2.24.0",
+    "multer": "^2.4.0",
     "postcss": "^8.5.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -25,13 +29,17 @@
     "react-router-hash-link": "^2.4.0",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
+    "sql.js": "^1.15.1",
     "tailwindcss": "^3.4.1",
+    "xlsx": "^0.18.5",
     "zustand": "^5.0.11"
   },
   "scripts": {
-    "start": "vite",
+    "dev": "tsx server.ts",
+    "start": "tsx server.ts",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host 0.0.0.0 --port 3000",
+    "lint": "eslint src --ext .js,.jsx"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,11 +57,13 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^26.6.5",
     "@vitejs/plugin-react": "^5.1.2",
     "eslint": "^7.21.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "tsx": "^4.23.15",
     "vite": "^7.3.0"
   }
 }

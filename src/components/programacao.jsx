@@ -258,12 +258,15 @@ export default function Programacao({ events }) {
                     onClick={handleStep(index)}
                     className='group md:hover:bg-black/5 transition-colors duration-200 ease-in-out'
                   >
-                    <StepLabel dayText={dayNumber}slots={{stepIcon: ColorlibStepIcon}} slotProps={{
-                      stepIcon: {
-                        className: 'group-hover:scale-110 group-focus:scale-110 transition-transform duration-300',
-                        dayText: dayNumber,
-                      },
-                    }}>
+                    <StepLabel
+                      slots={{ stepIcon: ColorlibStepIcon }}
+                      slotProps={{
+                        stepIcon: {
+                          className: 'group-hover:scale-110 group-focus:scale-110 transition-transform duration-300',
+                          dayText: dayNumber,
+                        },
+                      }}
+                    >
                       <p className="md:text-lg text-sm">{dayOfWeek}</p>
                     </StepLabel>
                   </StepButton>

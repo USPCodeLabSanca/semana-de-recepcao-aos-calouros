@@ -99,6 +99,10 @@ function Navbar() {
   const activeClass = 'text-yellow-600';
   const inactiveClass = 'color-black';
 
+  if (location.pathname.startsWith('/admin')) {
+    return null;
+  }
+
   return (<>
     <header className='bg-white color-black shadow h-20 fixed top-0 left-0 right-0 z-10'>
       <div className='flex h-full items-center justify-between container mx-auto px-4'>

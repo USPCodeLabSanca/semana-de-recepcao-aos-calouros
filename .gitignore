@@ -24,3 +24,12 @@ package-lock.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# AI / Agent related
+.ai/
+.aistudio/
+.cortex/
+.cursor/
+.aider/
+.claude/
+.temp-ai-context/

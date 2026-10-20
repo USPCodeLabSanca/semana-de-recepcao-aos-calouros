@@ -8,6 +8,8 @@ const Home = React.lazy(() => import('./pages/home'));
 const DisqueTrote = React.lazy(() => import('./pages/disque-trote'));
 const Contato = React.lazy(() => import('./pages/contato'));
 const Servicos = React.lazy(() => import('./pages/servicos'));
+const AdminDashboard = React.lazy(() => import('./pages/admin-dashboard'));
+const AdminLogin = React.lazy(() => import('./pages/admin-login'));
 import Navbar from './components/navbar';
 import ScrollToTop from './lib/scroll-to-top';
 
@@ -41,6 +43,8 @@ function App() {
               <Route exact path='/disque-trote' component={DisqueTrote} />
               <Route exact path='/contato' component={Contato} />
               <Route exact path='/servicos/:service' component={Servicos} />
+              <Route exact path='/admin' component={AdminDashboard} />
+              <Route exact path='/admin/login' component={AdminLogin} />
             </React.Suspense>
             <Redirect to='/' />
           </Switch>

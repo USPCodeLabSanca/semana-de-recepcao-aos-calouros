@@ -47,11 +47,12 @@ const style = {
  * @return {void}
  */
 export default function MapLocationModal() {
-  const { open, setOpen, location: locationId } = useLocationSearch();
+  const { open, setOpen, location: locationId, getLocationObject, locationsMap } = useLocationSearch();
 
   const location = useMemo(() => {
-    return locationId ? Locations[locationId] : null;
-  }, [locationId]);
+    if (!locationId) return null;
+    return getLocationObject ? getLocationObject(locationId) : (Locations[locationId] || Locations['usp']);
+  }, [locationId, getLocationObject, locationsMap]);
 
   const handleClose = () => setOpen(false);
 
