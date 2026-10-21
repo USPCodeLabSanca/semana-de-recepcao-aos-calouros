@@ -1,6 +1,5 @@
 import { GoogleGenAI, Type } from '@google/genai';
 import { ScheduleEvent } from './db';
-import { events as historicalEvents } from '../lib/schedule-data/events.js';
 
 /**
  * Initializes Gemini client with required telemetry header
@@ -20,6 +19,12 @@ function getGeminiClient(customApiKey?: string): GoogleGenAI {
     },
   });
 }
+
+// Used as few-shot reference when there is no published schedule yet
+const FALLBACK_SAMPLE_EVENTS: ScheduleEvent[] = [
+  { Data: '2026-02-23', Inicio: '08:00', Fim: '09:30', Titulo: 'Abertura', Descricao: '', Local: 'Salão de Eventos USP - São Carlos', type: '1' },
+  { Data: '2026-02-23', Inicio: '10:00', Fim: '12:00', Titulo: 'Entrega do Kit Ingressante', Descricao: '', Local: 'Vão da Biblioteca', type: '1' },
+];
 
 /**
  * Response schema enforced by Gemini tool use / JSON schema
@@ -137,12 +142,13 @@ export function validateScheduleEvents(events: any[]): { isValid: boolean; error
 export async function parseSpreadsheetWithGemini(
   spreadsheetText: string,
   sheetName: string,
-  customApiKey?: string
+  customApiKey?: string,
+  referenceEvents: ScheduleEvent[] = []
 ): Promise<{ events: ScheduleEvent[]; rawModelOutput: string }> {
   const ai = getGeminiClient(customApiKey);
 
-  // Take sample historical events as few-shot reference
-  const fewShotSample = historicalEvents.slice(0, 8);
+  // Take sample events from the published schedule as few-shot reference
+  const fewShotSample = referenceEvents.length > 0 ? referenceEvents.slice(0, 8) : FALLBACK_SAMPLE_EVENTS;
 
   const prompt = `Você é o parser oficial do cronograma da Semana de Recepção aos Calouros do ICMC USP São Carlos.
 Sua missão é ler o texto normalizado da planilha da comissão de recepção (onde as células mescladas de horários e dias já foram propagadas) e convertê-la rigorosamente para a lista de eventos no schema JSON oficial.

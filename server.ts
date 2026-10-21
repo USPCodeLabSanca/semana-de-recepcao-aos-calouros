@@ -65,6 +65,8 @@ async function startServer() {
    * Returns current active schedule for public display
    */
   app.get('/api/schedule/active', async (req: Request, res: Response) => {
+    // Always serve the latest published revision (no browser/proxy caching)
+    res.set('Cache-Control', 'no-store');
     try {
       const active = await getActiveSchedule();
       if (!active) {
@@ -90,6 +92,7 @@ async function startServer() {
    * Returns campus locations and coordinate mappings for the map
    */
   app.get('/api/locations', async (req: Request, res: Response) => {
+    res.set('Cache-Control', 'no-store');
     try {
       const locations = await listLocations();
       const locationsMap: Record<string, { name: string; lat: number; lon: number; keywords: string; description?: string }> = {};
@@ -311,8 +314,9 @@ async function startServer() {
       // 1. Normalize sheet and unmerge cells
       const { selectedSheet, textTable, rawMatrix } = normalizeSheetToText(req.file.buffer, sheetName);
 
-      // 2. Parse with Gemini 2.5 Flash
-      const { events, rawModelOutput } = await parseSpreadsheetWithGemini(textTable, selectedSheet, customApiKey);
+      // 2. Parse with Gemini 2.5 Flash, using the published schedule as reference
+      const active = await getActiveSchedule();
+      const { events, rawModelOutput } = await parseSpreadsheetWithGemini(textTable, selectedSheet, customApiKey, active?.events);
 
       res.json({
         success: true,
@@ -533,7 +537,12 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, HOST, () => {
+  app.listen(PORT, HOST, (err?: Error) => {
+    // A second instance must not keep running with its own in-memory copy of the database
+    if (err) {
+      console.error(`❌ Não foi possível escutar em ${HOST}:${PORT}:`, err.message);
+      process.exit(1);
+    }
     console.log(`🚀 Servidor rodando em http://${HOST}:${PORT}`);
   });
 }

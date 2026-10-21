@@ -11,6 +11,16 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      # data/calouros.db used to be versioned; keep a copy so the pull that untracks it cannot lose it
+      - name: Back up database
+        working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
+        run: |
+          if [ -f data/calouros.db ]; then
+            mkdir -p /home/calouros/calouros-db-backups
+            cp data/calouros.db "/home/calouros/calouros-db-backups/calouros-$(date +%Y%m%d-%H%M%S).db"
+            cp data/calouros.db /home/calouros/calouros-db-backups/latest.db
+          fi
+
       - name: Stash git changes
         working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
         run: git stash
@@ -18,6 +28,14 @@ jobs:
       - name: Pull git changes
         working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
         run: git pull origin main
+
+      - name: Restore database
+        working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
+        run: |
+          if [ ! -f data/calouros.db ] && [ -f /home/calouros/calouros-db-backups/latest.db ]; then
+            mkdir -p data
+            cp /home/calouros/calouros-db-backups/latest.db data/calouros.db
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v3

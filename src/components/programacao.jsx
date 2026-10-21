@@ -137,13 +137,61 @@ function EventContentItem({ event }) {
 }
 
 /**
+ * Parses a 'YYYY-MM-DD' string as a local calendar date (new Date(string) would use UTC midnight)
+ *
+ * @param {string} dateString
+ *
+ * @return {Date}
+ */
+function parseDay(dateString) {
+  const [year, month, day] = dateString.split('-').map(Number);
+  return new Date(year, month - 1, day);
+}
+
+/**
+ * Formats a Date as 'YYYY-MM-DD' in local time
+ *
+ * @param {Date} date
+ *
+ * @return {string}
+ */
+function toDayString(date) {
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${date.getFullYear()}-${month}-${day}`;
+}
+
+/**
+ * Picks today's tab if it is in the schedule, the last day if the week is over, otherwise the first
+ *
+ * @param {string[]} days sorted 'YYYY-MM-DD' strings
+ *
+ * @return {number}
+ */
+function getInitialStep(days) {
+  const today = toDayString(new Date());
+  const todayIndex = days.indexOf(today);
+  if (todayIndex !== -1) {
+    return todayIndex;
+  }
+  if (days.length > 0 && today > days[days.length - 1]) {
+    return days.length - 1;
+  }
+  return 0;
+}
+
+/**
  * Programacao
  *
  * @return {void}
  */
 export default function Programacao({ events }) {
+  // Indexed by Date.getDay() (0 = Sunday)
   const dayName = [
     {
+      short: 'dom',
+      long: 'Domingo',
+    }, {
       short: 'seg',
       long: 'Segunda-feira',
     }, {
@@ -161,9 +209,6 @@ export default function Programacao({ events }) {
     }, {
       short: 'sáb',
       long: 'Sábado',
-    }, {
-      short: 'dom',
-      long: 'Domingo',
     },
   ];
 
@@ -195,49 +240,24 @@ export default function Programacao({ events }) {
     });
   });
 
-  const [activeStep, setActiveStep] = React.useState(() => {
-    // Pega o dia de hoje formatado como número (MMDD)
-    const today = new Date();
-    const todayNumber = (today.getMonth() + 1) * 100 + today.getDate();
+  const [activeStep, setActiveStep] = React.useState(() => getInitialStep(days));
 
-    const dateStrings = Object.keys(schedule);
-    if (dateStrings.length === 0) return 0;
-
-    // Verifica se a data de hoje corresponde a alguma das datas do cronograma
-    const foundIndex = dateStrings.findIndex((dateString) => {
-      const d = new Date(dateString);
-      const eventNumber = (d.getMonth() + 1) * 100 + (d.getDate() + 1);
-      return eventNumber === todayNumber;
-    });
-
-    // Se corresponder mostra a programação de hoje
-    if (foundIndex !== -1) {
-      return foundIndex;
-    }
-
-    const lastDate = new Date(dateStrings[dateStrings.length - 1]);
-    const lastEventNumber = (lastDate.getMonth() + 1) * 100 + (lastDate.getDate() + 1);
-
-    if (todayNumber > lastEventNumber) {
-      return dateStrings.length - 1; // Retorna o último dia do evento
-    }
-
-    return 0; // Retorna o primeiro dia do evento
-  });
+  // Re-pick the day whenever the set of days changes (e.g. a new schedule is published)
+  const daysKey = days.join(',');
+  React.useEffect(() => {
+    setActiveStep(getInitialStep(days));
+  }, [daysKey]);
 
   const handleStep = (step) => () => {
     setActiveStep(step);
   };
 
-  const getActiveDate = () => {
-    const dates = Object.keys(schedule);
-    if (dates.length === 0) return new Date();
-    return new Date(dates[activeStep]);
-  };
-
-  if (!events || events.length === 0) {
+  if (days.length === 0) {
     return null;
   }
+
+  const currentStep = Math.min(activeStep, days.length - 1);
+  const activeDate = parseDay(days[currentStep]);
 
   return (
     <div className='bg-secondary flex flex-col items-center pb-8' id='programacao'>
@@ -245,12 +265,10 @@ export default function Programacao({ events }) {
 
       <div className='w-full sm:w-5/6 lg:w-3/5 bg-white'>
         <div className='px-6 py-8'>
-          <Stepper alternativeLabel nonLinear activeStep={activeStep} connector={<ColorlibConnector />}>
+          <Stepper alternativeLabel nonLinear activeStep={currentStep} connector={<ColorlibConnector />}>
             {Object.keys(schedule).map((dateString, index) => {
-              const date = new Date(dateString);
-              // const formatedDate = `${('0'+(date.getDate()+1)).slice(-2)}/${('0'+(date.getMonth()+1)).slice(-2)}`;
-              const formatedDate = `${date.getDate() + 1}/${('0'+(date.getMonth()+1)).slice(-2)}`;
-              const dayNumber = formatedDate.split('/')[0];
+              const date = parseDay(dateString);
+              const dayNumber = date.getDate();
               const dayOfWeek = dayName[date.getDay()].short;
               return (
                 <Step key={index}>
@@ -279,11 +297,11 @@ export default function Programacao({ events }) {
         <MapLocationModal/>
 
         <h1 className='text-lg sm:xl md:text-2xl lg:text-3xl font-bold text-center px-2 pb-6 bg-white'>
-          {`${('0'+(getActiveDate().getDate() + 1)).slice(-2)}/${('0'+(getActiveDate().getMonth()+1)).slice(-2)} - ${dayName[getActiveDate().getDay()].long}`}
+          {`${('0'+activeDate.getDate()).slice(-2)}/${('0'+(activeDate.getMonth()+1)).slice(-2)} - ${dayName[activeDate.getDay()].long}`}
         </h1>
 
         <div className='flex flex-col items-center bg-white pb-8'>
-          {Object.values(schedule)[activeStep].map((event, idx) => <EventContentItem event={event} key={idx}/>)}
+          {schedule[days[currentStep]].map((event, idx) => <EventContentItem event={event} key={idx}/>)}
         </div>
       </div>
     </div>

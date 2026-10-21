@@ -33,3 +33,6 @@ yarn-error.log*
 .aider/
 .claude/
 .temp-ai-context/
+
+# Runtime database (published schedules, admins, locations)
+/data/*.db

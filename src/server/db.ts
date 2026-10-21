@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import initSqlJs, { Database } from 'sql.js';
-import { events as defaultEvents } from '../lib/schedule-data/events.js';
 
 let db: Database | null = null;
-const DATA_DIR = path.resolve(process.cwd(), 'data');
-const DB_FILE = path.join(DATA_DIR, 'calouros.db');
+// The database is runtime state and is not versioned; CALOUROS_DB_FILE can place it outside the repo
+const DB_FILE = path.resolve(process.env.CALOUROS_DB_FILE || path.join(process.cwd(), 'data', 'calouros.db'));
+const DATA_DIR = path.dirname(DB_FILE);
 
 export interface ScheduleEvent {
   Data: string; // YYYY-MM-DD
@@ -100,21 +100,6 @@ export async function getDb(): Promise<Database> {
   // Also clear any other pre-existing allowed admins in SQLite database so only codelab@icmc.usp.br remains
   db.run("DELETE FROM admin_allowlist WHERE LOWER(email) != 'codelab@icmc.usp.br'");
 
-  // Seed default 2026 events if no active revision exists
-  const activeCount = db.exec("SELECT COUNT(*) as count FROM schedule_revisions WHERE status = 'active'")[0]?.values[0]?.[0] as number;
-  if (!activeCount || activeCount === 0) {
-    db.run(
-      'INSERT INTO schedule_revisions (author_email, status, year, events_json, notes) VALUES (?, ?, ?, ?, ?)',
-      [
-        'sistema@icmc.usp.br',
-        'active',
-        2026,
-        JSON.stringify(defaultEvents),
-        'Cronograma inicial 2026 (seed do repositório)',
-      ]
-    );
-  }
-
   db.run(`
     CREATE TABLE IF NOT EXISTS campus_locations (
       id TEXT PRIMARY KEY,
@@ -176,12 +161,7 @@ export async function getActiveSchedule(): Promise<{ revision: ScheduleRevision;
     notes: row[6] as string,
   };
 
-  let events: ScheduleEvent[] = [];
-  try {
-    events = JSON.parse(revision.events_json);
-  } catch {
-    events = defaultEvents as ScheduleEvent[];
-  }
+  const events: ScheduleEvent[] = JSON.parse(revision.events_json);
 
   return { revision, events };
 }
@@ -207,10 +187,12 @@ export async function publishSchedule(events: ScheduleEvent[], authorEmail: stri
     ]
   );
 
-  saveDatabase();
-
+  // Read the id before saveDatabase(): sql.js export() resets last_insert_rowid()
   const idRes = database.exec('SELECT last_insert_rowid()');
-  return (idRes[0]?.values[0]?.[0] as number) || 1;
+  const revisionId = idRes[0]?.values[0]?.[0] as number;
+
+  saveDatabase();
+  return revisionId;
 }
 
 /**

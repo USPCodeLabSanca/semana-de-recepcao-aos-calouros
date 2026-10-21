@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Hero from '../components/hero';
@@ -8,7 +8,34 @@ const Services = React.lazy(() => import('../components/services'));
 const Flyer = React.lazy(() => import('../components/flyer'));
 const Footer = React.lazy(() => import('../components/footer'));
 import API from '../lib/api';
-import { events as defaultEvents } from '../lib/schedule-data/events';
+
+/**
+ * Feedback shown in place of the schedule while it is loading or unavailable
+ *
+ * @return {JSX.Element}
+ */
+function ScheduleStatus({ status, onRetry }) {
+  return (
+    <div className='flex flex-col items-center justify-center gap-4 bg-secondary py-24 md:py-12 px-6 text-center'>
+      {status === 'loading' ? (
+        <p className='font-bold text-white text-lg sm:text-xl md:text-2xl'>Carregando programação...</p>
+      ) : (
+        <>
+          <p className='font-bold text-white text-lg sm:text-xl md:text-2xl'>
+            Não foi possível carregar a programação.
+          </p>
+          <button
+            type='button'
+            onClick={onRetry}
+            className='px-5 py-2 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition-colors'
+          >
+            Tentar novamente
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
 
 /**
  * Home Page
@@ -17,26 +44,42 @@ import { events as defaultEvents } from '../lib/schedule-data/events';
  */
 export default function Home() {
   const programacaoComponent = useRef();
-  const [scheduleEvents, setScheduleEvents] = useState(defaultEvents);
+  const [scheduleEvents, setScheduleEvents] = useState([]);
+  // 'loading' | 'ready' | 'empty' | 'error'
+  const [scheduleStatus, setScheduleStatus] = useState('loading');
   const { location: { hash }, replace } = useHistory();
 
-  // Load active dynamic schedule from SQLite backend
-  useEffect(() => {
+  // The published schedule lives only in the backend; there is no local fallback
+  const loadSchedule = useCallback(() => {
     let isMounted = true;
+    setScheduleStatus('loading');
     API.schedule.getActive()
         .then((res) => {
-          if (isMounted && res && res.events && res.events.length > 0) {
-            setScheduleEvents(res.events);
+          if (!isMounted) return;
+          // A static host without the API answers with index.html instead of JSON
+          if (!Array.isArray(res?.events)) {
+            throw new Error('Resposta inválida da API de cronograma');
           }
+          const events = res.events;
+          setScheduleEvents(events);
+          setScheduleStatus(events.length > 0 ? 'ready' : 'empty');
         })
         .catch((err) => {
-          console.warn('Using local fallback schedule dataset:', err.message);
+          if (!isMounted) return;
+          if (err.response?.status === 404) {
+            setScheduleStatus('empty');
+          } else {
+            console.error('Failed to load schedule:', err.message);
+            setScheduleStatus('error');
+          }
         });
 
     return () => {
       isMounted = false;
     };
   }, []);
+
+  useEffect(() => loadSchedule(), [loadSchedule]);
 
   /**
    * Scroll to 'Programacao'
@@ -66,13 +109,11 @@ export default function Home() {
     <main>
       <Hero />
       <span id="programacao" ref={programacaoComponent} />
-      {
-        scheduleEvents ? (
-          <Programacao events={scheduleEvents} />
-        ) : (
-          <WorkInProgress />
-        )
-      }
+      {scheduleStatus === 'ready' && <Programacao events={scheduleEvents} />}
+      {scheduleStatus === 'empty' && <WorkInProgress />}
+      {(scheduleStatus === 'loading' || scheduleStatus === 'error') && (
+        <ScheduleStatus status={scheduleStatus} onRetry={loadSchedule} />
+      )}
       <React.Suspense fallback={<p>Loading</p>}>
         <div id="servicos">
           <Services />
