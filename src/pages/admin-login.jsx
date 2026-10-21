@@ -23,6 +23,7 @@ export default function AdminLogin() {
     return import.meta.env.VITE_GOOGLE_CLIENT_ID || (typeof window !== 'undefined' ? localStorage.getItem('calouros_google_client_id') || '' : '');
   });
   const [devEmail, setDevEmail] = useState('');
+  const [devPasscode, setDevPasscode] = useState('');
   const tokenClientRef = useRef(null);
 
   useEffect(() => {
@@ -75,15 +76,8 @@ export default function AdminLogin() {
               setIsLoading(true);
               setErrorMessage('');
               try {
-                const userInfoRes = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
-                  headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
-                });
-                const userInfo = await userInfoRes.json();
-                const res = await API.auth.googleLogin({
-                  email: userInfo.email,
-                  name: userInfo.name,
-                  picture: userInfo.picture,
-                });
+                // The server validates the token with Google before trusting the e-mail
+                const res = await API.auth.googleLogin({ accessToken: tokenResponse.access_token });
                 if (res.success) {
                   history.push('/admin');
                 }
@@ -135,17 +129,22 @@ export default function AdminLogin() {
       setErrorMessage('Informe um e-mail institucional válido.');
       return;
     }
+    if (!devPasscode) {
+      setErrorMessage('Informe o código de acesso do servidor.');
+      return;
+    }
 
     setIsLoading(true);
     setErrorMessage('');
     try {
-      const res = await API.auth.devLogin(devEmail, devEmail.split('@')[0]);
+      const res = await API.auth.devLogin(devEmail, devPasscode);
       if (res.success) {
         history.push('/admin');
       }
     } catch (err) {
-      setErrorMessage(err.response?.data?.error || 'Acesso negado: o e-mail informado não está na lista de administradores autorizados.');
+      setErrorMessage(err.response?.data?.error || 'Acesso negado: código de acesso inválido ou e-mail fora da lista de administradores autorizados.');
     } finally {
+      setDevPasscode('');
       setIsLoading(false);
     }
   };
@@ -281,7 +280,7 @@ export default function AdminLogin() {
                 Para login via popup oficial do Google em produção na sua VM, defina <code className='font-mono bg-slate-100 text-slate-800 px-1 py-0.5 rounded'>VITE_GOOGLE_CLIENT_ID</code> no arquivo <code className='font-mono bg-slate-100 text-slate-800 px-1 py-0.5 rounded'>.env</code>.
               </p>
               <p>
-                Você pode colar seu Google Client ID abaixo ou, se estiver testando neste preview, informar seu e-mail institucional para validar o acesso contra a allowlist do banco de dados:
+                Você pode colar seu Google Client ID abaixo ou, se o servidor tiver <code className='font-mono bg-slate-100 text-slate-800 px-1 py-0.5 rounded'>ADMIN_DEV_PASSCODE</code> configurado, entrar com seu e-mail autorizado e o código de acesso:
               </p>
             </div>
 
@@ -296,6 +295,17 @@ export default function AdminLogin() {
                 placeholder='seu-email@usp.br ou @icmc.usp.br'
                 value={devEmail}
                 onChange={(e) => setDevEmail(e.target.value)}
+                className='w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-amber-500'
+              />
+              <label className='block text-xs font-semibold text-slate-700'>
+                Código de acesso do servidor
+              </label>
+              <input
+                type='password'
+                required
+                autoComplete='current-password'
+                value={devPasscode}
+                onChange={(e) => setDevPasscode(e.target.value)}
                 className='w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-amber-500'
               />
               <button

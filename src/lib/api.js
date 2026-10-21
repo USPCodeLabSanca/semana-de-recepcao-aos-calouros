@@ -113,8 +113,8 @@ const API = {
       }
       return response.data;
     },
-    devLogin: async (email, name) => {
-      const response = await axios.post('/api/auth/dev-login', { email, name });
+    devLogin: async (email, passcode) => {
+      const response = await axios.post('/api/auth/dev-login', { email, passcode });
       if (response.data?.token) {
         try {
           localStorage.setItem('calouros_admin_token', response.data.token);

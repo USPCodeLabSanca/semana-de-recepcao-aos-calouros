@@ -21,11 +21,19 @@ import {
 } from './src/server/db';
 import { inspectWorkbook, normalizeSheetToText } from './src/server/xlsx-parser';
 import { parseSpreadsheetWithGemini, validateScheduleEvents } from './src/server/gemini-parser';
-import { createSessionToken, verifySessionToken, requireAdminAuth, AdminUser } from './src/server/auth';
+import { createSessionToken, verifySessionToken, requireAdminAuth, safeEqual, AdminUser } from './src/server/auth';
+import { verifyGoogleIdToken, verifyGoogleAccessToken, GoogleIdentity } from './src/server/google-auth';
 
 const PORT = 3000;
 const HOST = '0.0.0.0';
 const isProduction = process.env.NODE_ENV === 'production';
+
+// Passcode login is only available when explicitly configured
+const DEV_LOGIN_PASSCODE = process.env.ADMIN_DEV_PASSCODE || '';
+const DEV_LOGIN_MIN_PASSCODE_LENGTH = 16;
+const DEV_LOGIN_MAX_FAILURES = 5;
+const DEV_LOGIN_WINDOW_MS = 15 * 60 * 1000;
+const devLoginFailures = new Map<string, { count: number; resetAt: number }>();
 
 async function startServer() {
   const app = express();
@@ -136,31 +144,29 @@ async function startServer() {
   });
 
   /**
-   * Login via Google ID token or simulated OAuth flow
+   * Login via Google: accepts an ID token (credential) or an OAuth access token,
+   * both verified against Google before trusting the e-mail
    */
   app.post('/api/auth/google-login', async (req: Request, res: Response) => {
     try {
-      const { credential, email, name, picture } = req.body;
+      const { credential, accessToken } = req.body;
 
-      let userEmail = email;
-      let userName = name || 'Administrador USP';
-      let userPicture = picture;
-
-      // If a real Google JWT credential was provided, decode its payload
-      if (credential && typeof credential === 'string') {
-        const parts = credential.split('.');
-        if (parts.length === 3) {
-          const payloadJson = Buffer.from(parts[1], 'base64url').toString('utf8');
-          const payload = JSON.parse(payloadJson);
-          userEmail = payload.email;
-          userName = payload.name || userName;
-          userPicture = payload.picture || userPicture;
+      let identity: GoogleIdentity;
+      try {
+        if (typeof credential === 'string' && credential) {
+          identity = await verifyGoogleIdToken(credential);
+        } else if (typeof accessToken === 'string' && accessToken) {
+          identity = await verifyGoogleAccessToken(accessToken);
+        } else {
+          return res.status(400).json({ error: 'Token do Google não fornecido.' });
         }
+      } catch (verifyErr: any) {
+        return res.status(401).json({ error: 'Falha na verificação do login Google: ' + verifyErr.message });
       }
 
-      if (!userEmail) {
-        return res.status(400).json({ error: 'E-mail não fornecido pelo provedor Google.' });
-      }
+      const userEmail = identity.email;
+      const userName = identity.name || 'Administrador USP';
+      const userPicture = identity.picture;
 
       // Allowlist verification
       const isAllowed = await isEmailAllowed(userEmail);
@@ -194,12 +200,35 @@ async function startServer() {
   });
 
   /**
-   * Dev / Passcode Login for testing and offline VM deployment
+   * Passcode login for offline VM deployment / local testing.
+   * Disabled unless ADMIN_DEV_PASSCODE is set; still requires an allowlisted e-mail.
    */
   app.post('/api/auth/dev-login', async (req: Request, res: Response) => {
     try {
-      const { email, name } = req.body;
-      const targetEmail = (email || 'otaviobiagioni31@gmail.com').trim().toLowerCase();
+      if (DEV_LOGIN_PASSCODE.length < DEV_LOGIN_MIN_PASSCODE_LENGTH) {
+        return res.status(404).json({ error: 'Login por código de acesso desabilitado neste servidor.' });
+      }
+
+      const clientKey = req.ip || 'unknown';
+      const now = Date.now();
+      const failures = devLoginFailures.get(clientKey);
+      if (failures && failures.resetAt > now && failures.count >= DEV_LOGIN_MAX_FAILURES) {
+        return res.status(429).json({ error: 'Muitas tentativas inválidas. Tente novamente mais tarde.' });
+      }
+
+      const { email, passcode } = req.body;
+      if (typeof passcode !== 'string' || !safeEqual(passcode, DEV_LOGIN_PASSCODE)) {
+        const current = failures && failures.resetAt > now ? failures : { count: 0, resetAt: now + DEV_LOGIN_WINDOW_MS };
+        current.count += 1;
+        devLoginFailures.set(clientKey, current);
+        return res.status(401).json({ error: 'Código de acesso inválido.' });
+      }
+      devLoginFailures.delete(clientKey);
+
+      if (typeof email !== 'string' || !email.includes('@')) {
+        return res.status(400).json({ error: 'E-mail inválido.' });
+      }
+      const targetEmail = email.trim().toLowerCase();
 
       const isAllowed = await isEmailAllowed(targetEmail);
       if (!isAllowed) {
@@ -211,7 +240,7 @@ async function startServer() {
 
       const user: AdminUser = {
         email: targetEmail,
-        name: name || (targetEmail.includes('@') ? targetEmail.split('@')[0] : 'Admin USP'),
+        name: targetEmail.split('@')[0],
         role: 'admin',
       };
 

@@ -1,8 +1,36 @@
 import { Request, Response, NextFunction } from 'express';
 import crypto from 'crypto';
-import { isEmailAllowed, addAllowedAdmin } from './db';
+import { isEmailAllowed } from './db';
 
-const JWT_SECRET = process.env.ADMIN_JWT_SECRET || 'icmc-usp-calouros-secret-token-2026';
+const MIN_SECRET_LENGTH = 32;
+
+/**
+ * Resolves the HMAC secret used to sign admin sessions.
+ * In production a strong ADMIN_JWT_SECRET is mandatory; in development a random
+ * per-process secret is generated (sessions are lost on restart).
+ */
+function resolveJwtSecret(): string {
+  const secret = process.env.ADMIN_JWT_SECRET;
+  if (secret && secret.length >= MIN_SECRET_LENGTH) {
+    return secret;
+  }
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error(`ADMIN_JWT_SECRET precisa estar definido com pelo menos ${MIN_SECRET_LENGTH} caracteres em produção.`);
+  }
+  console.warn('⚠️  ADMIN_JWT_SECRET ausente ou curto; usando segredo aleatório temporário (sessões expiram ao reiniciar).');
+  return crypto.randomBytes(48).toString('base64url');
+}
+
+const JWT_SECRET = resolveJwtSecret();
+
+/**
+ * Constant-time string comparison
+ */
+export function safeEqual(a: string, b: string): boolean {
+  const hashA = crypto.createHash('sha256').update(a).digest();
+  const hashB = crypto.createHash('sha256').update(b).digest();
+  return crypto.timingSafeEqual(hashA, hashB);
+}
 
 export interface AdminUser {
   email: string;
@@ -28,7 +56,7 @@ export function verifySessionToken(token: string): AdminUser | null {
   const [payload, signature] = token.split('.');
   const expectedSig = crypto.createHmac('sha256', JWT_SECRET).update(payload).digest('base64url');
 
-  if (signature !== expectedSig) return null;
+  if (!signature || !safeEqual(signature, expectedSig)) return null;
 
   try {
     const data = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
