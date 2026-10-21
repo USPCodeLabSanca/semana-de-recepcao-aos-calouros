@@ -24,7 +24,7 @@ import { parseSpreadsheetWithGemini, validateScheduleEvents } from './src/server
 import { createSessionToken, verifySessionToken, requireAdminAuth, safeEqual, AdminUser } from './src/server/auth';
 import { verifyGoogleIdToken, verifyGoogleAccessToken, GoogleIdentity } from './src/server/google-auth';
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 const HOST = '0.0.0.0';
 const isProduction = process.env.NODE_ENV === 'production';
 

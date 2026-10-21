@@ -72,6 +72,8 @@ export default function AdminDashboard() {
   const [activeRevision, setActiveRevision] = useState(null);
   const [selectedDay, setSelectedDay] = useState('');
   const [isDirty, setIsDirty] = useState(false);
+  const [loadingSchedule, setLoadingSchedule] = useState(true);
+  const [loadingLocations, setLoadingLocations] = useState(true);
 
   // Edit / Add Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -143,7 +145,6 @@ export default function AdminDashboard() {
       const res = await API.schedule.getActive();
       if (res && res.events) {
         setEvents(res.events);
-        setOriginalEvents(JSON.parse(JSON.stringify(res.events)));
         setActiveRevision(res.revision);
 
         // Select first available day
@@ -618,7 +619,7 @@ export default function AdminDashboard() {
               <CalendarMonthOutlined fontSize='small' />
               <span>Editor Visual do Cronograma</span>
               <span className={`text-[11px] px-1.5 py-0.2 rounded-full font-bold ${activeTab === 'editor' ? 'bg-slate-950 text-amber-400' : 'bg-slate-100 text-slate-600'}`}>
-                {events.length}
+                {loadingSchedule ? '…' : events.length}
               </span>
             </button>
 
@@ -645,7 +646,7 @@ export default function AdminDashboard() {
               <PlaceOutlined fontSize='small' />
               <span>Locais & Mapa</span>
               <span className={`text-[11px] px-1.5 py-0.2 rounded-full font-bold ${activeTab === 'locations' ? 'bg-slate-950 text-amber-400' : 'bg-slate-100 text-slate-600'}`}>
-                {locationsList.length}
+                {loadingLocations ? '…' : locationsList.length}
               </span>
             </button>
 
