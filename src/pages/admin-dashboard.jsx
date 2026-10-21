@@ -871,7 +871,7 @@ export default function AdminDashboard() {
               </div>
 
               {/* Upload Dropzone */}
-              <div className='mt-6'>
+              <div className='mt-6 text-center p-4 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200'>
                 <div
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={async (e) => {

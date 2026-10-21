@@ -137,13 +137,11 @@ export default function Footer() {
 
       <div className='bg-black w-full p-4 text-center flex flex-col justify-center items-center'>
         <p className='text-xs color-white'>
-          ©2025 Instituto de Ciências Matemáticas e de Computação
+          ©2026 Instituto de Ciências Matemáticas e de Computação
         </p>
         <p className='text-xs color-white'>
-          Desenvolvido por <a className='text-blue-300' href='https://codelab.icmc.usp.br/'>
-            Codelab
-          </a> · <a className='text-amber-400/80 hover:text-amber-400 hover:underline' href='/admin'>
-            Painel Admin
+          Desenvolvido pelo <a className='text-blue-300 hover:underline' href='https://codelab.icmc.usp.br/'>
+            USPCodeLab
           </a>
         </p>
       </div>
