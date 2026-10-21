@@ -1,9 +1,9 @@
 name: React CI/CD
 
+# Deploys to the production VM, so it runs only for commits that land on main
+# (a pull_request trigger would redeploy and restart production for every PR)
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 jobs:
@@ -50,10 +50,16 @@ jobs:
         working-directory: /home/calouros/semana-de-recepcao-aos-calouros/
         run: npm run build
 
-      - name: Prepare build directory
-        run: |
-          rm -rf /var/www/semana-de-recepcao-aos-calouros
-          mkdir -p /var/www/semana-de-recepcao-aos-calouros
+      # The Node server (deploy/calouros.service) serves dist/ and /api/*; nginx proxies to it
+      - name: Restart server
+        run: sudo -n systemctl restart calouros
 
-      - name: Deploy build
-        run: mv /home/calouros/semana-de-recepcao-aos-calouros/dist /var/www/semana-de-recepcao-aos-calouros/
+      - name: Health check
+        run: |
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3000/api/health; then exit 0; fi
+            sleep 2
+          done
+          echo "Servidor não respondeu em /api/health" >&2
+          sudo -n journalctl -u calouros -n 50 --no-pager || true
+          exit 1

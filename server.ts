@@ -25,7 +25,7 @@ import { createSessionToken, verifySessionToken, requireAdminAuth, safeEqual, Ad
 import { verifyGoogleIdToken, verifyGoogleAccessToken, GoogleIdentity } from './src/server/google-auth';
 
 const PORT = Number(process.env.PORT) || 3000;
-const HOST = '0.0.0.0';
+const HOST = process.env.HOST || '0.0.0.0';
 const isProduction = process.env.NODE_ENV === 'production';
 
 // Passcode login is only available when explicitly configured
@@ -42,6 +42,10 @@ async function startServer() {
   app.use(express.json({ limit: '20mb' }));
   app.use(express.urlencoded({ extended: true, limit: '20mb' }));
   app.use(cookieParser());
+
+  // Behind nginx every request comes from loopback; read the client IP from X-Forwarded-For
+  // (used by the dev-login rate limit) only when the direct peer is local
+  app.set('trust proxy', 'loopback');
 
   // Upload handler in memory (up to 20MB)
   const upload = multer({
@@ -539,7 +543,12 @@ async function startServer() {
   } else {
     const distPath = path.resolve(process.cwd(), 'dist');
     app.use(express.static(distPath));
-    app.get('*', (req: Request, res: Response) => {
+    // Unknown API routes must not fall through to index.html
+    app.use('/api', (req: Request, res: Response) => {
+      res.status(404).json({ error: 'Rota de API não encontrada.' });
+    });
+    // SPA fallback (Express 5 syntax; '*' is rejected by path-to-regexp v8)
+    app.get('/{*splat}', (req: Request, res: Response) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }

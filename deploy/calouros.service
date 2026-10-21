@@ -1,0 +1,22 @@
+# systemd unit for the site + API (Express serves dist/ and /api/*).
+# Install: sudo cp deploy/calouros.service /etc/systemd/system/ && sudo systemctl daemon-reload
+#          sudo systemctl enable --now calouros
+[Unit]
+Description=Semana de Recepcao aos Calouros (Express + API)
+After=network.target
+
+[Service]
+Type=simple
+User=calouros
+WorkingDirectory=/home/calouros/semana-de-recepcao-aos-calouros
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=3000
+# ADMIN_JWT_SECRET, GOOGLE_CLIENT_ID, GEMINI_API_KEY, ADMIN_ALLOWED_EMAILS...
+EnvironmentFile=/etc/calouros/calouros.env
+ExecStart=/usr/bin/env node --import tsx server.ts
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
