@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { Locations, useLocationSearch } from '../lib/location';
+import { useLocationSearch } from '../lib/location';
 import { useMemo } from 'react';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
@@ -51,7 +51,7 @@ export default function MapLocationModal() {
 
   const location = useMemo(() => {
     if (!locationId) return null;
-    return getLocationObject ? getLocationObject(locationId) : (Locations[locationId] || Locations['usp']);
+    return getLocationObject(locationId) || null;
   }, [locationId, getLocationObject, locationsMap]);
 
   const handleClose = () => setOpen(false);

@@ -476,8 +476,15 @@ async function startServer() {
         return res.status(400).json({ error: 'Latitude e Longitude devem ser números válidos.' });
       }
 
+      // Slug: no accents, spaces or symbols, so IDs stay stable and URL-safe
+      const slug = String(id).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim()
+          .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+      if (!slug) {
+        return res.status(400).json({ error: 'ID do local inválido.' });
+      }
+
       await saveLocation({
-        id: id.trim().toLowerCase(),
+        id: slug,
         name: name.trim(),
         lat: numLat,
         lon: numLon,

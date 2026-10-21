@@ -10,7 +10,6 @@ import {
   PlaceOutlined,
   MapOutlined,
   MyLocationOutlined,
-  SearchOutlined,
   AddOutlined,
   EditOutlined,
   DeleteOutline,
@@ -122,7 +121,6 @@ export default function AdminDashboard() {
     description: '',
   });
   const [isSavingLocation, setIsSavingLocation] = useState(false);
-  const [locationTestQuery, setLocationTestQuery] = useState('');
   const [activeMapFocus, setActiveMapFocus] = useState([-22.007072, -47.896838]);
 
   // Check auth
@@ -1070,42 +1068,8 @@ export default function AdminDashboard() {
               </div>
             </div>
 
-            {/* Live Matcher Tester & Tip Strip */}
-            <div className='bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4'>
-              <div className='flex flex-col md:flex-row md:items-center gap-4'>
-                <div className='grow'>
-                  <label className='block text-xs font-semibold text-slate-700 mb-1 flex items-center gap-1.5'>
-                    <SearchOutlined fontSize='small' className='text-amber-500' />
-                    <span>Testar Reconhecimento Automático de Local:</span>
-                  </label>
-                  <input
-                    type='text'
-                    placeholder='Digite o nome ou texto de um evento (ex: Auditório Fernão, Vão da Biblioteca, Redondo, Bloco 6...)'
-                    value={locationTestQuery}
-                    onChange={(e) => setLocationTestQuery(e.target.value)}
-                    className='w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-amber-500'
-                  />
-                </div>
-                {locationTestQuery && (
-                  <div className='shrink-0 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 font-mono'>
-                    {(() => {
-                      const matchedId = getLocationId(locationTestQuery);
-                      const matchedObj = useLocationSearch.getState().getLocationObject(matchedId);
-                      return (
-                        <div>
-                          <p className='font-bold text-slate-900 flex items-center gap-1'>
-                            <span>📍 Identificado como:</span>
-                            <span className='text-amber-700'>{matchedObj?.name || 'Campus 1 Geral'}</span>
-                          </p>
-                          <p className='text-[11px] text-slate-500 mt-0.5'>
-                            ID: <span className='font-semibold'>{matchedId}</span> · Lat: {matchedObj?.lat?.toFixed(5)} · Lon: {matchedObj?.lon?.toFixed(5)}
-                          </p>
-                        </div>
-                      );
-                    })()}
-                  </div>
-                )}
-              </div>
+            {/* Tip Strip */}
+            <div className='bg-white border border-slate-200 rounded-2xl p-5 shadow-sm'>
               <div className='p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 flex items-center gap-2'>
                 <span className='font-bold text-amber-600'>💡 Dica Interativa:</span>
                 <span>Clique em qualquer ponto do mapa abaixo para capturar as coordenadas GPS exatas para cadastro de novo local ou edição!</span>
@@ -1563,44 +1527,6 @@ export default function AdminDashboard() {
                     className='w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-mono text-slate-800 outline-none focus:border-amber-500'
                   />
                 </div>
-              </div>
-
-              {/* Quick Coordinate Presets */}
-              <div className='p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-2'>
-                <span className='font-semibold text-slate-700 block'>Pontos de Referência Rápidos:</span>
-                <div className='flex flex-wrap gap-1.5'>
-                  <button
-                    type='button'
-                    onClick={() => setLocationForm((p) => ({ ...p, lat: -22.007278, lon: -47.894515 }))}
-                    className='px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:border-amber-500 text-[11px] font-medium text-slate-700 transition-colors'
-                  >
-                    ICMC Centro / Redondo
-                  </button>
-                  <button
-                    type='button'
-                    onClick={() => setLocationForm((p) => ({ ...p, lat: -22.004984, lon: -47.896350 }))}
-                    className='px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:border-amber-500 text-[11px] font-medium text-slate-700 transition-colors'
-                  >
-                    Salão de Eventos USP
-                  </button>
-                  <button
-                    type='button'
-                    onClick={() => setLocationForm((p) => ({ ...p, lat: -22.006865, lon: -47.896796 }))}
-                    className='px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:border-amber-500 text-[11px] font-medium text-slate-700 transition-colors'
-                  >
-                    CAASO / Palquinho
-                  </button>
-                  <button
-                    type='button'
-                    onClick={() => setLocationForm((p) => ({ ...p, lat: -22.007651, lon: -47.894855 }))}
-                    className='px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:border-amber-500 text-[11px] font-medium text-slate-700 transition-colors'
-                  >
-                    Biblioteca ICMC
-                  </button>
-                </div>
-                <p className='text-[10px] text-slate-400 mt-1'>
-                  💡 Dica: Você também pode clicar diretamente em qualquer ponto do mapa para capturar as coordenadas exatas!
-                </p>
               </div>
 
               <div>
